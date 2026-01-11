@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasha Schaps</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #100d0c;
+            --accent-color: #304254;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid var(--text-color);
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--text-color);
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sasha Schaps</h1>
+        <p>I’m a lifelong learner.</p>
+        <a href="mailto:sasha.schaps@gmail.com" class="contact-btn">CONTACT</a>
+    </div>
+
+</body>
+</html>
