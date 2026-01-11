@@ -9,73 +9,91 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sasha Schaps</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sasha.schaps.github.io/">
+    <meta property="og:title" content="Sasha Schaps | Portfolio & Projects">
+    <meta property="og:description" content="Explore the latest projects and professional background of Sasha Schaps.">
+    <meta property="og:image" content="https://sasha.schaps.github.io/images/image1.jpg">
+
     <style>
         :root {
             --bg-color: #ffffff;
             --text-color: #100d0c;
-            --accent-color: #304254;
+            --accent: #003262; /* UC Berkeley Blue */
         }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background: var(--bg-color); 
+            color: var(--text-color); 
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
+            padding: 40px 20px;
         }
-
-        .container {
-            max-width: 600px;
-            padding: 20px;
+        .container { max-width: 1000px; width: 100%; text-align: center; }
+        h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 5px; color: var(--accent); }
+        .subtitle { font-size: 1.1rem; font-weight: bold; color: #666; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        p { font-size: 1.2rem; line-height: 1.6; max-width: 700px; margin: 0 auto 40px; }
+        
+        /* Image Gallery Layout */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-top: 20px;
         }
-
-        h1 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
         }
-
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.8;
+        .gallery img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
+            border-radius: 4px; 
+            background: #f0f0f0;
+            transition: transform 0.3s ease;
         }
-
+        .gallery img:hover { transform: scale(1.02); }
+        
         .contact-btn {
             display: inline-block;
-            padding: 12px 30px;
-            border: 2px solid var(--text-color);
+            margin-top: 50px;
+            padding: 15px 40px;
+            background: var(--accent);
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background-color: var(--text-color);
             color: white;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: 0.3s;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            h1 { font-size: 2rem; }
-        }
+        .contact-btn:hover { opacity: 0.9; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Sasha Schaps</h1>
-        <p>I’m a lifelong learner.</p>
-        <a href="mailto:sasha.schaps@gmail.com" class="contact-btn">CONTACT</a>
+        <div class="subtitle">Data Science | Program Manager | UC Berkeley</div>
+        
+        <p>I'm a lifelong learner.</p>
+
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/wfh.jpg" alt="Sasha Schaps Computer Gemini">
+            </div>
+            <div class="gallery-item">
+                <img src="images/oranges.jpg" alt="Sasha Schaps Oranges Gemini">
+            </div>
+            <div class="gallery-item">
+                <img src="images/IMG_5109git.jpg" alt="Sasha Schaps Profile Picture">
+            </div>
+        </div>
+
+        <a href="mailto:your-email@berkeley.edu" class="contact-btn">GET IN TOUCH</a>
     </div>
 
 </body>
