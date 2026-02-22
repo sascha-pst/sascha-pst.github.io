@@ -1,100 +1,883 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="title" content="Sasha Schaps | Portfolio & Projects">
-    <meta name="description" content="Welcome to the personal website of Sasha Schaps. Explore my latest projects and professional background.">
-    <meta name="keywords" content="Sasha Schaps, UC Berkeley, Data Science, Program Manager, Portfolio, GitHub Pages, Projects">
-    <meta name="author" content="Sasha Schaps">
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sasha Schaps</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sasha — Building in San Francisco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8620A;
+    --orange-light: #F5934A;
+    --orange-pale: #FDF0E8;
+    --cream: #FAF8F5;
+    --ink: #1A1612;
+    --ink-soft: #5C5349;
+    --rule: #E0D8D0;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+  }
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sasha.schaps.github.io/">
-    <meta property="og:title" content="Sasha Schaps | Portfolio & Projects">
-    <meta property="og:description" content="Explore the latest projects and professional background of Sasha Schaps.">
-    <meta property="og:image" content="https://sasha.schaps.github.io/images/image1.jpg">
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #100d0c;
-            --accent: #003262; /* UC Berkeley Blue */
-        }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            background: var(--bg-color); 
-            color: var(--text-color); 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-        }
-        .container { max-width: 1000px; width: 100%; text-align: center; }
-        h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 5px; color: var(--accent); }
-        .subtitle { font-size: 1.1rem; font-weight: bold; color: #666; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
-        p { font-size: 1.2rem; line-height: 1.6; max-width: 700px; margin: 0 auto 40px; }
-        
-        /* Image Gallery Layout */
-        .gallery { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin-top: 20px;
-        }
-        .gallery-item {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-        .gallery img { 
-            width: 100%; 
-            height: 350px; 
-            object-fit: cover; 
-            border-radius: 4px; 
-            background: #f0f0f0;
-            transition: transform 0.3s ease;
-        }
-        .gallery img:hover { transform: scale(1.02); }
-        
-        .contact-btn {
-            display: inline-block;
-            margin-top: 50px;
-            padding: 15px 40px;
-            background: var(--accent);
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-        .contact-btn:hover { opacity: 0.9; }
-    </style>
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.8;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  /* Custom Cursor */
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--orange);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: multiply;
+  }
+  .cursor-ring {
+    width: 32px; height: 32px;
+    border: 1px solid var(--orange);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
+    opacity: 0.5;
+  }
+  body:hover .cursor { opacity: 1; }
+
+  /* Top bar */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-status {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+  .status-dot {
+    width: 6px; height: 6px;
+    background: #5EBB7A;
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 81px;
+    overflow: hidden;
+  }
+  .hero-left {
+    padding: 80px 48px 80px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(52px, 5vw, 80px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--orange);
+  }
+  .hero-desc {
+    max-width: 420px;
+    color: var(--ink-soft);
+    line-height: 2;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+  .hero-cta {
+    display: flex; gap: 24px; align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    padding: 14px 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .btn-ghost {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--orange); border-color: var(--orange); }
+
+  /* Hero Right — Orange illustration */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--orange-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .orange-canvas {
+    position: absolute; inset: 0;
+  }
+
+  /* Stats ticker */
+  .ticker-bar {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background: var(--cream);
+  }
+  .ticker-inner {
+    display: flex;
+    gap: 0;
+    animation: ticker 28s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-item {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 0 40px;
+    border-right: 1px solid var(--rule);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ticker-item span { color: var(--orange); font-weight: 400; }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Section scaffolding */
+  section { padding: 100px 48px; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--orange);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 3.5vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 64px;
+  }
+
+  /* Philosophy */
+  .philosophy {
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+  }
+  .philosophy-left {
+    padding: 100px 48px 100px 48px;
+    border-right: 1px solid var(--rule);
+  }
+  .philosophy-right {
+    padding: 100px 64px;
+  }
+  .principle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 48px;
+  }
+  .principle-card {
+    padding: 40px;
+    border: 1px solid var(--rule);
+    margin: -1px 0 0 -1px;
+    cursor: none;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .principle-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px; width: 0;
+    background: var(--orange);
+    transition: width 0.4s ease;
+  }
+  .principle-card:hover { background: var(--orange-pale); }
+  .principle-card:hover::after { width: 100%; }
+  .principle-num {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+  .principle-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+  .principle-desc { color: var(--ink-soft); font-size: 12px; line-height: 1.9; }
+
+  /* Projects */
+  .projects { border-top: 1px solid var(--rule); }
+  .project-list { display: flex; flex-direction: column; gap: 0; }
+  .project-item {
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr auto;
+    align-items: start;
+    gap: 48px;
+    padding: 48px 0;
+    cursor: none;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .project-item:hover { background: var(--orange-pale); margin: 0 -48px; padding: 48px; }
+  .project-index {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    padding-top: 4px;
+  }
+  .project-name {
+    font-family: var(--serif);
+    font-size: clamp(24px, 2.5vw, 36px);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+  .project-name em { font-style: italic; color: var(--orange); }
+  .project-meta { color: var(--ink-soft); font-size: 12px; line-height: 1.9; padding-top: 4px; }
+  .project-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--rule);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+    height: fit-content;
+  }
+  .project-item:hover .project-tag { border-color: var(--orange); color: var(--orange); }
+
+  /* Remote life section */
+  .remote-section {
+    border-top: 1px solid var(--rule);
+    background: var(--ink);
+    color: var(--cream);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .remote-section .section-label { color: var(--orange-light); }
+  .remote-section .section-label::before { background: var(--orange-light); }
+  .remote-section .section-title { color: var(--cream); }
+  .remote-bg-text {
+    position: absolute;
+    font-family: var(--serif);
+    font-size: 200px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    font-style: italic;
+  }
+  .remote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-top: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .remote-card {
+    background: var(--ink);
+    padding: 48px 40px;
+    transition: background 0.3s;
+    position: relative;
+  }
+  .remote-card:hover { background: #241F1A; }
+  .remote-card-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .remote-card-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .remote-card-text { color: rgba(250,248,245,0.5); font-size: 12px; line-height: 1.9; }
+
+  /* Approach / method */
+  .approach {
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .approach-left {
+    padding: 100px 48px;
+    border-right: 1px solid var(--rule);
+  }
+  .approach-right {
+    padding: 100px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .method-step {
+    display: flex;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--rule);
+    cursor: none;
+    transition: padding-left 0.3s;
+  }
+  .method-step:hover { padding-left: 12px; }
+  .method-step:first-child { padding-top: 0; }
+  .step-num {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    padding-top: 6px;
+    min-width: 32px;
+  }
+  .step-content {}
+  .step-title {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .step-desc { color: var(--ink-soft); font-size: 12px; line-height: 1.9; }
+
+  /* Ecosystem orbit viz */
+  .orbit-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em; }
+  .footer-left a { color: var(--orange); text-decoration: none; }
+  .footer-mark {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .footer-right { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Orange bounce animation */
+  @keyframes floatOrange {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-12px) rotate(5deg); }
+    66% { transform: translateY(6px) rotate(-3deg); }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Sasha Schaps</h1>
-        <div class="subtitle">Data Science | Program Manager | UC Berkeley</div>
-        
-        <p>I'm a lifelong learner.</p>
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
 
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="images/wfh.jpg" alt="Sasha Schaps Computer Gemini">
-            </div>
-            <div class="gallery-item">
-                <img src="images/oranges.jpg" alt="Sasha Schaps Oranges Gemini">
-            </div>
-            <div class="gallery-item">
-                <img src="images/IMG_5109git.jpg" alt="Sasha Schaps Profile Picture">
-            </div>
-        </div>
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">Sasha <span>◆</span></a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#approach">Approach</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    Available · San Francisco
+  </div>
+</nav>
 
-        <a href="mailto:sasha.schaps@gmail.com" class="contact-btn">SAY HI</a>
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Building in San Francisco</p>
+    <h1 class="hero-title">Building the <em>infrastructure</em> of ecosystems</h1>
+    <p class="hero-desc">Technical marketing programs that don't just announce — they compound. I build the foundations that make entire communities grow, from creator cohorts to global health conversations.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn-primary">See the work</a>
+      <a href="#approach" class="btn-ghost">My approach →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <canvas class="orange-canvas" id="orangeCanvas"></canvas>
+  </div>
+</section>
+
+<!-- Ticker -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="ticker">
+    <div class="ticker-item">Ecosystem Programs <span>→</span></div>
+    <div class="ticker-item">Partner Enablement <span>→</span></div>
+    <div class="ticker-item">Creator Education <span>→</span></div>
+    <div class="ticker-item">WHO Webinar Series <span>→</span></div>
+    <div class="ticker-item">Instagram Shopping <span>→</span></div>
+    <div class="ticker-item">Threads Curriculum <span>→</span></div>
+    <div class="ticker-item">Mental Health in Communities <span>→</span></div>
+    <div class="ticker-item">Broadcast Channels <span>→</span></div>
+    <div class="ticker-item">Ecosystem Programs <span>→</span></div>
+    <div class="ticker-item">Partner Enablement <span>→</span></div>
+    <div class="ticker-item">Creator Education <span>→</span></div>
+    <div class="ticker-item">WHO Webinar Series <span>→</span></div>
+    <div class="ticker-item">Instagram Shopping <span>→</span></div>
+    <div class="ticker-item">Threads Curriculum <span>→</span></div>
+    <div class="ticker-item">Mental Health in Communities <span>→</span></div>
+    <div class="ticker-item">Broadcast Channels <span>→</span></div>
+  </div>
+</div>
+
+<!-- Philosophy -->
+<div class="philosophy" id="philosophy">
+  <div class="philosophy-left">
+    <div class="section-label reveal">Philosophy</div>
+    <h2 class="section-title reveal">Marketing as<br><em style="font-family:var(--serif);font-style:italic">infrastructure,</em><br>not decoration</h2>
+    <p class="reveal" style="color:var(--ink-soft);line-height:2;max-width:320px;font-size:12px;">The best marketing programs disappear into the fabric of a product. They become the reason communities trust it, creators build on it, and partners grow with it.</p>
+  </div>
+  <div class="philosophy-right">
+    <div class="principle-grid">
+      <div class="principle-card reveal">
+        <div class="principle-num">01</div>
+        <div class="principle-name">Foundation First</div>
+        <p class="principle-desc">Scalable programs require architecture. I design the system before writing a single piece of content.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">02</div>
+        <div class="principle-name">Ecosystem Thinking</div>
+        <p class="principle-desc">Every program should strengthen the network around it — creators, partners, users, the broader web.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">03</div>
+        <div class="principle-name">Earned Complexity</div>
+        <p class="principle-desc">Sophistication is only valuable when it serves clarity. Start with the simplest possible onboarding path.</p>
+      </div>
+      <div class="principle-card reveal">
+        <div class="principle-num">04</div>
+        <div class="principle-name">Cross-Format Fluency</div>
+        <p class="principle-desc">A great program lives in text, video, live sessions, and documentation simultaneously. Format follows function.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Projects -->
+<section class="projects" id="work">
+  <div class="section-label reveal">Selected Work</div>
+  <h2 class="section-title reveal">Programs built, <em style="font-family:var(--serif);font-style:italic">not just launched</em></h2>
+  <div class="project-list">
+
+    <div class="project-item reveal">
+      <div class="project-index">01 ——</div>
+      <div class="project-name">WHO <em>Mental Health</em><br>Webinar Series</div>
+      <div class="project-meta">
+        Led a multi-session webinar program with the World Health Organization exploring how platforms can promote mental health within online communities. Built the framework from outreach to content to post-session resource distribution.
+      </div>
+      <div class="project-tag">Global Health · Education</div>
     </div>
 
-</body>
-</html>
+    <div class="project-item reveal">
+      <div class="project-index">02 ——</div>
+      <div class="project-name">Instagram Shopping<br><em>Partner Onboarding</em></div>
+      <div class="project-meta">
+        Architected the partner enablement program for Instagram Shopping — creating the content, curriculum, and communications that brought merchants and developers into the ecosystem at scale.
+      </div>
+      <div class="project-tag">Partner Enablement · Commerce</div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-index">03 ——</div>
+      <div class="project-name">Creator Curriculum:<br><em>Threads &amp; Broadcasts</em></div>
+      <div class="project-meta">
+        Designed and executed a multiformat educational curriculum helping Instagram creators adopt Threads and Instagram Broadcast Channels — meeting creators where they were, in the formats they used.
+      </div>
+      <div class="project-tag">Creator Education · Product Adoption</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Remote life -->
+<div class="remote-section">
+  <div class="remote-bg-text">remote</div>
+  <div class="section-label reveal" style="position:relative;z-index:1">On Working Remotely</div>
+  <h2 class="section-title reveal" style="position:relative;z-index:1;max-width:560px;">The office was always the <em style="font-family:var(--serif);font-style:italic;color:var(--orange-light)">distraction</em></h2>
+  <div class="remote-grid reveal" style="position:relative;z-index:1;margin-top:48px">
+    <div class="remote-card">
+      <span class="remote-card-icon">🍊</span>
+      <div class="remote-card-title">An orange on the desk</div>
+      <p class="remote-card-text">The best ideas arrive quietly. A slow morning, a piece of fruit, the particular light of 9am wherever you happen to be — this is when strategy actually forms.</p>
+    </div>
+    <div class="remote-card">
+      <span class="remote-card-icon">◎</span>
+      <div class="remote-card-title">Presence over performance</div>
+      <p class="remote-card-text">Remote work rewards depth. The programs I'm most proud of were built in focused, uninterrupted stretches — not in conference rooms.</p>
+    </div>
+    <div class="remote-card">
+      <span class="remote-card-icon">→</span>
+      <div class="remote-card-title">Async as a superpower</div>
+      <p class="remote-card-text">Documentation is the real deliverable. Writing it down forces clarity. Clarity scales. Scaling is the whole point of program marketing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Approach -->
+<div class="approach" id="approach">
+  <div class="approach-left">
+    <div class="section-label reveal">Approach</div>
+    <h2 class="section-title reveal" style="max-width:380px;">How a <em style="font-family:var(--serif);font-style:italic">technical foundation</em> gets built</h2>
+    <p class="reveal" style="color:var(--ink-soft);font-size:12px;line-height:2;max-width:340px;">Every ecosystem program I build follows the same structural logic — even when the surface looks completely different.</p>
+
+    <!-- Interactive orbit -->
+    <div style="margin-top:64px;" class="reveal">
+      <canvas id="orbitCanvas" width="400" height="400" style="width:100%;max-width:400px;display:block"></canvas>
+    </div>
+  </div>
+  <div class="approach-right">
+    <div class="method-step reveal">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-title">Audit the ecosystem</div>
+        <p class="step-desc">Before building anything, understand what already exists. What do partners know? What do creators struggle with? Where does the chain break?</p>
+      </div>
+    </div>
+    <div class="method-step reveal">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-title">Design the architecture</div>
+        <p class="step-desc">Map the full program structure before writing a word of content — entry points, escalation paths, success metrics, and how each format connects.</p>
+      </div>
+    </div>
+    <div class="method-step reveal">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-title">Build cross-format</div>
+        <p class="step-desc">Every program ships in at least three formats. Documentation, live sessions, and async video cover the full range of how people actually learn.</p>
+      </div>
+    </div>
+    <div class="method-step reveal">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-title">Instrument everything</div>
+        <p class="step-desc">Program marketing without measurement is just content. Adoption metrics, completion rates, partner activation — the data shapes the next iteration.</p>
+      </div>
+    </div>
+    <div class="method-step reveal" style="border-bottom:none">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-title">Hand it to the community</div>
+        <p class="step-desc">The best programs become self-sustaining. Champions, ambassadors, peer educators — the ecosystem teaches itself once the infrastructure is right.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    Building in San Francisco · <a href="/cdn-cgi/l/email-protection#f88b998b9099b89499819d8a829d8a97d6969d8c8f978a93">Get in touch</a>
+  </div>
+  <div class="footer-mark">& the oranges are always in season</div>
+  <div class="footer-right">© 2025</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .principle-card, .project-item, .method-step').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '14px'; cursor.style.height = '14px';
+    ring.style.width = '48px'; ring.style.height = '48px'; ring.style.opacity = '0.8';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '8px'; cursor.style.height = '8px';
+    ring.style.width = '32px'; ring.style.height = '32px'; ring.style.opacity = '0.5';
+  });
+});
+
+// Hero canvas — floating oranges
+const heroCanvas = document.getElementById('orangeCanvas');
+const hCtx = heroCanvas.getContext('2d');
+function resizeHero() {
+  heroCanvas.width = heroCanvas.offsetWidth * window.devicePixelRatio;
+  heroCanvas.height = heroCanvas.offsetHeight * window.devicePixelRatio;
+  hCtx.scale(window.devicePixelRatio, window.devicePixelRatio);
+}
+resizeHero(); window.addEventListener('resize', resizeHero);
+
+const oranges = Array.from({length: 12}, (_, i) => ({
+  x: 80 + Math.random() * (heroCanvas.offsetWidth - 160),
+  y: 80 + Math.random() * (heroCanvas.offsetHeight - 160),
+  r: 20 + Math.random() * 40,
+  vx: (Math.random() - 0.5) * 0.4,
+  vy: (Math.random() - 0.5) * 0.4,
+  phase: Math.random() * Math.PI * 2,
+  speed: 0.008 + Math.random() * 0.008,
+  opacity: 0.15 + Math.random() * 0.4,
+}));
+
+let mouseX = -999, mouseY = -999;
+heroCanvas.addEventListener('mousemove', e => {
+  const rect = heroCanvas.getBoundingClientRect();
+  mouseX = e.clientX - rect.left; mouseY = e.clientY - rect.top;
+});
+
+function drawOrange(ctx, x, y, r, opacity) {
+  // Peel texture
+  ctx.save();
+  // Main sphere
+  const grd = ctx.createRadialGradient(x - r*0.3, y - r*0.3, r*0.05, x, y, r);
+  grd.addColorStop(0, `rgba(255, 165, 60, ${opacity})`);
+  grd.addColorStop(0.6, `rgba(232, 98, 10, ${opacity})`);
+  grd.addColorStop(1, `rgba(180, 60, 5, ${opacity * 0.6})`);
+  ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fillStyle = grd; ctx.fill();
+  // Highlight
+  ctx.beginPath(); ctx.arc(x - r*0.28, y - r*0.28, r*0.18, 0, Math.PI*2);
+  ctx.fillStyle = `rgba(255,220,140,${opacity * 0.5})`; ctx.fill();
+  // Navel dot
+  ctx.beginPath(); ctx.arc(x + r*0.25, y + r*0.25, r*0.08, 0, Math.PI*2);
+  ctx.fillStyle = `rgba(160,50,0,${opacity * 0.4})`; ctx.fill();
+  ctx.restore();
+}
+
+let t = 0;
+function animateOranges() {
+  const w = heroCanvas.offsetWidth, h = heroCanvas.offsetHeight;
+  hCtx.clearRect(0, 0, w, h);
+  t += 0.005;
+
+  oranges.forEach(o => {
+    o.phase += o.speed;
+    o.x += o.vx + Math.sin(o.phase) * 0.3;
+    o.y += o.vy + Math.cos(o.phase * 0.7) * 0.3;
+    if (o.x < -o.r) o.x = w + o.r;
+    if (o.x > w + o.r) o.x = -o.r;
+    if (o.y < -o.r) o.y = h + o.r;
+    if (o.y > h + o.r) o.y = -o.r;
+
+    // Repel from mouse
+    const dx = o.x - mouseX, dy = o.y - mouseY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 120) {
+      const force = (120 - dist) / 120;
+      o.x += (dx / dist) * force * 2;
+      o.y += (dy / dist) * force * 2;
+    }
+
+    drawOrange(hCtx, o.x, o.y, o.r, o.opacity);
+  });
+
+  // Delicate grid lines
+  hCtx.strokeStyle = `rgba(232, 98, 10, 0.06)`;
+  hCtx.lineWidth = 1;
+  for (let gx = 0; gx < w; gx += 60) {
+    hCtx.beginPath(); hCtx.moveTo(gx, 0); hCtx.lineTo(gx, h); hCtx.stroke();
+  }
+  for (let gy = 0; gy < h; gy += 60) {
+    hCtx.beginPath(); hCtx.moveTo(0, gy); hCtx.lineTo(w, gy); hCtx.stroke();
+  }
+
+  requestAnimationFrame(animateOranges);
+}
+animateOranges();
+
+// Orbit canvas
+const oc = document.getElementById('orbitCanvas');
+const octx = oc.getContext('2d');
+const nodes = [
+  { label: 'Ecosystem', angle: 0, r: 0, orbit: 0, size: 10 },
+  { label: 'Creators', angle: 0, r: 120, orbit: 0.4, size: 7 },
+  { label: 'Partners', angle: Math.PI * 0.7, r: 120, orbit: 0.4, size: 7 },
+  { label: 'Platform', angle: Math.PI * 1.4, r: 120, orbit: 0.4, size: 7 },
+  { label: 'Community', angle: 0.3, r: 185, orbit: 0.22, size: 5 },
+  { label: 'Content', angle: 2.2, r: 185, orbit: 0.22, size: 5 },
+  { label: 'Data', angle: 4.0, r: 185, orbit: 0.22, size: 5 },
+  { label: 'Trust', angle: 5.5, r: 185, orbit: 0.22, size: 5 },
+];
+let ot = 0;
+function animateOrbit() {
+  const w = 400, h = 400, cx = w/2, cy = h/2;
+  octx.clearRect(0, 0, w, h);
+  ot += 0.005;
+
+  // Orbit rings
+  [120, 185].forEach((r, i) => {
+    octx.beginPath(); octx.arc(cx, cy, r, 0, Math.PI*2);
+    octx.strokeStyle = `rgba(232,98,10,0.12)`; octx.lineWidth = 1;
+    octx.setLineDash([4, 8]); octx.stroke(); octx.setLineDash([]);
+  });
+
+  nodes.forEach((n, i) => {
+    const angle = n.angle + ot * n.orbit;
+    const x = cx + Math.cos(angle) * n.r;
+    const y = cy + Math.sin(angle) * n.r;
+    n._x = x; n._y = y;
+
+    // Lines to center node
+    if (i > 0 && i <= 3) {
+      octx.beginPath();
+      octx.moveTo(cx, cy); octx.lineTo(x, y);
+      octx.strokeStyle = `rgba(232,98,10,0.15)`; octx.lineWidth = 1; octx.stroke();
+    }
+
+    // Node circle
+    octx.beginPath(); octx.arc(x, y, n.size, 0, Math.PI*2);
+    octx.fillStyle = i === 0 ? '#E8620A' : (i <= 3 ? 'rgba(232,98,10,0.7)' : 'rgba(232,98,10,0.35)');
+    octx.fill();
+
+    // Label
+    octx.font = `300 10px 'DM Mono', monospace`;
+    octx.fillStyle = i === 0 ? '#1A1612' : 'rgba(92,83,73,0.9)';
+    octx.textAlign = x < cx - 5 ? 'right' : x > cx + 5 ? 'left' : 'center';
+    const lx = x + (x < cx - 5 ? -n.size-6 : x > cx+5 ? n.size+6 : 0);
+    const ly = y + (Math.abs(x-cx) < 10 ? (y < cy ? -n.size-6 : n.size+14) : 4);
+    octx.fillText(n.label, lx, ly);
+  });
+
+  requestAnimationFrame(animateOrbit);
+}
+animateOrbit();
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeou
