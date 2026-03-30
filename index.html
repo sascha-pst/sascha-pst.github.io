@@ -1,908 +1,561 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sasha — Data Scientist & Program Manager</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sascha ps Tejada</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
 
-  <style>
-    /* ─── Tokens ─────────────────────────────────────────────── */
-    :root {
-      --cream:    #FAF7F2;
-      --parchment:#F2EDE4;
-      --blush:    #EDD5C0;
-      --terracotta:#C4694F;
-      --rust:     #A3522F;
-      --bark:     #2C1A0E;
-      --charcoal: #3D2B1F;
-      --muted:    #8A7060;
-      --sage:     #7E9E8C;
-      --dot:      rgba(196,105,79,0.18);
-      --dot-accent: rgba(196,105,79,0.55);
-      --radius:   1.2rem;
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body:    'DM Sans', sans-serif;
-    }
+  :root {
+    --orange: #FF8C42;
+    --orange-glow: #FFB347;
+    --fuchsia: #FF6EB4;
+    --violet: #C77DFF;
+    --cream: #FFF5E6;
+    --baby-blue: #B8E0FF;
+    --pink-pastel: #FFD6E8;
+    --navy: #0D0A1A;
+    --navy-mid: #130F24;
+  }
 
-    /* ─── Reset ─────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--cream);
-      color: var(--charcoal);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--navy);
+    font-family: 'Nunito', sans-serif;
+  }
 
-    /* ─── Nav ────────────────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 4rem;
-      background: rgba(250,247,242,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(196,105,79,0.12);
-      transition: box-shadow .3s;
-    }
-    nav.scrolled { box-shadow: 0 2px 24px rgba(44,26,14,0.07); }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--bark);
-      letter-spacing: .02em;
-    }
-    .nav-links { display: flex; gap: 2.2rem; }
-    .nav-links a {
-      font-size: .82rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color .25s;
-    }
-    .nav-links a:hover { color: var(--terracotta); }
+  /* ─── INFINITY ROOM LAYERS ─── */
+  .infinity-bg {
+    position: fixed; inset: 0;
+    perspective: 600px;
+    transform-style: preserve-3d;
+  }
 
-    /* ─── Hero ───────────────────────────────────────────────── */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-    #dot-canvas {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center;
-      padding: 7rem 2rem 4rem;
-      animation: fadeUp .9s ease both;
-    }
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: .78rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 500;
-      margin-bottom: 1.4rem;
-    }
-    .hero-name {
-      font-family: var(--font-display);
-      font-size: clamp(3.8rem, 9vw, 7.5rem);
-      font-weight: 300;
-      color: var(--bark);
-      line-height: 1.02;
-      letter-spacing: -.01em;
-    }
-    .hero-name em {
-      font-style: italic;
-      color: var(--terracotta);
-    }
-    .hero-taglines {
-      margin-top: 1.8rem;
-      display: flex;
-      flex-direction: column;
-      gap: .35rem;
-      font-size: clamp(1rem, 2.2vw, 1.25rem);
-      color: var(--muted);
-      font-weight: 300;
-    }
-    .hero-taglines span {
-      opacity: 0;
-      animation: fadeUp .7s ease forwards;
-    }
-    .hero-taglines span:nth-child(1) { animation-delay: .4s; }
-    .hero-taglines span:nth-child(2) { animation-delay: .6s; }
-    .hero-taglines span:nth-child(3) { animation-delay: .8s; }
-    .hero-cta {
-      margin-top: 2.8rem;
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp .7s .9s ease forwards;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .75rem 1.8rem;
-      border-radius: 100px;
-      font-size: .85rem;
-      font-weight: 500;
-      letter-spacing: .04em;
-      cursor: pointer;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: var(--terracotta);
-      color: #fff;
-      box-shadow: 0 4px 18px rgba(196,105,79,0.3);
-    }
-    .btn-primary:hover { box-shadow: 0 6px 24px rgba(196,105,79,0.45); }
-    .btn-outline {
-      border: 1.5px solid var(--terracotta);
-      color: var(--terracotta);
-    }
-    .btn-outline:hover { background: rgba(196,105,79,0.06); }
+  .mirror-layer {
+    position: absolute; inset: -20%;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(199,125,255,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 20% 30%, rgba(255,110,180,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 70%, rgba(255,140,66,0.06) 0%, transparent 60%),
+      var(--navy);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.15s ease-out;
+  }
 
-    /* ─── Sections ───────────────────────────────────────────── */
-    section { padding: 7rem 2rem; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: .75rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 500;
-      margin-bottom: .8rem;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 3.4rem);
-      font-weight: 300;
-      color: var(--bark);
-      line-height: 1.1;
-    }
-    .section-title em { font-style: italic; color: var(--terracotta); }
+  .grid-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(199,125,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(199,125,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: gridPulse 8s ease-in-out infinite;
+  }
 
-    /* ─── About ──────────────────────────────────────────────── */
-    #about { background: var(--parchment); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 4rem;
-      align-items: start;
-      margin-top: 3.2rem;
-    }
-    .about-bio { max-width: 580px; }
-    .about-bio p {
-      font-size: 1.05rem;
-      color: var(--charcoal);
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-    .about-bio p:last-child { margin-bottom: 0; }
-    .about-sidebar {
-      background: var(--cream);
-      border-radius: var(--radius);
-      padding: 2rem 1.8rem;
-      border: 1px solid rgba(196,105,79,0.15);
-      box-shadow: 0 8px 40px rgba(44,26,14,0.06);
-    }
-    .sidebar-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--bark);
-      margin-bottom: 1.2rem;
-    }
-    .sidebar-item {
-      display: flex; align-items: flex-start; gap: .75rem;
-      margin-bottom: .9rem;
-      font-size: .92rem;
-      color: var(--charcoal);
-      line-height: 1.4;
-    }
-    .sidebar-item:last-child { margin-bottom: 0; }
-    .sidebar-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+  @keyframes gridPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
 
-    /* dot illustration placeholder */
-    .dot-art {
-      width: 100%;
-      aspect-ratio: 1;
-      max-width: 340px;
-      margin: 0 auto;
-      border-radius: 50%;
-      background: radial-gradient(circle at 60% 40%, var(--blush), var(--parchment));
-      position: relative;
-      overflow: hidden;
-    }
-    .dot-art canvas { width: 100%; height: 100%; }
+  /* ─── DOT FIELD ─── */
+  #dot-canvas {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
 
-    /* ─── Experience ─────────────────────────────────────────── */
-    #experience { background: var(--cream); }
-    .exp-list { margin-top: 3.2rem; display: flex; flex-direction: column; gap: 2rem; }
-    .exp-card {
-      background: var(--parchment);
-      border-radius: var(--radius);
-      padding: 2.2rem 2.4rem;
-      border: 1px solid rgba(196,105,79,0.1);
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 2rem;
-      transition: box-shadow .25s, transform .25s;
-    }
-    .exp-card:hover {
-      box-shadow: 0 10px 40px rgba(44,26,14,0.09);
-      transform: translateY(-3px);
-    }
-    .exp-meta { padding-top: .2rem; }
-    .exp-company {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--bark);
-      line-height: 1.2;
-    }
-    .exp-period {
-      font-size: .78rem;
-      letter-spacing: .06em;
-      color: var(--terracotta);
-      text-transform: uppercase;
-      margin-top: .4rem;
-    }
-    .exp-title {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--charcoal);
-      margin-bottom: .5rem;
-    }
-    .exp-desc {
-      font-size: .9rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .exp-tags {
-      display: flex; flex-wrap: wrap; gap: .45rem;
-      margin-top: 1rem;
-    }
-    .tag {
-      font-size: .72rem;
-      letter-spacing: .05em;
-      padding: .25rem .7rem;
-      border-radius: 100px;
-      border: 1px solid rgba(196,105,79,0.3);
-      color: var(--terracotta);
-      background: rgba(196,105,79,0.06);
-    }
+  /* ─── CURSOR ─── */
+  #cursor {
+    position: fixed;
+    width: 36px; height: 36px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s linear;
+    filter: drop-shadow(0 0 8px rgba(255,140,66,0.7));
+  }
 
-    /* ─── Projects ───────────────────────────────────────────── */
-    #projects { background: var(--parchment); }
-    .projects-grid {
-      margin-top: 3.2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.8rem;
-    }
-    .project-card {
-      background: var(--cream);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(196,105,79,0.1);
-      transition: box-shadow .25s, transform .25s;
-    }
-    .project-card:hover {
-      box-shadow: 0 12px 40px rgba(44,26,14,0.1);
-      transform: translateY(-4px);
-    }
-    .project-thumb {
-      height: 180px;
-      background: linear-gradient(135deg, var(--blush) 0%, var(--parchment) 100%);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .project-thumb-dots {
-      position: absolute; inset: 0;
-      opacity: .6;
-    }
-    .project-thumb-label {
-      position: relative; z-index: 1;
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--terracotta);
-      opacity: .5;
-    }
-    .project-body { padding: 1.6rem; }
-    .project-name {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--bark);
-      margin-bottom: .5rem;
-    }
-    .project-desc {
-      font-size: .88rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
+  .cursor-trail {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+  }
 
-    /* ─── Skills ─────────────────────────────────────────────── */
-    #skills { background: var(--cream); }
-    .skills-grid {
-      margin-top: 3.2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .skill-group {
-      background: var(--parchment);
-      border-radius: var(--radius);
-      padding: 1.6rem;
-      border: 1px solid rgba(196,105,79,0.1);
-    }
-    .skill-group-title {
-      font-size: .78rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-    .skill-item {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: .7rem;
-    }
-    .skill-item:last-child { margin-bottom: 0; }
-    .skill-name { font-size: .88rem; color: var(--charcoal); }
-    .skill-bar {
-      width: 80px; height: 4px;
-      background: rgba(196,105,79,0.15);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .skill-fill {
-      height: 100%;
-      background: var(--terracotta);
-      border-radius: 2px;
-      transform-origin: left;
-      transform: scaleX(0);
-      transition: transform .8s cubic-bezier(.4,0,.2,1);
-    }
-    .skill-fill.visible { transform: scaleX(1); }
+  /* ─── MAIN CONTENT ─── */
+  .scene {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+  }
 
-    /* ─── Education ──────────────────────────────────────────── */
-    #education { background: var(--parchment); }
-    .edu-list { margin-top: 3.2rem; display: flex; flex-direction: column; gap: 1.5rem; }
-    .edu-card {
-      display: flex; gap: 2rem; align-items: flex-start;
-      background: var(--cream);
-      border-radius: var(--radius);
-      padding: 1.8rem 2rem;
-      border: 1px solid rgba(196,105,79,0.1);
-    }
-    .edu-dot {
-      width: 40px; height: 40px; flex-shrink: 0;
-      border-radius: 50%;
-      background: rgba(196,105,79,0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      margin-top: .15rem;
-    }
-    .edu-school {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--bark);
-    }
-    .edu-degree {
-      font-size: .9rem;
-      color: var(--charcoal);
-      margin-top: .2rem;
-    }
-    .edu-year {
-      font-size: .78rem;
-      letter-spacing: .06em;
-      color: var(--terracotta);
-      text-transform: uppercase;
-      margin-top: .35rem;
-    }
+  .pochacco-blob {
+    position: relative;
+    width: 130px; height: 130px;
+    margin-bottom: 28px;
+  }
 
-    /* ─── Contact ────────────────────────────────────────────── */
-    #contact {
-      background: var(--bark);
-      color: var(--cream);
-      text-align: center;
-    }
-    #contact .section-label { color: var(--blush); opacity: .7; }
-    #contact .section-title { color: var(--cream); }
-    #contact .section-title em { color: var(--blush); }
-    .contact-sub {
-      font-size: 1rem;
-      color: rgba(250,247,242,0.6);
-      margin-top: 1rem;
-      max-width: 480px;
-      margin-left: auto; margin-right: auto;
-    }
-    .contact-links {
-      margin-top: 2.8rem;
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    }
-    .contact-btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .75rem 1.8rem;
-      border-radius: 100px;
-      font-size: .85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: transform .2s, background .2s;
-      border: 1.5px solid rgba(250,247,242,0.3);
-      color: var(--cream);
-    }
-    .contact-btn:hover {
-      background: rgba(250,247,242,0.1);
-      transform: translateY(-2px);
-    }
-    .contact-btn.primary-dark {
-      background: var(--terracotta);
-      border-color: var(--terracotta);
-    }
-    .contact-btn.primary-dark:hover { background: var(--rust); }
+  .blob-body {
+    width: 130px; height: 110px;
+    background: var(--cream);
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    bottom: 0;
+    box-shadow:
+      0 0 30px rgba(255,245,230,0.2),
+      0 0 60px rgba(255,213,180,0.1);
+  }
 
-    /* ─── Footer ─────────────────────────────────────────────── */
-    footer {
-      background: var(--bark);
-      border-top: 1px solid rgba(250,247,242,0.08);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: .8rem;
-      color: rgba(250,247,242,0.3);
-    }
+  .blob-ear {
+    width: 38px; height: 46px;
+    background: var(--cream);
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: 0;
+  }
+  .blob-ear.left  { left: 14px; transform: rotate(-8deg); }
+  .blob-ear.right { right: 14px; transform: rotate(8deg); }
 
-    /* ─── Reveal ─────────────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-    .reveal-delay-1 { transition-delay: .1s; }
-    .reveal-delay-2 { transition-delay: .2s; }
-    .reveal-delay-3 { transition-delay: .3s; }
+  .blob-ear-inner {
+    width: 20px; height: 28px;
+    background: #FFB5C8;
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: 8px; left: 9px;
+  }
 
-    /* ─── Animations ─────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+  .blob-eye {
+    width: 14px; height: 16px;
+    background: #2a1a3a;
+    border-radius: 50%;
+    position: absolute;
+    top: 46px;
+  }
+  .blob-eye.left  { left: 32px; }
+  .blob-eye.right { right: 32px; }
+  .blob-eye::after {
+    content: '';
+    width: 5px; height: 5px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px; right: 2px;
+  }
 
-    /* ─── Mobile ─────────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { gap: 1.2rem; }
-      .nav-links a { font-size: .75rem; }
-      section { padding: 5rem 1.2rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .exp-card { grid-template-columns: 1fr; gap: 1rem; }
-      .exp-meta { display: flex; align-items: baseline; gap: 1rem; }
-    }
-    @media (max-width: 520px) {
-      .nav-links { display: none; }
-    }
-  </style>
+  .blob-nose {
+    width: 10px; height: 7px;
+    background: #FFB5C8;
+    border-radius: 50%;
+    position: absolute;
+    top: 62px; left: 60px;
+  }
+
+  .blob-cheek {
+    width: 18px; height: 10px;
+    background: rgba(255,181,200,0.55);
+    border-radius: 50%;
+    position: absolute;
+    top: 68px;
+  }
+  .blob-cheek.left  { left: 18px; }
+  .blob-cheek.right { right: 18px; }
+
+  /* clementine in paw */
+  .blob-paw {
+    width: 26px; height: 22px;
+    background: var(--cream);
+    border-radius: 40% 40% 50% 50%;
+    position: absolute;
+    bottom: -6px; right: 14px;
+  }
+  .paw-clementine {
+    width: 20px; height: 20px;
+    position: absolute;
+    bottom: 14px; right: 8px;
+    font-size: 20px;
+    filter: drop-shadow(0 2px 6px rgba(255,140,66,0.6));
+    animation: bobble 3s ease-in-out infinite;
+  }
+
+  @keyframes bobble {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+  }
+
+  /* floating paw prints */
+  .paw-float {
+    position: fixed;
+    font-size: 22px;
+    opacity: 0;
+    pointer-events: none;
+    animation: floatPaw 12s ease-in-out infinite;
+    z-index: 5;
+  }
+
+  @keyframes floatPaw {
+    0% { opacity: 0; transform: translateY(0) scale(0.7); }
+    15% { opacity: 0.35; }
+    85% { opacity: 0.2; }
+    100% { opacity: 0; transform: translateY(-120px) scale(1.1); }
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .title {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--orange-glow) 0%, var(--fuchsia) 50%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    margin-bottom: 14px;
+    filter: drop-shadow(0 0 20px rgba(255,140,66,0.35));
+  }
+
+  .tagline {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    font-weight: 400;
+    color: rgba(255,245,230,0.72);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .tagline-sub {
+    font-size: 0.82rem;
+    color: rgba(199,125,255,0.55);
+    letter-spacing: 0.12em;
+  }
+
+  /* ─── CLICK BURST ─── */
+  .burst-slice {
+    position: fixed;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 9990;
+    animation: burstFly 0.7s ease-out forwards;
+  }
+
+  @keyframes burstFly {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.3); }
+  }
+
+  /* ─── POCHACCO SPARKLE RING ─── */
+  .sparkle-ring {
+    position: absolute;
+    width: 170px; height: 170px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .sparkle-dot {
+    position: absolute;
+    border-radius: 50%;
+    animation: sparkleOrbit 4s linear infinite;
+  }
+
+  @keyframes sparkleOrbit {
+    from { transform: rotate(var(--start)) translateX(68px); }
+    to   { transform: rotate(calc(var(--start) + 360deg)) translateX(68px); }
+  }
+</style>
 </head>
 <body>
 
-  <!-- ── Nav ── -->
-  <nav id="nav">
-    <span class="nav-logo">S.</span>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Work</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<!-- Infinity bg -->
+<div class="infinity-bg">
+  <div class="mirror-layer" id="mirrorLayer">
+    <div class="grid-lines"></div>
+  </div>
+</div>
 
-  <!-- ── Hero ── -->
-  <section id="hero">
-    <canvas id="dot-canvas"></canvas>
-    <div class="hero-content">
-      <span class="hero-eyebrow">Data Scientist &amp; Program Manager</span>
-      <h1 class="hero-name">
-        Sasha<br><em>Connects Data<br>to Impact.</em>
-      </h1>
-      <div class="hero-taglines">
-        <span>Berkeley MIDS · Ex-Meta · Vancouver-bound</span>
-        <span>Turning complex data into stories that move people.</span>
-        <span>Powered by curiosity, pottery, and strong coffee.</span>
-      </div>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">See My Work</a>
-        <a href="resume.pdf" class="btn btn-outline" target="_blank">Download Résumé ↗</a>
-      </div>
-    </div>
-  </section>
+<!-- Dot canvas -->
+<canvas id="dot-canvas"></canvas>
 
-  <!-- ── About ── -->
-  <section id="about">
-    <div class="section-inner">
-      <p class="section-label reveal">About</p>
-      <h2 class="section-title reveal reveal-delay-1">The human<br>behind the <em>data.</em></h2>
-      <div class="about-grid">
-        <div class="about-bio reveal reveal-delay-2">
-          <p>
-            I spent six years at Meta designing and scaling education programs for creators and small businesses across global markets — writing content that reached millions monthly and building systems that made complex tools feel approachable. That experience taught me that the most powerful thing you can do with information is make it usable.
-          </p>
-          <p>
-            Now I'm deepening my technical foundation through Berkeley's Master of Information and Data Science program, where I focus on machine learning, data engineering, and statistical modeling. I'm drawn to the intersection of rigorous analysis and human-centered storytelling — and especially to using both in service of economic empowerment, climate, and AI for social good.
-          </p>
-          <p>
-            Outside of work you'll find me at the pottery studio (currently obsessed with nerikomi), on a yoga mat, or somewhere between Beijing and Vancouver. I think the best teams are built on trust, directness, and genuine curiosity about each other's work.
-          </p>
-        </div>
-        <div class="reveal reveal-delay-3">
-          <div class="about-sidebar">
-            <p class="sidebar-title">Currently</p>
-            <div class="sidebar-item">
-              <span class="sidebar-icon">🎓</span>
-              <span>Completing Berkeley MIDS — graduating 2025</span>
-            </div>
-            <div class="sidebar-item">
-              <span class="sidebar-icon">📍</span>
-              <span>Relocating to Vancouver, BC</span>
-            </div>
-            <div class="sidebar-item">
-              <span class="sidebar-icon">🔍</span>
-              <span>Open to: Data Science / Technical PM / Mission-driven roles</span>
-            </div>
-            <div class="sidebar-item">
-              <span class="sidebar-icon">🏺</span>
-              <span>Practicing nerikomi pottery on weekends</span>
-            </div>
-            <div class="sidebar-item">
-              <span class="sidebar-icon">🌐</span>
-              <span>Mandarin speaker · studied in Beijing</span>
-            </div>
-          </div>
-        </div>
+<!-- Custom cursor -->
+<div id="cursor">
+  <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <!-- leaf -->
+    <ellipse cx="22" cy="6" rx="6" ry="3.5" fill="#5DC64A" transform="rotate(-30 22 6)"/>
+    <line x1="19" y1="7" x2="23" y2="11" stroke="#3a9a2a" stroke-width="1"/>
+    <!-- clementine body -->
+    <circle cx="18" cy="21" r="13" fill="#FF8C42"/>
+    <!-- segments -->
+    <line x1="18" y1="8" x2="18" y2="34" stroke="#E56B1F" stroke-width="0.8" opacity="0.5"/>
+    <line x1="5" y1="21" x2="31" y2="21" stroke="#E56B1F" stroke-width="0.8" opacity="0.5"/>
+    <line x1="8.9" y1="12" x2="27.1" y2="30" stroke="#E56B1F" stroke-width="0.8" opacity="0.5"/>
+    <line x1="27.1" y1="12" x2="8.9" y2="30" stroke="#E56B1F" stroke-width="0.8" opacity="0.5"/>
+    <!-- shine -->
+    <ellipse cx="13" cy="16" rx="3.5" ry="2" fill="rgba(255,255,220,0.35)" transform="rotate(-25 13 16)"/>
+  </svg>
+</div>
+
+<!-- Main scene -->
+<div class="scene">
+
+  <!-- Pochacco blob with sparkle ring -->
+  <div style="position:relative; display:inline-block; margin-bottom:28px;">
+    <div class="pochacco-blob">
+      <div class="blob-ear left"><div class="blob-ear-inner"></div></div>
+      <div class="blob-ear right"><div class="blob-ear-inner"></div></div>
+      <div class="blob-body">
+        <div class="blob-eye left"></div>
+        <div class="blob-eye right"></div>
+        <div class="blob-nose"></div>
+        <div class="blob-cheek left"></div>
+        <div class="blob-cheek right"></div>
+        <div class="blob-paw"></div>
       </div>
     </div>
-  </section>
+    <div class="paw-clementine">🍊</div>
 
-  <!-- ── Experience ── -->
-  <section id="experience">
-    <div class="section-inner">
-      <p class="section-label reveal">Work</p>
-      <h2 class="section-title reveal reveal-delay-1">Where I've <em>built things.</em></h2>
-      <div class="exp-list">
+    <!-- sparkle orbit ring -->
+    <div class="sparkle-ring" id="sparkleRing"></div>
+  </div>
 
-        <div class="exp-card reveal reveal-delay-1">
-          <div class="exp-meta">
-            <div class="exp-company">Meta</div>
-            <div class="exp-period">2016 – 2022</div>
-          </div>
-          <div>
-            <div class="exp-title">Marketing Program Manager, Partner Enablement</div>
-            <div class="exp-desc">
-              Designed and scaled education programs for creators and small businesses across 50+ global markets. Created content reaching millions of users monthly, drove feature adoption improvements, and generated significant incremental revenue through strategic enablement programs. Received consistent "Meets All" performance ratings while managing cross-functional teams across time zones.
-            </div>
-            <div class="exp-tags">
-              <span class="tag">Program Management</span>
-              <span class="tag">Content Strategy</span>
-              <span class="tag">Partner Enablement</span>
-              <span class="tag">Global Markets</span>
-              <span class="tag">Cross-functional</span>
-            </div>
-          </div>
-        </div>
+  <h1 class="title"Sascha PS Tejada</h1>
+</div>
 
-        <div class="exp-card reveal reveal-delay-2">
-          <div class="exp-meta">
-            <div class="exp-company">Creative Agency</div>
-            <div class="exp-period">2022 – 2023</div>
-          </div>
-          <div>
-            <div class="exp-title">Content Strategist &amp; AI Workflow Specialist</div>
-            <div class="exp-desc">
-              Led content strategy and experimented with AI agent workflows for client projects. Developed scalable content frameworks and customer success processes. Balanced this role while teaching yoga and swimming, and continuing Berkeley MIDS coursework.
-            </div>
-            <div class="exp-tags">
-              <span class="tag">AI Workflows</span>
-              <span class="tag">Content Strategy</span>
-              <span class="tag">Customer Success</span>
-            </div>
-          </div>
-        </div>
+<!-- Floating paw prints (positioned by JS) -->
 
-        <div class="exp-card reveal reveal-delay-3">
-          <div class="exp-meta">
-            <div class="exp-company">UC Berkeley</div>
-            <div class="exp-period">2022 – Present</div>
-          </div>
-          <div>
-            <div class="exp-title">Master of Information and Data Science (MIDS)</div>
-            <div class="exp-desc">
-              Graduate-level study in machine learning, data engineering, statistical modeling, and AI ethics. Coursework emphasizes both technical depth and responsible data science practice. Complemented by SQL for Data Science certification from UT Austin.
-            </div>
-            <div class="exp-tags">
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Python</span>
-              <span class="tag">SQL</span>
-              <span class="tag">Data Engineering</span>
-              <span class="tag">Statistics</span>
-            </div>
-          </div>
-        </div>
+<script>
+// ─── CURSOR TRACKING ───
+const cursor = document.getElementById('cursor');
+const trails = [];
+const TRAIL_COUNT = 10;
+const mouse = { x: window.innerWidth/2, y: window.innerHeight/2 };
 
-      </div>
-    </div>
-  </section>
+for (let i = 0; i < TRAIL_COUNT; i++) {
+  const t = document.createElement('div');
+  t.className = 'cursor-trail';
+  const s = (1 - i/TRAIL_COUNT);
+  const size = 6 + s * 10;
+  t.style.cssText = `width:${size}px;height:${size}px;opacity:${s*0.6};
+    background:radial-gradient(circle, ${i%2===0?'#FF8C42':'#FF6EB4'}, transparent);`;
+  document.body.appendChild(t);
+  trails.push({ el: t, x: mouse.x, y: mouse.y });
+}
 
-  <!-- ── Projects ── -->
-  <section id="projects">
-    <div class="section-inner">
-      <p class="section-label reveal">Projects</p>
-      <h2 class="section-title reveal reveal-delay-1">Things I've <em>made & measured.</em></h2>
-      <div class="projects-grid">
+document.addEventListener('mousemove', e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
 
-        <div class="project-card reveal reveal-delay-1">
-          <div class="project-thumb">
-            <canvas class="project-thumb-dots" data-color="196,105,79"></canvas>
-            <span class="project-thumb-label">01</span>
-          </div>
-          <div class="project-body">
-            <div class="project-name">Economic Inequality Dashboard</div>
-            <div class="project-desc">An interactive data visualization exploring income inequality trends across OECD nations using Python, Altair, and public datasets. Designed to be legible for policy audiences.</div>
-            <div class="exp-tags">
-              <span class="tag">Python</span><span class="tag">Altair</span><span class="tag">Data Viz</span>
-            </div>
-          </div>
-        </div>
+function animateTrails() {
+  cursor.style.left = mouse.x + 'px';
+  cursor.style.top  = mouse.y + 'px';
+  let px = mouse.x, py = mouse.y;
+  trails.forEach((t, i) => {
+    const lag = 0.18 + i * 0.05;
+    t.x += (px - t.x) * lag;
+    t.y += (py - t.y) * lag;
+    t.el.style.left = t.x + 'px';
+    t.el.style.top  = t.y + 'px';
+    px = t.x; py = t.y;
+  });
+  requestAnimationFrame(animateTrails);
+}
+animateTrails();
 
-        <div class="project-card reveal reveal-delay-2">
-          <div class="project-thumb">
-            <canvas class="project-thumb-dots" data-color="126,158,140"></canvas>
-            <span class="project-thumb-label">02</span>
-          </div>
-          <div class="project-body">
-            <div class="project-name">NLP Content Classifier</div>
-            <div class="project-desc">Built a text classification pipeline to categorize creator education content at scale. Used BERT fine-tuning and SQL-based feature engineering to improve tagging accuracy by 34%.</div>
-            <div class="exp-tags">
-              <span class="tag">NLP</span><span class="tag">BERT</span><span class="tag">SQL</span>
-            </div>
-          </div>
-        </div>
+// ─── PARALLAX MIRROR ───
+const mirror = document.getElementById('mirrorLayer');
+document.addEventListener('mousemove', e => {
+  const nx = (e.clientX / window.innerWidth  - 0.5) * 2;
+  const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+  mirror.style.transform = `rotateY(${nx*6}deg) rotateX(${-ny*6}deg) translateZ(0)`;
+});
 
-        <div class="project-card reveal reveal-delay-3">
-          <div class="project-thumb">
-            <canvas class="project-thumb-dots" data-color="163,82,47"></canvas>
-            <span class="project-thumb-label">03</span>
-          </div>
-          <div class="project-body">
-            <div class="project-name">Climate Risk Model</div>
-            <div class="project-desc">Predictive model assessing climate-related financial risk exposure for SMBs in coastal markets. Combines geospatial data, regression modeling, and scenario analysis.</div>
-            <div class="exp-tags">
-              <span class="tag">Geospatial</span><span class="tag">Regression</span><span class="tag">Climate</span>
-            </div>
-          </div>
-        </div>
+// ─── DOT FIELD ───
+const canvas = document.getElementById('dot-canvas');
+const ctx = canvas.getContext('2d');
 
-      </div>
-    </div>
-  </section>
+function resize() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
 
-  <!-- ── Skills ── -->
-  <section id="skills">
-    <div class="section-inner">
-      <p class="section-label reveal">Skills</p>
-      <h2 class="section-title reveal reveal-delay-1">What I <em>work with.</em></h2>
-      <div class="skills-grid">
+const COLORS = ['#FF8C42','#FF6EB4','#C77DFF','#FFD6E8','#B8E0FF','#FFB347'];
+const dots = [];
+const DOT_COUNT = 120;
 
-        <div class="skill-group reveal reveal-delay-1">
-          <div class="skill-group-title">Data &amp; Analysis</div>
-          <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">R</span><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Pandas / NumPy</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-        </div>
+for (let i = 0; i < DOT_COUNT; i++) {
+  dots.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    baseX: 0, baseY: 0,
+    r: 2 + Math.random() * 10,
+    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    alpha: 0.15 + Math.random() * 0.5,
+    speed: 0.1 + Math.random() * 0.3,
+    angle: Math.random() * Math.PI * 2,
+    bloomTimer: Math.random() * 200,
+    blooming: false,
+    bloomScale: 1,
+    vx: 0, vy: 0
+  });
+  dots[i].baseX = dots[i].x;
+  dots[i].baseY = dots[i].y;
+}
 
-        <div class="skill-group reveal reveal-delay-2">
-          <div class="skill-group-title">Machine Learning</div>
-          <div class="skill-item"><span class="skill-name">Scikit-learn</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">NLP / BERT</span><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Statistics</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Data Viz</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
-        </div>
+let frame = 0;
+function drawDots() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  frame++;
 
-        <div class="skill-group reveal reveal-delay-3">
-          <div class="skill-group-title">Program Management</div>
-          <div class="skill-item"><span class="skill-name">Stakeholder Mgmt</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Content Strategy</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Cross-functional</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Product Ops</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-        </div>
+  dots.forEach(d => {
+    // Drift
+    d.angle += 0.003 * d.speed;
+    d.baseX += Math.cos(d.angle) * d.speed * 0.4;
+    d.baseY += Math.sin(d.angle) * d.speed * 0.4;
 
-        <div class="skill-group reveal">
-          <div class="skill-group-title">Tools &amp; Platforms</div>
-          <div class="skill-item"><span class="skill-name">Looker / Tableau</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">dbt / Airflow</span><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-          <div class="skill-item"><span class="skill-name">Mandarin Chinese</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
-        </div>
+    // Wrap
+    if (d.baseX < -20) d.baseX = canvas.width + 20;
+    if (d.baseX > canvas.width + 20) d.baseX = -20;
+    if (d.baseY < -20) d.baseY = canvas.height + 20;
+    if (d.baseY > canvas.height + 20) d.baseY = -20;
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Education ── -->
-  <section id="education">
-    <div class="section-inner">
-      <p class="section-label reveal">Education</p>
-      <h2 class="section-title reveal reveal-delay-1">Always <em>learning.</em></h2>
-      <div class="edu-list">
-        <div class="edu-card reveal reveal-delay-1">
-          <div class="edu-dot">🎓</div>
-          <div>
-            <div class="edu-school">UC Berkeley, School of Information</div>
-            <div class="edu-degree">Master of Information and Data Science (MIDS)</div>
-            <div class="edu-year">2022 – 2025 · In Progress</div>
-          </div>
-        </div>
-        <div class="edu-card reveal reveal-delay-2">
-          <div class="edu-dot">📊</div>
-          <div>
-            <div class="edu-school">UT Austin</div>
-            <div class="edu-degree">SQL for Data Science — Certificate</div>
-            <div class="edu-year">2023 · Completed</div>
-          </div>
-        </div>
-        <div class="edu-card reveal reveal-delay-3">
-          <div class="edu-dot">🌏</div>
-          <div>
-            <div class="edu-school">Global Studies · Study Abroad, Beijing</div>
-            <div class="edu-degree">International Studies — Bachelor's Degree</div>
-            <div class="edu-year">Undergraduate · Completed</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Contact ── -->
-  <section id="contact">
-    <div class="section-inner">
-      <p class="section-label reveal">Contact</p>
-      <h2 class="section-title reveal reveal-delay-1">Let's build something<br><em>meaningful.</em></h2>
-      <p class="contact-sub reveal reveal-delay-2">
-        I'm exploring data science, technical PM, and mission-driven roles — especially at the intersection of AI, climate, and economic empowerment. Always happy to connect.
-      </p>
-      <div class="contact-links reveal reveal-delay-3">
-        <a href="mailto:hello@sasha.dev" class="contact-btn primary-dark">✉ Say Hello</a>
-        <a href="https://linkedin.com/in/sasha" class="contact-btn" target="_blank">LinkedIn ↗</a>
-        <a href="https://github.com/sasha" class="contact-btn" target="_blank">GitHub ↗</a>
-        <a href="resume.pdf" class="contact-btn" target="_blank">Résumé PDF ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>Built with care · &copy; 2025 Sasha</p>
-  </footer>
-
-  <script>
-  /* ── Dot canvas (hero) ── */
-  (function() {
-    const canvas = document.getElementById('dot-canvas');
-    const ctx    = canvas.getContext('2d');
-    let dots = [];
-    let W, H;
-
-    function resize() {
-      W = canvas.width  = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
+    // Repel from cursor
+    const dx = d.baseX - mouse.x;
+    const dy = d.baseY - mouse.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    const repelRadius = 120;
+    if (dist < repelRadius) {
+      const force = (repelRadius - dist) / repelRadius;
+      d.vx += (dx / dist) * force * 2.5;
+      d.vy += (dy / dist) * force * 2.5;
     }
+    d.vx *= 0.88;
+    d.vy *= 0.88;
+    d.x = d.baseX + d.vx;
+    d.y = d.baseY + d.vy;
 
-    function initDots() {
-      dots = [];
-      const count = Math.floor((W * H) / 6000);
-      for (let i = 0; i < count; i++) {
-        dots.push({
-          x:  Math.random() * W,
-          y:  Math.random() * H,
-          r:  Math.random() * 5 + 2,
-          vx: (Math.random() - .5) * .3,
-          vy: (Math.random() - .5) * .3,
-          o:  Math.random() * .35 + .08,
-          pulse: Math.random() * Math.PI * 2,
-          accent: Math.random() < .15
-        });
+    // Bloom
+    d.bloomTimer--;
+    if (d.bloomTimer <= 0) {
+      d.blooming = true;
+      d.bloomTimer = 150 + Math.random() * 300;
+      d.bloomPhase = 0;
+    }
+    if (d.blooming) {
+      d.bloomPhase = (d.bloomPhase || 0) + 0.04;
+      d.bloomScale = 1 + Math.sin(d.bloomPhase) * 2.5;
+      if (d.bloomPhase >= Math.PI) {
+        d.blooming = false;
+        d.bloomScale = 1;
       }
     }
 
-    function draw() {
-      ctx.clearRect(0, 0, W, H);
-      const t = Date.now() / 1000;
-      dots.forEach(d => {
-        d.x += d.vx; d.y += d.vy;
-        if (d.x < -10) d.x = W + 10;
-        if (d.x > W + 10) d.x = -10;
-        if (d.y < -10) d.y = H + 10;
-        if (d.y > H + 10) d.y = -10;
-        const pulse = Math.sin(t * .8 + d.pulse) * .12 + 1;
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.r * pulse, 0, Math.PI * 2);
-        ctx.fillStyle = d.accent
-          ? `rgba(196,105,79,${d.o * 1.8})`
-          : `rgba(196,105,79,${d.o})`;
-        ctx.fill();
-      });
-      requestAnimationFrame(draw);
-    }
+    const scale = d.blooming ? d.bloomScale : 1;
+    const alpha = d.blooming ? d.alpha * (1 - d.bloomPhase/Math.PI * 0.5) : d.alpha;
 
-    window.addEventListener('resize', () => { resize(); initDots(); });
-    resize(); initDots(); draw();
-  })();
+    // Glow
+    const grd = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r * scale * 2.5);
+    grd.addColorStop(0, d.color + 'CC');
+    grd.addColorStop(0.5, d.color + '55');
+    grd.addColorStop(1, d.color + '00');
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, d.r * scale * 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = grd;
+    ctx.globalAlpha = alpha * 0.5;
+    ctx.fill();
 
-  /* ── Project thumb dot canvases ── */
-  document.querySelectorAll('.project-thumb-dots').forEach(c => {
-    const ctx = c.getContext('2d');
-    const col = c.dataset.color || '196,105,79';
-    function draw() {
-      c.width  = c.offsetWidth  || 300;
-      c.height = c.offsetHeight || 180;
-      ctx.clearRect(0, 0, c.width, c.height);
-      const spacing = 18;
-      for (let x = spacing/2; x < c.width; x += spacing) {
-        for (let y = spacing/2; y < c.height; y += spacing) {
-          const o = Math.random() * .25 + .05;
-          ctx.beginPath();
-          ctx.arc(x, y, Math.random() * 3 + 1, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${col},${o})`;
-          ctx.fill();
-        }
-      }
-    }
-    draw();
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, d.r * scale, 0, Math.PI * 2);
+    ctx.fillStyle = d.color;
+    ctx.globalAlpha = alpha;
+    ctx.fill();
+    ctx.globalAlpha = 1;
   });
 
-  /* ── Nav scroll shadow ── */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
+  requestAnimationFrame(drawDots);
+}
+drawDots();
+
+// ─── CLICK BURST ───
+document.addEventListener('click', e => {
+  const emojis = ['🍊','🍋','✦','˚','·'];
+  const count = 12;
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'burst-slice';
+    el.textContent = emojis[i % emojis.length];
+    const angle = (i / count) * Math.PI * 2;
+    const dist  = 60 + Math.random() * 80;
+    el.style.left = e.clientX + 'px';
+    el.style.top  = e.clientY + 'px';
+    el.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+    el.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+    el.style.fontSize = (12 + Math.random() * 14) + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 750);
+  }
+
+  // shockwave on dot field (push away)
+  dots.forEach(d => {
+    const dx = d.baseX - e.clientX;
+    const dy = d.baseY - e.clientY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 200) {
+      const force = (200 - dist) / 200 * 8;
+      d.vx += (dx / dist) * force;
+      d.vy += (dy / dist) * force;
+    }
   });
+});
 
-  /* ── Scroll reveal ── */
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        // trigger skill bars
-        e.target.querySelectorAll && e.target.querySelectorAll('.skill-fill').forEach(f => f.classList.add('visible'));
-      }
-    });
-  }, { threshold: 0.12 });
+// ─── SPARKLE ORBIT RING ───
+const ring = document.getElementById('sparkleRing');
+const ringColors = ['#FF8C42','#FF6EB4','#C77DFF','#FFD6E8','#B8E0FF'];
+for (let i = 0; i < 8; i++) {
+  const s = document.createElement('div');
+  s.className = 'sparkle-dot';
+  const size = 4 + (i % 3) * 3;
+  s.style.cssText = `
+    width:${size}px; height:${size}px;
+    background:${ringColors[i % ringColors.length]};
+    top:50%; left:50%;
+    margin-top:-${size/2}px; margin-left:-${size/2}px;
+    --start:${i * 45}deg;
+    animation-delay:${-i * 0.5}s;
+    box-shadow: 0 0 6px ${ringColors[i % ringColors.length]}99;
+  `;
+  ring.appendChild(s);
+}
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// ─── FLOATING PAW PRINTS ───
+const pawPositions = [
+  { left: '8%',  top: '20%' },
+  { left: '85%', top: '15%' },
+  { left: '15%', top: '70%' },
+  { left: '78%', top: '65%' },
+  { left: '50%', top: '85%' },
+  { left: '5%',  top: '45%' },
+  { left: '92%', top: '40%' },
+];
 
-  // Also observe skill groups separately so bars animate on scroll
-  document.querySelectorAll('.skill-group').forEach(el => {
-    el.querySelectorAll('.skill-fill').forEach(f => {
-      const obs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) f.classList.add('visible');
-      }, { threshold: .5 });
-      obs.observe(el);
-    });
+pawPositions.forEach((pos, i) => {
+  const p = document.createElement('div');
+  p.className = 'paw-float';
+  p.textContent = '🐾';
+  p.style.left = pos.left;
+  p.style.top  = pos.top;
+  p.style.animationDelay = (i * 1.7) + 's';
+  p.style.animationDuration = (10 + i * 1.3) + 's';
+  document.body.appendChild(p);
+});
+</script>
+</body>
+</html>
