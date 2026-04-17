@@ -1,0 +1,9 @@
+title: Sasha — Portfolio
+description: Data science, product, tech equity, tech literacy, public interest tech.
+author: Sasha
+url: "https://sascha-pst.github.io"
+baseurl: "https://sascha-pst.github.io"   
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+theme: null 
