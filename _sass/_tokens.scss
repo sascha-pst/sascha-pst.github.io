@@ -1,0 +1,72 @@
+// ============================================================
+// Design tokens
+// Brand identity system — juicy sascha
+// ============================================================
+
+:root {
+  // ---------- Brand palette ----------
+  --color-persimmon: #E65100;
+  --color-moss:      #839958;
+  --color-alabaster: #F9F8F0;
+  --color-clay:      #D3968C;
+  --color-midnight:  #105666;
+
+  // ---------- Semantic aliases ----------
+  --color-bg:        var(--color-alabaster);
+  --color-ink:       var(--color-midnight);
+  --color-accent:    var(--color-persimmon);
+  --color-secondary: var(--color-moss);
+  --color-tertiary:  var(--color-clay);
+  --color-inverse:   var(--color-alabaster);
+  --color-surface-dark: var(--color-midnight);
+
+  --color-rule:  rgba(16, 86, 102, 0.15);
+  --color-mute:  rgba(16, 86, 102, 0.62);
+
+  // ---------- Typography ----------
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  // Type scale (16px base, loosely modular)
+  --fs-xs:      0.75rem;   // 12
+  --fs-sm:      0.875rem;  // 14
+  --fs-base:    1rem;      // 16
+  --fs-md:      1.125rem;  // 18
+  --fs-lg:      1.5rem;    // 24
+  --fs-xl:      2rem;      // 32
+  --fs-2xl:     3rem;      // 48
+  --fs-display: clamp(3.5rem, 10vw, 7.5rem);
+
+  // Two weights only, matching the identity system
+  --fw-regular: 400;
+  --fw-bold:    500;
+
+  --lh-tight:  1;
+  --lh-snug:   1.2;
+  --lh-normal: 1.5;
+  --lh-loose:  1.7;
+
+  --ls-tight:  -0.04em;
+  --ls-normal: 0;
+  --ls-wide:   0.12em;
+
+  // ---------- Spacing (8px base) ----------
+  --space-1: 0.25rem;   // 4
+  --space-2: 0.5rem;    // 8
+  --space-3: 1rem;      // 16
+  --space-4: 1.5rem;    // 24
+  --space-5: 2rem;      // 32
+  --space-6: 3rem;      // 48
+  --space-7: 4rem;      // 64
+  --space-8: 6rem;      // 96
+
+  // ---------- Layout ----------
+  --max-width:  72rem;  // 1152px, page container
+  --text-width: 40rem;  // 640px, optimal reading measure
+  --rule:       0.5px;
+
+  // ---------- Motion ----------
+  --ease-out:  cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:  140ms;
+  --dur-base:  240ms;
+}
