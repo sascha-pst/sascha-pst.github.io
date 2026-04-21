@@ -1,0 +1,234 @@
+// ============================================================
+// Blog — post listing + single post pages
+// ============================================================
+
+// ---------- Page header (blog index) ----------
+.page-header {
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+// ---------- Post list (grouped by year) ----------
+.post-list {
+  padding: var(--space-3) 0 var(--space-7);
+}
+
+.post-year {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: var(--rule) solid var(--color-rule);
+}
+
+.post-year:last-child { border-bottom: 0; }
+
+.post-year__label {
+  padding-top: var(--space-2);
+  color: var(--color-ink);
+  font-weight: var(--fw-bold);
+}
+
+.post-year__items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list__item {
+  padding: var(--space-2) 0;
+}
+
+.post-link {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: var(--space-3);
+  color: var(--color-ink);
+  border-bottom: 0;
+  padding: var(--space-2) 0;
+  align-items: baseline;
+}
+
+.post-link:hover {
+  opacity: 1;
+}
+
+.post-link:hover .post-link__title {
+  color: var(--color-accent);
+}
+
+.post-link__date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-mute);
+  letter-spacing: 0.05em;
+  padding-top: 0.25rem;
+}
+
+.post-link__body {
+  min-width: 0; // prevents grid blowout on long titles
+}
+
+.post-link__title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  margin: 0;
+  letter-spacing: -0.015em;
+  line-height: var(--lh-snug);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.post-link__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-mute);
+  margin: var(--space-1) 0 0;
+  max-width: var(--text-width);
+}
+
+// ---------- Individual post page ----------
+.post {
+  padding: var(--space-5) 0 var(--space-7);
+}
+
+.post-header {
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
+  border-bottom: var(--rule) solid var(--color-rule);
+}
+
+.post-title {
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+  max-width: 20ch;
+}
+
+.post-subtitle {
+  margin-top: var(--space-3);
+  font-size: var(--fs-md);
+}
+
+// ---------- Post content (long-form reading) ----------
+.post-content {
+  font-size: var(--fs-md);
+  line-height: 1.65;
+}
+
+.post-content > * {
+  max-width: var(--text-width);
+}
+
+.post-content h2 {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-xl);
+}
+
+.post-content h3 {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-lg);
+}
+
+.post-content p {
+  margin-bottom: var(--space-3);
+}
+
+.post-content blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-2) var(--space-4);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-ink);
+  font-style: italic;
+}
+
+.post-content blockquote p:last-child { margin-bottom: 0; }
+
+.post-content figure {
+  margin: var(--space-5) 0;
+  max-width: none; // allow figures to break out of prose measure
+}
+
+.post-content figure img {
+  margin: 0 auto;
+}
+
+.post-content figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-mute);
+  margin-top: var(--space-2);
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.post-content hr {
+  margin: var(--space-5) 0;
+}
+
+// ---------- Post footer ----------
+.post-footer {
+  margin-top: var(--space-6);
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin: var(--space-4) 0 var(--space-5);
+}
+
+.post-nav__link {
+  color: var(--color-ink);
+  border-bottom: 0;
+  display: block;
+}
+
+.post-nav__link:hover {
+  opacity: 1;
+}
+
+.post-nav__link:hover .post-nav__title {
+  color: var(--color-accent);
+}
+
+.post-nav__link .meta {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.post-nav__title {
+  font-weight: var(--fw-bold);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.post-nav__prev { text-align: left; }
+.post-nav__next { grid-column: 2; text-align: right; }
+
+.back-link {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.03em;
+  margin-top: var(--space-4);
+}
+
+// ---------- Responsive ----------
+@media (max-width: 640px) {
+  .post-year {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .post-link {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav__next {
+    grid-column: 1;
+    text-align: left;
+  }
+}
