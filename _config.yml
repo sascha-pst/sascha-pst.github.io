@@ -1,9 +1,43 @@
-title: Sasha — Portfolio
-description: Data science, product, tech equity, tech literacy, public interest tech.
+# ============================================================
+# Site config
+# ============================================================
+ 
+title: Sasha
+description: Aspiring GOAT
 author: Sasha
+email: sashaschaps@berkeley.edu
 url: "https://sascha-pst.github.io"
-baseurl: "https://sascha-pst.github.io"   
-
+baseurl: ""
+ 
+# ---------- Build settings ----------
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title/
-theme: null 
+highlighter: rouge
+permalink: /:path/
+ 
+sass:
+  style: compressed
+  sourcemap: never
+ 
+# ---------- Plugins (all GitHub Pages safe) ----------
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+ 
+# ---------- What Jekyll should not copy to _site ----------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
+  - .jekyll-cache
+  - .sass-cache
+  - node_modules
+ 
+# ---------- Default front matter ----------
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
