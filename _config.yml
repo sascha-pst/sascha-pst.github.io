@@ -1,29 +1,51 @@
 # ============================================================
 # Site config
 # ============================================================
- 
+
 title: Sasha
-description: Aspiring GOAT
-author: Sasha
+description: (WIP) Data scientist · AI fairness research · ex-Meta.
+author: Sasha Schaps
 email: sashaschaps@berkeley.edu
 url: "https://sascha-pst.github.io"
 baseurl: ""
- 
+
 # ---------- Build settings ----------
 markdown: kramdown
 highlighter: rouge
-permalink: /:path/
- 
+
 sass:
   style: compressed
   sourcemap: never
- 
+
 # ---------- Plugins (all GitHub Pages safe) ----------
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
- 
+
+# ---------- Collections ----------
+collections:
+  projects:
+    output: true
+    permalink: /work/:path/
+
+# ---------- Defaults ----------
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
 # ---------- What Jekyll should not copy to _site ----------
 exclude:
   - Gemfile
@@ -34,10 +56,3 @@ exclude:
   - .jekyll-cache
   - .sass-cache
   - node_modules
- 
-# ---------- Default front matter ----------
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: default
