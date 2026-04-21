@@ -1,0 +1,97 @@
+// ============================================================
+// Home — homepage hero, section blocks, elsewhere list
+// ============================================================
+
+.home-hero {
+  padding: var(--space-7) 0 var(--space-6);
+}
+
+.home-hero__title {
+  margin: var(--space-3) 0 var(--space-5);
+  max-width: 14ch;
+}
+
+.home-hero__lede {
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  max-width: 42rem;
+  color: var(--color-ink);
+}
+
+// ---------- Section blocks (writing / work / elsewhere) ----------
+.home-section {
+  padding: var(--space-5) 0;
+}
+
+.home-section__header {
+  margin-bottom: var(--space-4);
+}
+
+.home-section__title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  margin: var(--space-2) 0 0;
+}
+
+.home-section__link {
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.03em;
+}
+
+.home-section__link a {
+  color: var(--color-accent);
+  border-bottom: 0;
+}
+
+.home-section__link a:hover {
+  opacity: 0.7;
+}
+
+// ---------- Elsewhere (contact / profiles) ----------
+.elsewhere-list {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-3) var(--space-4);
+  margin: 0;
+  padding: 0;
+}
+
+.elsewhere-list dt {
+  margin: 0;
+  padding-top: 0.25rem;
+}
+
+.elsewhere-list dd {
+  margin: 0;
+  font-size: var(--fs-md);
+}
+
+.elsewhere-list dd a {
+  border-bottom: 0;
+  color: var(--color-ink);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.elsewhere-list dd a:hover {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
+// ---------- Responsive ----------
+@media (max-width: 640px) {
+  .elsewhere-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .elsewhere-list dt {
+    margin-top: var(--space-3);
+  }
+
+  .elsewhere-list dt:first-child {
+    margin-top: 0;
+  }
+}
