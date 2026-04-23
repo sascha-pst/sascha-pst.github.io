@@ -16,8 +16,6 @@ permalink: /blog/travel/
     <canvas id="travel-canvas"></canvas>
   </div>
 
-  <!-- Accessible fallback list — always rendered, visible to screen readers.
-       Sighted users with JS disabled see this instead of the spiral. -->
   <noscript>
     <p>The interactive gallery requires JavaScript. Entries below:</p>
   </noscript>
@@ -35,7 +33,6 @@ permalink: /blog/travel/
   </ul>
 </div>
 
-<!-- Generate the image + link data from the collection at build time -->
 <script id="travel-data" type="application/json">
 [
   {% for entry in entries %}
