@@ -6,5 +6,3 @@ location: Portugal
 cover_image: /assets/images/travel/allyeporto.jpg
 cover_alt: Porto, Portugal.
 ---
-
-A draft entry. Replace this text with your actual notes from Porto.
