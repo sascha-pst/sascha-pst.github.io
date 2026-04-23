@@ -1,18 +1,46 @@
 ---
+layout: default
 title: Bookshelf
-description: A reading log built with Jekyll and Liquid — tagged, filterable, and updated as I go.
-date: 2026-04-23
-url: /projects/bookshelf/
-image: /assets/images/bookshelf-thumb.jpg  # optional, if your theme uses one
-tags: [jekyll, web, reading]
+subtitle: What I've been reading through MIDS and beyond.
+permalink: /work/bookshelf/
 ---
 
-A personal bookshelf cataloging what I've been reading through my MIDS program
-and beyond, with a lean toward algorithmic fairness, public interest tech, and
-the occasional sci-fi palate cleanser.
+<section class="bookshelf-intro">
+  <h1 class="display">{{ page.title }}</h1>
+  <p class="lede">{{ page.subtitle }}</p>
+</section>
 
-Built with a single Jekyll `_data/books.yml` file, a Liquid template that
-groups by year, and vanilla JS for tag filtering — no framework, no build step
-beyond Jekyll itself.
+{% assign shelf = site.data.books | sort: "year_read" | reverse %}
+{% assign books_by_year = shelf | group_by: "year_read" %}
 
-[Visit the bookshelf →]({{ '/projects/bookshelf/' | relative_url }})
+{% for year in books_by_year %}
+  <section class="bookshelf-year">
+    <h2>{{ year.name | default: "Undated" }}</h2>
+    <p class="bookshelf-count">{{ year.items | size }} book{% if year.items.size != 1 %}s{% endif %}</p>
+    <ul class="bookshelf-grid">
+      {% for book in year.items %}
+        <li class="book">
+          {% if book.link %}<a href="{{ book.link }}" class="book__link" target="_blank" rel="noopener">{% endif %}
+            {% if book.cover %}
+              <img class="book__cover" src="{{ book.cover }}" alt="Cover of {{ book.title }}">
+            {% endif %}
+            <h3 class="book__title">{{ book.title }}</h3>
+            {% if book.subtitle %}<p class="book__subtitle">{{ book.subtitle }}</p>{% endif %}
+            {% if book.author %}<p class="book__author">{{ book.author }}</p>{% endif %}
+            {% if book.year_published %}<p class="book__year">{{ book.year_published }}</p>{% endif %}
+            {% if book.rating %}
+              <p class="book__rating" aria-label="Rating: {{ book.rating }} of 5">
+                {% assign full = book.rating | floor %}
+                {% for i in (1..5) %}{% if i <= full %}★{% else %}☆{% endif %}{% endfor %}
+                <span class="book__rating-num">{{ book.rating }}</span>
+              </p>
+            {% endif %}
+          {% if book.link %}</a>{% endif %}
+          {% if book.review %}
+            <div class="book__review">{{ book.review | markdownify }}</div>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
