@@ -6,5 +6,3 @@ location: Thailand
 cover_image: /assets/images/travel/ayutthaya.jpg
 cover_alt: Ayutthaya, Thailand.
 ---
-
-A draft entry. Replace this text with your actual notes from Ayutthaya.
