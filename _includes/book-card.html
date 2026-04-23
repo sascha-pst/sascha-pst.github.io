@@ -1,0 +1,22 @@
+<article class="book" data-tags="{{ include.book.tags | join: ' ' }}">
+  <a href="{{ include.book.link }}" class="book__cover-link">
+    <img src="{{ include.book.cover }}" alt="{{ include.book.title }}" class="book__cover" loading="lazy">
+  </a>
+  <div class="book__meta">
+    <h3 class="book__title">{{ include.book.title }}</h3>
+    {% if include.book.subtitle %}
+      <p class="book__subtitle">{{ include.book.subtitle }}</p>
+    {% endif %}
+    <p class="book__author">{{ include.book.author }}</p>
+    {% if include.book.rating %}
+      <p class="book__rating">
+        {% assign full_stars = include.book.rating | floor %}
+        {% assign has_half = include.book.rating | modulo: 1 %}
+        {% for i in (1..full_stars) %}★{% endfor %}{% if has_half != 0 %}½{% endif %}
+      </p>
+    {% endif %}
+    {% if include.book.review %}
+      <div class="book__review">{{ include.book.review | markdownify }}</div>
+    {% endif %}
+  </div>
+</article>
