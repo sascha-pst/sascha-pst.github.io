@@ -1,9 +1,12 @@
 ---
-layout: default
-title: Bookshelf
-subtitle: What I've been reading through MIDS and beyond.
-permalink: /work/bookshelf/
----
+  layout: default
+  title: Bookshelf
+  subtitle: What I've been reading through MIDS and beyond.
+  permalink: /work/bookshelf/
+  date: 2026-01-01
+  status: Ongoing
+  featured: true
+  ---
 
 <section class="bookshelf-intro">
   <h1 class="display">{{ page.title }}</h1>
