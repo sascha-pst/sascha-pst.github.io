@@ -1,0 +1,136 @@
+// ============================================================
+// Travel — spiral gallery + individual travel post pages
+// ============================================================
+
+// ---------- Spiral page ----------
+.travel-frame {
+  position: relative;
+  margin: 0 calc(50% - 50vw);
+  background: var(--color-midnight);
+  color: var(--color-alabaster);
+  min-height: 100vh;
+  padding: var(--space-5) 0 var(--space-6);
+  overflow: hidden;
+}
+
+.travel-frame__header {
+  position: absolute;
+  top: var(--space-5);
+  left: var(--space-5);
+  z-index: 2;
+  max-width: 28rem;
+  pointer-events: none;  // don't block drags on the spiral underneath
+}
+
+.travel-frame__header .meta {
+  color: rgba(249, 248, 240, 0.7);
+  pointer-events: auto;
+}
+
+.travel-frame__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-snug);
+  margin: var(--space-2) 0 var(--space-3);
+  color: var(--color-alabaster);
+  pointer-events: auto;
+}
+
+.travel-frame__hint {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: rgba(249, 248, 240, 0.5);
+  letter-spacing: 0.1em;
+  pointer-events: auto;
+}
+
+// The 3D spiral container — fills the frame
+.travel-spiral {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  touch-action: none;  // allows custom wheel + touch handling
+}
+
+.travel-spiral canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+// Reduced-motion fallback — hide the canvas, show the list
+.travel-spiral.is-reduced-motion canvas {
+  display: none;
+}
+
+// Accessible list — visually hidden when the spiral is active,
+// promoted to visible fallback when JS is off or reduced-motion is on.
+.travel-list {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+.travel-spiral.is-reduced-motion ~ .travel-list,
+.no-js .travel-list {
+  position: static;
+  width: auto; height: auto;
+  margin: var(--space-5) auto;
+  padding: 0;
+  max-width: var(--text-width);
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  list-style: none;
+  z-index: 2;
+}
+
+// ---------- Individual travel post page ----------
+.travel-post {
+  padding: var(--space-5) 0 var(--space-7);
+}
+
+.travel-post__header {
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: var(--rule) solid var(--color-rule);
+}
+
+.travel-post__title {
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.travel-post__subtitle {
+  margin: var(--space-3) 0 0;
+}
+
+.travel-post__cover {
+  margin: 0 0 var(--space-5);
+  max-width: none;
+}
+
+.travel-post__cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.travel-post__footer {
+  margin-top: var(--space-6);
+}
+
+// ---------- Responsive ----------
+@media (max-width: 640px) {
+  .travel-frame__header {
+    top: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+    max-width: none;
+  }
+}
