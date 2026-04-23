@@ -1,0 +1,93 @@
+// ============================================================
+// Hero — animated mesh gradient with overlaid text
+// ============================================================
+
+.hero-block {
+  position: relative;
+  margin: 0 calc(50% - 50vw);   // break out of .container to be full-bleed
+  padding: 0;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background: var(--color-midnight);  // fallback while JS loads
+}
+
+// The Three.js canvas mounts inside here
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+// Text sits above the animation
+.hero-block__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-4) var(--space-6);
+  width: 100%;
+  color: var(--color-alabaster);
+}
+
+.hero-block .meta {
+  color: rgba(249, 248, 240, 0.7);
+}
+
+.hero-block .home-hero__title {
+  color: var(--color-alabaster);
+}
+
+.hero-block .accent {
+  color: var(--color-clay);  // Rosie pops better than clementine against this background
+}
+
+.hero-block__lede {
+  color: rgba(249, 248, 240, 0.88);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  max-width: 42rem;
+  margin: 0;
+}
+
+.hero-block__lede a {
+  color: var(--color-alabaster);
+  border-bottom-color: rgba(249, 248, 240, 0.5);
+}
+
+.hero-block__lede a:hover {
+  border-bottom-color: var(--color-alabaster);
+  opacity: 1;
+}
+
+// Hide the canvas from assistive tech — it's decorative
+.hero-canvas,
+.hero-canvas canvas {
+  pointer-events: auto;  // allow pointer events so hover-distortion works
+}
+
+@media (prefers-reduced-motion: reduce) {
+  // JS already handles this, but belt-and-suspenders:
+  // ensures the fallback gradient is visible if JS fails entirely
+  .hero-block {
+    background:
+      radial-gradient(ellipse at 30% 20%, var(--color-clay) 0%, transparent 55%),
+      radial-gradient(ellipse at 70% 80%, var(--color-moss) 0%, transparent 55%),
+      var(--color-midnight);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-block {
+    min-height: 60vh;
+  }
+}
