@@ -1,7 +1,18 @@
-// Bookshelf — for the /work/bookshelf/ page
-// Uses CSS custom properties defined in :root
+// Bookshelf — /work/bookshelf/
+// Compiled via Jekyll's Sass pipeline.
 
-// ---- Filter bar (for when you wire up JS tag filtering) ----
+// ---- Local tokens (move to your _tokens partial if you have one) ----
+:root {
+  --fs-xs:   0.8rem;
+  --fs-sm:   0.85rem;
+  --fs-base: 0.9rem;
+  --fs-md:   1rem;
+  --fs-lg:   1.1rem;
+
+  --transition-fast: 150ms ease;
+}
+
+// ---- Filter bar ----
 .bookshelf-filters {
   display: flex;
   flex-wrap: wrap;
@@ -12,33 +23,52 @@
 
 .filter-btn {
   padding: 0.25rem 0.75rem;
-  border: 1px solid currentColor;
+  color: var(--color-ink);            // explicit; currentColor below now ties to this
   background: transparent;
-  cursor: pointer;
-  font-size: 0.9rem;
+  border: 1px solid currentColor;
   font-family: inherit;
+  font-size: var(--fs-base);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-midnight);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-midnight);
+    outline-offset: 2px;
+  }
+
+  &.is-active {
+    background: var(--color-midnight);
+    color: var(--color-alabaster);
+    border-color: var(--color-midnight);
+  }
 }
 
-.filter-btn.is-active {
-  background: var(--color-midnight);
-  color: var(--color-alabaster);
-  border-color: var(--color-midnight);
-}
-
-// ---- Intro ----
+// ---- Intro + year grouping ----
 .bookshelf-intro {
   margin-bottom: 2rem;
 }
 
-// ---- Year grouping ----
 .bookshelf-year {
   margin: 3rem 0;
+
+  // Tighten the year heading → count gap without a negative margin.
+  // If your global h2 bottom-margin clashes, this wins via specificity.
+  h2 {
+    margin-bottom: 0.25rem;
+  }
 }
 
 .bookshelf-count {
+  margin: 0 0 1.5rem;
   color: var(--color-ink-muted);
-  font-size: 0.9rem;
-  margin-top: -0.5rem;
+  font-size: var(--fs-base);
 }
 
 // ---- Grid ----
@@ -46,68 +76,79 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 2rem;
-  margin-top: 1.5rem;
-  list-style: none;
-  padding: 0;
-}
-
-// ---- Individual book card ----
-.book__link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.book__link:hover .book__title {
-  text-decoration: underline;
-}
-
-.book__cover {
-  max-width: 140px;
-  height: auto;
-  display: block;
-}
-
-.book__title {
-  font-size: 1.1rem;
-  margin: 0.75rem 0 0.25rem;
-}
-
-.book__subtitle {
-  font-size: 0.85rem;
-  font-style: italic;
-  color: var(--color-ink-muted);
-  margin: 0.25rem 0;
-}
-
-.book__author {
-  font-size: 0.9rem;
-  color: var(--color-ink);
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.book__year {
-  font-size: 0.8rem;
-  color: var(--color-ink-muted);
-  margin: 0.25rem 0;
-}
+// ---- Book card ----
+.book {
+  &__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
 
-.book__rating {
-  margin: 0.5rem 0;
-  letter-spacing: 2px;
-  color: var(--color-persimmon);
-}
+    &:hover .book__title,
+    &:focus-visible .book__title {
+      text-decoration: underline;
+    }
 
-.book__rating-num {
-  font-size: 0.8rem;
-  color: var(--color-ink-muted);
-  margin-left: 0.5rem;
-  letter-spacing: normal;
-}
+    &:focus-visible {
+      outline: 2px solid var(--color-midnight);
+      outline-offset: 4px;
+    }
+  }
 
-.book__review {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-top: 0.5rem;
-  color: var(--color-ink);
+  &__cover {
+    display: block;
+    width: 100%;     // was max-width: 140px — that left ~80px of dead space
+    height: auto;    // in a 220px+ grid cell. Revert if the narrow look is intentional.
+  }
+
+  &__title {
+    margin: 0.75rem 0 0.25rem;
+    font-size: var(--fs-lg);
+  }
+
+  &__subtitle {
+    margin: 0.25rem 0;
+    color: var(--color-ink-muted);
+    font-size: var(--fs-sm);
+    font-style: italic;
+  }
+
+  &__author {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: var(--fs-base);
+  }
+
+  &__year {
+    margin: 0.25rem 0;
+    color: var(--color-ink-muted);
+    font-size: var(--fs-xs);
+  }
+
+  &__rating {
+    margin: 0.5rem 0;
+    color: var(--color-persimmon);
+    letter-spacing: 2px;
+    // A11y note (markup, not CSS): put aria-hidden="true" on the star glyphs
+    // and let .book__rating-num carry the real value — otherwise screen
+    // readers announce "black star black star white star..."
+  }
+
+  &__rating-num {
+    margin-left: 0.5rem;
+    color: var(--color-ink-muted);
+    font-size: var(--fs-xs);
+    letter-spacing: normal;
+  }
+
+  &__review {
+    margin-top: 0.5rem;
+    color: var(--color-ink);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+  }
 }
