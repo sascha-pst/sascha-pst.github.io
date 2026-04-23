@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<article class="book-post">
+  <header class="book-post__header">
+    <p class="meta">
+      {% if page.date_finished %}
+        Finished {{ page.date_finished | date: "%B %Y" }}
+      {% elsif page.date %}
+        {{ page.date | date: "%B %Y" }}
+      {% endif %}
+      {% if page.author %} · {{ page.author }}{% endif %}
+    </p>
+    <h1 class="book-post__title display">{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <p class="lede book-post__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+    {% if page.rating %}
+      <p class="book-post__rating" aria-label="Rating: {{ page.rating }} of 5">
+        {% assign filled = page.rating | plus: 0 %}
+        {% for i in (1..5) %}{% if i <= filled %}★{% else %}☆{% endif %}{% endfor %}
+      </p>
+    {% endif %}
+  </header>
+
+  {% if page.cover_image %}
+    <figure class="book-post__cover">
+      <img src="{{ page.cover_image | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+    </figure>
+  {% endif %}
+
+  <div class="book-post__content post-content">
+    {{ content }}
+  </div>
+
+  <footer class="book-post__footer">
+    <hr>
+    <p class="back-link"><a href="{{ '/work/bookshelf/' | relative_url }}">← Back to the shelf</a></p>
+  </footer>
+</article>
