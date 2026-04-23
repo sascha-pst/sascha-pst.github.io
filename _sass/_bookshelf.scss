@@ -49,3 +49,31 @@
 .book__author { font-size: 0.9rem; color: #555; margin: 0; }
 .book__rating { margin: 0.5rem 0; letter-spacing: 2px; }
 .book__review { font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; }
+.book__subtitle {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
+  margin: 0.25rem 0;
+}
+
+.book__year {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0.25rem 0;
+}
+
+.book__rating-num {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.book__link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.book__link:hover .book__title {
+  text-decoration: underline;
+}
