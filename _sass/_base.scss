@@ -116,8 +116,11 @@ img, svg, video {
 
 .prose { max-width: var(--text-width); }
 
-// Tiny mono label
-  .meta {
+.meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
     color: var(--color-moss);
   }
 
