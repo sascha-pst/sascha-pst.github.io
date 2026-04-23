@@ -7,4 +7,3 @@ cover_image: /assets/images/travel/bananastand.jpg
 cover_alt: Sri Lanka, Sri Lanka.
 ---
 
-A draft entry. Replace this text with your actual notes from Sri Lanka.
