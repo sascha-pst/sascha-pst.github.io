@@ -116,14 +116,10 @@ img, svg, video {
 
 .prose { max-width: var(--text-width); }
 
-// Tiny mono label — the "01 · Signature" treatment from the identity sheet
-.meta {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: var(--ls-wide);
-  color: var(--color-mute);
-  text-transform: none;
-}
+// Tiny mono label
+  .meta {
+    color: var(--color-moss);
+  }
 
 .display {
   font-family: var(--font-sans);
