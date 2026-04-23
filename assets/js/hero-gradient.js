@@ -37,8 +37,6 @@
   };
 
   // ---------- TouchTexture ----------
-  // Writes mouse movement into a small canvas, exposed as a texture
-  // for the shader to read for water-like distortion.
   class TouchTexture {
     constructor() {
       this.size = 64;
@@ -164,14 +162,14 @@
       float i5 = 1.0 - smoothstep(0.0, radius, length(uv - c5));
       float i6 = 1.0 - smoothstep(0.0, radius, length(uv - c6));
 
-      // Weighted blend: midnight dominant, moss and rosie as warm/cool partners
+      // Weighted blend: four-color rotation — all colors roughly equal
       vec3 color = vec3(0.0);
-      color += uColor1 * i1 * 0.70;            // rosie (was clementine slot)
-      color += uColor2 * i2 * 1.40;            // midnight (heavy)
-      color += uColor3 * i3 * 0.80;            // moss
-      color += uColor4 * i4 * 0.65;            // rosie
-      color += uColor3 * i5 * 0.70;            // moss again
-      color += uColor2 * i6 * 1.20;            // midnight again
+      color += uColor1 * i1 * 0.95;            // clementine
+      color += uColor2 * i2 * 1.00;            // midnight
+      color += uColor3 * i3 * 0.95;            // moss
+      color += uColor4 * i4 * 0.95;            // rosie
+      color += uColor2 * i5 * 0.95;            // midnight again
+      color += uColor3 * i6 * 0.95;            // moss again
 
       color = clamp(color, vec3(0.0), vec3(1.0));
 
@@ -209,8 +207,6 @@
         depth: false
       });
       this.renderer.setSize(this.width, this.height);
-      // Cap pixel ratio — on a 3x retina screen, 1x still looks great
-      // and saves 9x the fragment-shader work.
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       this.renderer.domElement.setAttribute('aria-hidden', 'true');
       container.appendChild(this.renderer.domElement);
@@ -227,7 +223,7 @@
       this.uniforms = {
         uTime: { value: 0 },
         uResolution: { value: new THREE.Vector2(this.width, this.height) },
-        uColor1: { value: new THREE.Vector3(...PALETTE.rosie) },
+        uColor1: { value: new THREE.Vector3(...PALETTE.clementine) },
         uColor2: { value: new THREE.Vector3(...PALETTE.midnight) },
         uColor3: { value: new THREE.Vector3(...PALETTE.moss) },
         uColor4: { value: new THREE.Vector3(...PALETTE.rosie) },
@@ -319,9 +315,6 @@
   // ---------- Initialize ----------
   const hero = new HeroGradient(container);
   hero.start();
-
-  // Pause when hero scrolls out of view — saves significant CPU/battery
-  // on long pages. IntersectionObserver is cheap and well-supported.
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -334,8 +327,6 @@
     );
     observer.observe(container);
   }
-
-  // Pause when tab loses focus — don't animate for nobody.
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) hero.stop();
     else hero.start();
