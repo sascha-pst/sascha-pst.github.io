@@ -69,10 +69,10 @@
   opacity: 1;
 }
 
-// Hide the canvas
 .hero-canvas,
 .hero-canvas canvas {
   pointer-events: auto;  // allow pointer events
+}
 
 @media (prefers-reduced-motion: reduce) {
   .hero-block {
