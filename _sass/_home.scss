@@ -6,6 +6,10 @@
   padding: var(--space-7) 0 var(--space-6);
 }
 
+.hero-block .meta {
+  color: var(--color-rosie);
+}
+
 .home-hero__title {
   margin: var(--space-3) 0 var(--space-5);
   max-width: 14ch;
@@ -18,31 +22,39 @@
   color: var(--color-ink);
 }
 
-// ---------- Section blocks (writing / work / elsewhere) ----------
-.home-section {
-  padding: var(--space-10) 10;
+.accent {
+  color: var(--color-rosie);
 }
 
-  .home-section__header .meta {
-    color: var(--color-rosie);
-  }
+// ---------- Section blocks (writing / work / elsewhere) ----------
+.home-section {
+  padding: var(--space-7) 0;
+}
+
+.home-section__header {
+  margin-bottom: var(--space-5);
+}
+
+.home-section__header .meta {
+  color: var(--color-rosie);
+}
 
 .home-section__title {
   font-size: var(--fs-xl);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tight);
-  margin: var(--space-10) 0 0;
+  margin: var(--space-3) 0 0;
 }
 
 .home-section__link {
-  margin-top: var(--space-10);
+  margin-top: var(--space-5);
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   letter-spacing: 0.03em;
 }
 
 .home-section__link a {
-  color: var(--color-accent);
+  color: var(--color-clementine);
   border-bottom: 0;
 }
 
@@ -54,7 +66,7 @@
 .elsewhere-list {
   display: grid;
   grid-template-columns: 7rem 1fr;
-  gap: var(--space-10) var(--space-10);
+  gap: var(--space-3) var(--space-5);
   margin: 0;
   padding: 0;
 }
@@ -76,7 +88,7 @@
 }
 
 .elsewhere-list dd a:hover {
-  color: var(--color-accent);
+  color: var(--color-clementine);
   opacity: 1;
 }
 
