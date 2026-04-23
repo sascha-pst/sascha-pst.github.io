@@ -6,5 +6,3 @@ location: Japan
 cover_image: /assets/images/travel/beer.jpg
 cover_alt: Tokyo, Japan.
 ---
-
-A draft entry. Replace this text with your actual notes from Tokyo.
