@@ -105,7 +105,7 @@ img, svg, video {
 }
 
 // ============================================================
-// Utility classes
+// Utility classes — name the things you'll reuse
 // ============================================================
 
 .container {
@@ -147,7 +147,7 @@ img, svg, video {
 }
 
 // ============================================================
-// Header, hero, footer starters
+// Site chrome — header, hero, footer starters
 // ============================================================
 
 .site-header {
@@ -168,8 +168,26 @@ img, svg, video {
   color: var(--color-accent);
   border-bottom: 0;
   letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  line-height: 1;
+}
 
-  .mark { margin-right: 0.2em; }
+.wordmark__mark {
+  width: 1.5em;
+  height: 1.5em;
+  display: block;
+  background: var(--color-midnight);
+  padding: 0.25em;
+  border-radius: 4px;
+  box-sizing: content-box;
+  // Keep the image crisp at small sizes
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.wordmark__text {
+  display: inline-block;
 }
 
 .site-nav {
