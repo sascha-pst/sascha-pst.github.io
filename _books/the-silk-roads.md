@@ -1,5 +1,5 @@
 ---
-title: The Myth of Sisyphus
+title: Silk Roads
 subtitle: A New History of the World
 author: Peter Frankopan
 year_published: 2017
