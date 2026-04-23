@@ -6,5 +6,3 @@ location: Goa
 cover_image: /assets/images/travel/goa.jpg
 cover_alt: Panjim, Goa.
 ---
-
-A draft entry. Replace this text with your actual notes from Panjim.
