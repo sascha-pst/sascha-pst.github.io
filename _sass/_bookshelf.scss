@@ -1,5 +1,5 @@
 // Bookshelf — for the /work/bookshelf/ page
-// Uses design tokens from _tokens.scss where applicable
+// Uses CSS custom properties defined in :root
 
 // ---- Filter bar (for when you wire up JS tag filtering) ----
 .bookshelf-filters {
@@ -20,15 +20,23 @@
 }
 
 .filter-btn.is-active {
-  background: currentColor;
-  color: white;
+  background: var(--color-midnight);
+  color: var(--color-alabaster);
+  border-color: var(--color-midnight);
+}
+
+// ---- Intro ----
+.bookshelf-intro {
+  margin-bottom: 2rem;
 }
 
 // ---- Year grouping ----
-.bookshelf-year { margin: 3rem 0; }
+.bookshelf-year {
+  margin: 3rem 0;
+}
 
 .bookshelf-count {
-  color: #888;
+  color: var(--color-ink-muted);
   font-size: 0.9rem;
   margin-top: -0.5rem;
 }
@@ -60,15 +68,39 @@
   display: block;
 }
 
-.book__title    { font-size: 1.1rem;  margin: 0.75rem 0 0.25rem; }
-.book__subtitle { font-size: 0.85rem; font-style: italic; color: #666; margin: 0.25rem 0; }
-.book__author   { font-size: 0.9rem;  color: #555; margin: 0; }
-.book__year     { font-size: 0.8rem;  color: #888; margin: 0.25rem 0; }
+.book__title {
+  font-size: 1.1rem;
+  margin: 0.75rem 0 0.25rem;
+}
 
-.book__rating { margin: 0.5rem 0; letter-spacing: 2px; }
+.book__subtitle {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-ink-muted);
+  margin: 0.25rem 0;
+}
+
+.book__author {
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.book__year {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  margin: 0.25rem 0;
+}
+
+.book__rating {
+  margin: 0.5rem 0;
+  letter-spacing: 2px;
+  color: var(--color-persimmon);
+}
+
 .book__rating-num {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--color-ink-muted);
   margin-left: 0.5rem;
   letter-spacing: normal;
 }
@@ -77,4 +109,5 @@
   font-size: 0.9rem;
   line-height: 1.5;
   margin-top: 0.5rem;
+  color: var(--color-ink);
 }
