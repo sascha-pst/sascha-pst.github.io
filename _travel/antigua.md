@@ -6,5 +6,3 @@ location: Guatemala
 cover_image: /assets/images/travel/antigua.jpg
 cover_alt: Antigua, Guatemala.
 ---
-
-A draft entry. Replace this text with your actual notes from Antigua.
