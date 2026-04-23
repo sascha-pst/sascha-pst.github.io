@@ -1,33 +1,18 @@
 ---
-layout: page
 title: Bookshelf
-permalink: /projects/bookshelf/
+description: A reading log built with Jekyll and Liquid — tagged, filterable, and updated as I go.
+date: 2026-04-23
+url: /projects/bookshelf/
+image: /assets/images/bookshelf-thumb.jpg  # optional, if your theme uses one
+tags: [jekyll, web, reading]
 ---
 
-<p><a href="{{ '/projects/' | relative_url }}">← Back to projects</a></p>
+A personal bookshelf cataloging what I've been reading through my MIDS program
+and beyond, with a lean toward algorithmic fairness, public interest tech, and
+the occasional sci-fi palate cleanser.
 
-<section class="bookshelf-filters">
-  <span>Filter:</span>
-  <button class="filter-btn is-active" data-filter="all">All</button>
-  {% assign all_tags = site.data.books | map: "tags" | join: "," | split: "," | uniq | sort %}
-  {% for tag in all_tags %}
-    {% if tag != "" %}
-      <button class="filter-btn" data-filter="{{ tag }}">{{ tag | replace: "-", " " | capitalize }}</button>
-    {% endif %}
-  {% endfor %}
-</section>
+Built with a single Jekyll `_data/books.yml` file, a Liquid template that
+groups by year, and vanilla JS for tag filtering — no framework, no build step
+beyond Jekyll itself.
 
-{% assign books_by_year = site.data.books | group_by: "year" | sort: "name" | reverse %}
-{% for year_group in books_by_year %}
-  <section class="bookshelf-year">
-    <h2>{{ year_group.name }}</h2>
-    <p class="bookshelf-count">{{ year_group.items | size }} books</p>
-    <div class="bookshelf-grid">
-      {% for book in year_group.items %}
-        {% include book-card.html book=book %}
-      {% endfor %}
-    </div>
-  </section>
-{% endfor %}
-
-<script src="{{ '/assets/js/bookshelf-filter.js' | relative_url }}"></script>
+[Visit the bookshelf →]({{ '/projects/bookshelf/' | relative_url }})
