@@ -76,13 +76,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  // JS already handles this, but belt-and-suspenders:
-  // ensures the fallback gradient is visible if JS fails entirely
   .hero-block {
-    background:
-      radial-gradient(ellipse at 30% 20%, var(--color-clay) 0%, transparent 55%),
-      radial-gradient(ellipse at 70% 80%, var(--color-moss) 0%, transparent 55%),
-      var(--color-midnight);
+    background: radial-gradient(ellipse at 30% 20%, var(--color-clay) 0%, transparent 55%), radial-gradient(ellipse at 70% 80%, var(--color-moss) 0%, transparent 55%), var(--color-midnight);
   }
 }
 
