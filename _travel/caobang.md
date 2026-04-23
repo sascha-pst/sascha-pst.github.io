@@ -6,5 +6,3 @@ location: Vietnam
 cover_image: /assets/images/travel/caobang.jpg
 cover_alt: Cao Bằng, Vietnam.
 ---
-
-A draft entry. Replace this text with your actual notes from Cao Bằng.
