@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +8,15 @@
   <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/favicon.png' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a href="{{ '/' | relative_url }}" class="wordmark">
-        <span class="mark">λ</span>sasha
+        <img src="{{ '/assets/favicon.png' | relative_url }}" alt="" class="wordmark__mark">
+        <span class="wordmark__text">sasha</span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="{{ '/work' | relative_url }}">work</a>
