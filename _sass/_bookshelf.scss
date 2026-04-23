@@ -44,3 +44,53 @@
     &:hover .book__title,
     &:focus-visible .book__title {
       color: va
+// ---- Individual book page (book.html layout) ----
+.book-post {
+  max-width: var(--text-width);
+
+  &__header {
+    margin-bottom: var(--space-5);
+
+    .meta {
+      color: var(--color-moss);
+    }
+  }
+
+  &__title {
+    color: var(--color-ink);
+  }
+
+  &__subtitle {
+    color: var(--color-ink);
+  }
+
+  &__rating {
+    color: var(--color-rosie);
+    letter-spacing: 2px;
+    font-size: var(--fs-lg);
+  }
+
+  &__cover {
+    margin: var(--space-5) 0;
+
+    img {
+      display: block;
+      max-width: 300px;
+      height: auto;
+    }
+  }
+
+  &__content {
+    margin: var(--space-5) 0;
+  }
+
+  &__footer {
+    margin-top: var(--space-7);
+
+    .back-link a {
+      color: var(--color-clementine);
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+    }
+  }
+}
