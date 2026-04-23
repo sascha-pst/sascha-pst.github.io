@@ -28,6 +28,9 @@ collections:
   projects:
     output: true
     permalink: /work/:path/
+  travel:
+    output: true
+    permalink: /blog/travel/:path/
 
 # ---------- Defaults ----------
 defaults:
@@ -45,6 +48,11 @@ defaults:
       type: projects
     values:
       layout: project
+  - scope:
+      path: ""
+      type: travel
+    values:
+      layout: travel
 
 # ---------- What Jekyll should not copy to _site ----------
 exclude:
