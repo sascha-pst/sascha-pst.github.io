@@ -34,7 +34,9 @@ collections:
   blog:
     output: true
     permalink: /blog/:year/:slug/
-
+  books:
+    output: true
+    permalink: /bookshelf/:path/
 # ---------- Defaults ----------
 defaults:
   - scope:
@@ -56,6 +58,11 @@ defaults:
       type: travel
     values:
       layout: travel
+  - scope:
+      path: ""
+      type: books
+    values:
+      layout: book
 
 # ---------- What Jekyll should not copy to _site ----------
 exclude:
