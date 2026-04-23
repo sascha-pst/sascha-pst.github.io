@@ -7,4 +7,3 @@ cover_image: /assets/images/travel/dragonfruit.jpg
 cover_alt: Manila, Philippines.
 ---
 
-A draft entry. Replace this text with your actual notes from Manila.
