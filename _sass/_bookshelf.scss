@@ -1,0 +1,51 @@
+// Bookshelf — for the /projects/bookshelf/ page
+// Uses design tokens from _tokens.scss where applicable
+
+.bookshelf-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.filter-btn {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid currentColor;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.filter-btn.is-active {
+  background: currentColor;
+  color: white;
+}
+
+.bookshelf-year { margin: 3rem 0; }
+
+.bookshelf-count {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+}
+
+.bookshelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.book__cover {
+  max-width: 140px;
+  height: auto;
+  display: block;
+}
+
+.book__title { font-size: 1.1rem; margin: 0.75rem 0 0.25rem; }
+.book__subtitle { font-size: 0.9rem; color: #666; font-style: italic; margin: 0 0 0.25rem; }
+.book__author { font-size: 0.9rem; color: #555; margin: 0; }
+.book__rating { margin: 0.5rem 0; letter-spacing: 2px; }
+.book__review { font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; }
