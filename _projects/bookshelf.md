@@ -10,8 +10,8 @@ permalink: /work/bookshelf/
   <p class="lede">{{ page.subtitle }}</p>
 </section>
 
-{% assign shelf = site.data.books | sort: "year_read" | reverse %}
-{% assign books_by_year = shelf | group_by: "year_read" %}
+  {% assign shelf = site.books | sort: "year_published" | reverse %}
+  {% assign books_by_year = shelf | group_by: "year_published" %}
 
 {% for year in books_by_year %}
   <section class="bookshelf-year">
