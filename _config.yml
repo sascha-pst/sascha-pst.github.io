@@ -31,6 +31,9 @@ collections:
   travel:
     output: true
     permalink: /blog/travel/:path/
+  blog:
+    output: true
+    permalink: /blog/:year/:slug/
 
 # ---------- Defaults ----------
 defaults:
