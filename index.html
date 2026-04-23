@@ -1,15 +1,18 @@
 ---
 layout: default
 title: Home
-description: Program manager and MIDS student working on algorithmic fairness, economic empowerment, and public interest technology.
+description: Data scientist working at the intersection of AI fairness and social impact.
 ---
 
-<section class="home-hero">
-  <p class="meta">Signature</p>
-  <h1 class="home-hero__title display">Program Manager.<br><span class="accent">Always on the line.</span></h1>
-  <p class="home-hero__lede">
-   Skeptical of most things AI companies claim, curious about the ones they haven't figured out yet. Currently in Berkeley's MIDS program.
-  </p>
+<section class="hero-block">
+  <div class="hero-canvas" id="hero-canvas"></div>
+  <div class="hero-block__inner">
+    <p class="meta">Signature</p>
+    <h1 class="home-hero__title display">Data scientist.<br><span class="accent">WIP.</span></h1>
+    <p class="hero-block__lede">
+      This is me.
+    </p>
+  </div>
 </section>
 
 <hr>
@@ -49,30 +52,34 @@ description: Program manager and MIDS student working on algorithmic fairness, e
     <h2 class="home-section__title">Building in public.</h2>
   </header>
 
-  {% assign featured = site.projects | where: "featured", true | sort: 'date' | reverse %}
-  {% if featured.size > 0 %}
-    <div class="project-list">
-      {% for project in featured %}
-        <a href="{{ project.url | relative_url }}" class="project-card">
-          <div class="project-card__header">
-            <p class="meta">
-              {% if project.status %}{{ project.status }} · {% endif %}
-              {{ project.date | date: "%Y" }}
-            </p>
-            <h3 class="project-card__title">{{ project.title }}</h3>
-          </div>
-          {% if project.subtitle %}
-            <p class="project-card__subtitle">{{ project.subtitle }}</p>
-          {% endif %}
-          {% if project.tech %}
-            <p class="project-card__tech meta">{{ project.tech | join: " · " }}</p>
-          {% endif %}
-        </a>
-      {% endfor %}
-    </div>
-    <p class="home-section__link"><a href="{{ '/work/' | relative_url }}">All projects →</a></p>
+  {% if site.projects %}
+    {% assign featured = site.projects | where: "featured", true | sort: 'date' | reverse %}
+    {% if featured.size > 0 %}
+      <div class="project-list">
+        {% for project in featured %}
+          <a href="{{ project.url | relative_url }}" class="project-card">
+            <div class="project-card__header">
+              <p class="meta">
+                {% if project.status %}{{ project.status }} · {% endif %}
+                {{ project.date | date: "%Y" }}
+              </p>
+              <h3 class="project-card__title">{{ project.title }}</h3>
+            </div>
+            {% if project.subtitle %}
+              <p class="project-card__subtitle">{{ project.subtitle }}</p>
+            {% endif %}
+            {% if project.tech %}
+              <p class="project-card__tech meta">{{ project.tech | join: " · " }}</p>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+      <p class="home-section__link"><a href="{{ '/work/' | relative_url }}">All projects →</a></p>
+    {% else %}
+      <p class="muted">Projects coming soon.</p>
+    {% endif %}
   {% else %}
-    <p class="muted">Projects coming soon.</p>
+    <p class="muted">Projects collection not configured.</p>
   {% endif %}
 </section>
 
@@ -80,7 +87,7 @@ description: Program manager and MIDS student working on algorithmic fairness, e
 
 <section class="home-section home-elsewhere">
   <header class="home-section__header">
-    <p class="meta">Get in touch</p>
+    <p class="meta">Elsewhere</p>
     <h2 class="home-section__title">Reach me.</h2>
   </header>
 
@@ -89,9 +96,12 @@ description: Program manager and MIDS student working on algorithmic fairness, e
     <dd><a href="https://github.com/sascha-pst">github.com/sascha-pst</a></dd>
 
     <dt class="meta">LinkedIn</dt>
-    <dd><a href="https://linkedin.com/in/sashaschaps">linkedin.com/in/sashaschaps</a></dd>
+    <dd><a href="https://linkedin.com/in/sascha-pst">linkedin.com/in/sashatschaps</a></dd>
 
     <dt class="meta">Email</dt>
-    <dd><a href="mailto:sashaschaps@berkeley.edu">sashaschaps@berkeley.edu</a></dd>
+    <dd><a href="mailto:sasha.schaps@gmail.com">sasha.schaps@gmail.com</a></dd>
   </dl>
 </section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="{{ '/assets/js/hero-gradient.js' | relative_url }}" defer></script>
