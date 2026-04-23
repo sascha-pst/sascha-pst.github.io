@@ -1,6 +1,7 @@
-// Bookshelf — for the /projects/bookshelf/ page
+// Bookshelf — for the /work/bookshelf/ page
 // Uses design tokens from _tokens.scss where applicable
 
+// ---- Filter bar (for when you wire up JS tag filtering) ----
 .bookshelf-filters {
   display: flex;
   flex-wrap: wrap;
@@ -23,6 +24,7 @@
   color: white;
 }
 
+// ---- Year grouping ----
 .bookshelf-year { margin: 3rem 0; }
 
 .bookshelf-count {
@@ -31,43 +33,17 @@
   margin-top: -0.5rem;
 }
 
+// ---- Grid ----
 .bookshelf-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
 }
 
-.book__cover {
-  max-width: 140px;
-  height: auto;
-  display: block;
-}
-
-.book__title { font-size: 1.1rem; margin: 0.75rem 0 0.25rem; }
-.book__subtitle { font-size: 0.9rem; color: #666; font-style: italic; margin: 0 0 0.25rem; }
-.book__author { font-size: 0.9rem; color: #555; margin: 0; }
-.book__rating { margin: 0.5rem 0; letter-spacing: 2px; }
-.book__review { font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; }
-.book__subtitle {
-  font-size: 0.85rem;
-  font-style: italic;
-  color: #666;
-  margin: 0.25rem 0;
-}
-
-.book__year {
-  font-size: 0.8rem;
-  color: #888;
-  margin: 0.25rem 0;
-}
-
-.book__rating-num {
-  font-size: 0.8rem;
-  color: #666;
-  margin-left: 0.5rem;
-}
-
+// ---- Individual book card ----
 .book__link {
   text-decoration: none;
   color: inherit;
@@ -76,4 +52,29 @@
 
 .book__link:hover .book__title {
   text-decoration: underline;
+}
+
+.book__cover {
+  max-width: 140px;
+  height: auto;
+  display: block;
+}
+
+.book__title    { font-size: 1.1rem;  margin: 0.75rem 0 0.25rem; }
+.book__subtitle { font-size: 0.85rem; font-style: italic; color: #666; margin: 0.25rem 0; }
+.book__author   { font-size: 0.9rem;  color: #555; margin: 0; }
+.book__year     { font-size: 0.8rem;  color: #888; margin: 0.25rem 0; }
+
+.book__rating { margin: 0.5rem 0; letter-spacing: 2px; }
+.book__rating-num {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.5rem;
+  letter-spacing: normal;
+}
+
+.book__review {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
 }
