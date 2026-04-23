@@ -6,5 +6,3 @@ location: Guatemala
 cover_image: /assets/images/travel/acatenengo.jpg
 cover_alt: Acatenango, Guatemala.
 ---
-
-A draft entry. Replace this text with your actual notes from Acatenango.
