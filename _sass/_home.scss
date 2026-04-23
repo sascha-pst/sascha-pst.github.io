@@ -23,9 +23,9 @@
   padding: var(--space-10) 10;
 }
 
-.home-section__header {
-  margin-bottom: var(--space-10);
-}
+  .home-section__header .meta {
+    color: var(--color-rosie);
+  }
 
 .home-section__title {
   font-size: var(--fs-xl);
