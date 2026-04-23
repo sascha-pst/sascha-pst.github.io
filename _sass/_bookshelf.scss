@@ -40,21 +40,18 @@
     color: inherit;
     text-decoration: none;
     transition: color var(--dur-fast) var(--ease-out);
-
-&__link {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    transition: color var(--dur-fast) var(--ease-out);
     &:hover .book__title,
     &:focus-visible .book__title {
       color: var(--color-clementine);
     }
   }
 }
+
 // ---- Individual book page (book.html layout) ----
 .book-post {
   max-width: var(--text-width);
+  // ... rest of your .book-post rules stay the same
+}
 
   &__header {
     margin-bottom: var(--space-5);
