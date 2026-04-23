@@ -36,7 +36,7 @@ collections:
     permalink: /blog/:year/:slug/
   books:
     output: true
-    permalink: /bookshelf/:path/
+    permalink: /books/:path/
 # ---------- Defaults ----------
 defaults:
   - scope:
