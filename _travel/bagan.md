@@ -7,4 +7,3 @@ cover_image: /assets/images/travel/bagan.jpg
 cover_alt: Bagan, Myanmar.
 ---
 
-A draft entry. Replace this text with your actual notes from Bagan.
