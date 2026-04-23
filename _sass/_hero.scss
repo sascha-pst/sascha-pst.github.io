@@ -48,7 +48,7 @@
 }
 
 .hero-block .accent {
-  color: var(--color-clay);  // Rosie pops better than clementine against this background
+  color: var(--color-clay);  // Rosie
 }
 
 .hero-block__lede {
@@ -69,11 +69,10 @@
   opacity: 1;
 }
 
-// Hide the canvas from assistive tech — it's decorative
+// Hide the canvas
 .hero-canvas,
 .hero-canvas canvas {
-  pointer-events: auto;  // allow pointer events so hover-distortion works
-}
+  pointer-events: auto;  // allow pointer events
 
 @media (prefers-reduced-motion: reduce) {
   .hero-block {
