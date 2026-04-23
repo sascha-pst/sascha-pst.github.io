@@ -6,5 +6,3 @@ location: Bali
 cover_image: /assets/images/travel/coconuts.jpg
 cover_alt: Bali, Bali.
 ---
-
-A draft entry. Replace this text with your actual notes from Bali.
