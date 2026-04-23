@@ -23,9 +23,9 @@ layout: default
     {% endif %}
   </header>
 
-  {% if page.cover_image %}
+{% if page.cover %}
     <figure class="book-post__cover">
-      <img src="{{ page.cover_image | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+      <img src="{{ page.cover }}" alt="{{ page.cover_alt | default: page.title }}">
     </figure>
   {% endif %}
 
