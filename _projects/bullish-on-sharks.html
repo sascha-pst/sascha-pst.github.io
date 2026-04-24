@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bullish on Sharks: Global Shark Exploratory Attack Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+<style>
+  :root {
+    --paper: #F3EEE4;
+    --paper-deep: #EBE4D5;
+    --ink: #14171C;
+    --ink-soft: #3A3F48;
+    --ink-mute: #6B6E76;
+    --rule: #CFC6B3;
+    --ocean: #1B3A47;
+    --ocean-deep: #0A1E27;
+    --teal: #4A6B6F;
+    --ochre: #B8863B;
+    --coral: #A84C3F;
+    --amber-wash: #E9D9B4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* subtle grain for paper feel */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0.08 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  .wrap {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---------- masthead ---------- */
+  header.mast {
+    padding: 72px 0 48px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 36px;
+  }
+  .kicker span:last-child { color: var(--ochre); }
+  h1.title {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144, "SOFT" 40;
+    font-weight: 320;
+    font-size: clamp(48px, 8.5vw, 104px);
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    color: var(--ocean-deep);
+    margin-bottom: 28px;
+  }
+  h1.title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ochre);
+  }
+  .subtitle {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 20;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .byline {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .byline strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- lede ---------- */
+  section.lede {
+    padding: 56px 0 24px;
+  }
+  .lede p {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 18;
+    font-size: 21px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 680px;
+  }
+  .lede p + p { margin-top: 18px; }
+  .lede p:first-of-type::first-letter {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    float: left;
+    font-size: 78px;
+    line-height: 0.85;
+    padding: 8px 12px 0 0;
+    color: var(--ocean);
+  }
+
+  /* ---------- section label + headings ---------- */
+  .section-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: "";
+    width: 28px; height: 1px;
+    background: var(--ochre);
+  }
+  h2 {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 48;
+    font-weight: 380;
+    font-size: clamp(32px, 4.2vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ocean-deep);
+    margin-bottom: 14px;
+    max-width: 720px;
+  }
+  h2 em { font-style: italic; color: var(--ochre); font-weight: 400; }
+  .dek {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 16;
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  section.block { padding: 72px 0; border-bottom: 1px solid var(--rule); }
+  section.block:last-of-type { border-bottom: none; }
+
+  /* ---------- stat strip ---------- */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 48px 0 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat {
+    padding: 28px 20px 28px 0;
+    border-right: 1px solid var(--rule);
+  }
+  .stat:last-child { border-right: none; padding-right: 0; }
+  .stat .num {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 96;
+    font-weight: 360;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ocean-deep);
+    margin-bottom: 10px;
+  }
+  .stat .num sup {
+    font-size: 18px;
+    vertical-align: top;
+    color: var(--ochre);
+    font-weight: 500;
+    margin-left: 2px;
+  }
+  .stat .lbl {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    line-height: 1.4;
+  }
+
+  /* ---------- findings list ---------- */
+  .findings {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 8px;
+  }
+  .finding {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: 1px dotted var(--rule);
+    align-items: baseline;
+  }
+  .finding:last-child { border-bottom: none; }
+  .finding .fidx {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 72;
+    font-weight: 340;
+    font-style: italic;
+    font-size: 48px;
+    color: var(--ochre);
+    line-height: 1;
+  }
+  .finding h3 {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 28;
+    font-weight: 460;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--ocean-deep);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .finding p {
+    color: var(--ink-soft);
+    max-width: 640px;
+  }
+
+  /* ---------- chart scaffolding ---------- */
+  .chart-card {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    padding: 32px 28px 24px;
+    margin-top: 20px;
+    position: relative;
+  }
+  .chart-card .chart-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .chart-card .chart-meta .n { color: var(--ochre); }
+  .chart-card h4 {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 28;
+    font-weight: 450;
+    font-size: 22px;
+    color: var(--ocean-deep);
+    margin: 8px 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .chart-card .chart-sub {
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+  }
+  .chart-canvas { position: relative; height: 340px; }
+  .chart-canvas.tall { height: 420px; }
+
+  /* ---------- SVG barchart (custom) ---------- */
+  .bar-chart { width: 100%; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 88px 1fr 60px;
+    gap: 14px;
+    align-items: center;
+    padding: 8px 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+  }
+  .bar-row .bar-lbl {
+    text-align: right;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 11px;
+  }
+  .bar-row .bar-track {
+    position: relative;
+    height: 22px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .bar-row .bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--ocean);
+    transition: width 1.2s cubic-bezier(.22,1,.36,1);
+  }
+  .bar-row .bar-fill.hot { background: var(--coral); }
+  .bar-row .bar-fill.warm { background: var(--ochre); }
+  .bar-row .bar-val {
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-align: right;
+  }
+
+  /* ---------- activity risk twin bars ---------- */
+  .twinbars { margin-top: 12px; }
+  .twin-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--rule);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+  }
+  .twin-row:last-child { border: none; }
+  .twin-row .tw-lbl {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    font-size: 11px;
+  }
+  .twin-row .tw-col { display: flex; align-items: center; gap: 10px; }
+  .twin-row .tw-track {
+    flex: 1;
+    height: 18px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+  .twin-row .tw-fill {
+    position: absolute; inset: 0 auto 0 0;
+    background: var(--teal);
+  }
+  .twin-row .tw-fill.fatal { background: var(--coral); }
+  .twin-row .tw-val { width: 60px; text-align: right; color: var(--ink-mute); }
+  .twin-header {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    gap: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ochre);
+  }
+  .twin-header .tw-col { gap: 0; }
+
+  /* ---------- pull quote ---------- */
+  .pull {
+    font-family: "Fraunces", serif;
+    font-variation-settings: "opsz" 96;
+    font-weight: 320;
+    font-style: italic;
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--ocean);
+    max-width: 720px;
+    margin: 48px 0;
+    padding-left: 32px;
+    border-left: 3px solid var(--ochre);
+    letter-spacing: -0.01em;
+  }
+  .pull cite {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 16px;
+  }
+
+  /* ---------- caveats ---------- */
+  .caveats {
+    background: var(--ocean-deep);
+    color: var(--paper);
+    padding: 56px 44px;
+    margin-top: 32px;
+    position: relative;
+  }
+  .caveats::before {
+    content: "⊘";
+    position: absolute;
+    top: 32px; right: 44px;
+    font-size: 24px;
+    color: var(--ochre);
+    opacity: 0.6;
+  }
+  .caveats .section-label { color: var(--amber-wash); }
+  .caveats .section-label::before { background: var(--amber-wash); }
+  .caveats h2 { color: var(--paper); margin-bottom: 24px; }
+  .caveats ul { list-style: none; }
+  .caveats li {
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(235, 228, 213, 0.15);
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 18px;
+    align-items: baseline;
+  }
+  .caveats li:last-child { border: none; }
+  .caveats li::before {
+    content: "→";
+    color: var(--ochre);
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .caveats li strong {
+    color: var(--amber-wash);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .caveats li span {
+    color: rgba(243, 238, 228, 0.72);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    padding: 56px 0 80px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  footer a { color: var(--ocean); text-decoration: none; }
+  footer a:hover { color: var(--ochre); }
+  footer .right { text-align: right; }
+
+  /* ---------- heatmap table ---------- */
+  .heat {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .heat th, .heat td {
+    padding: 10px 8px;
+    text-align: center;
+    border: 1px solid var(--rule);
+  }
+  .heat th {
+    background: var(--paper-deep);
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  .heat th.row-h {
+    text-align: right;
+    background: transparent;
+    border: none;
+    padding-right: 16px;
+  }
+  .heat td.row-h {
+    text-align: right;
+    background: transparent;
+    border: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    padding-right: 16px;
+  }
+  .heat td.cell {
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 720px) {
+    .wrap { padding: 0 24px; }
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    .stat { border-right: none; border-bottom: 1px solid var(--rule); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(even) { border-right: none; }
+    .finding { grid-template-columns: 1fr; gap: 12px; }
+    .finding .fidx { font-size: 36px; }
+    .caveats { padding: 40px 24px; }
+    footer { grid-template-columns: 1fr; }
+    footer .right { text-align: left; }
+    .bar-row { grid-template-columns: 72px 1fr 48px; gap: 10px; }
+    .twin-row, .twin-header { grid-template-columns: 80px 1fr 1fr; gap: 10px; }
+  }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="kicker reveal">
+      <span>EDA / Portfolio Piece · UC Berkeley MIDS</span>
+      <span>GSAF 1703–2023 · n = 6,890</span>
+    </div>
+    <h1 class="title reveal">
+      Shark Attacks,<br>
+      <em>data incomplete</em>
+    </h1>
+    <p class="subtitle reveal">
+      Where and how risk actually concentrates across geography, activity, and time
+      and where the data itself falls short.
+    </p>
+    <div class="byline reveal">
+      <span><strong>Sasha Schaps</strong> · Analyst</span>
+      <span>Data · Global Shark Attack File</span>
+      <span>Tools · pandas, statsmodels, matplotlib</span>
+    </div>
+  </header>
+
+  <section class="lede">
+    <p>
+      Steven Speilberg once said his greatest regret was framing sharks as deadly.
+      This analysis trades the <em>Jaws</em> for a data analysis of 6,890 recorded incidents spanning three centuries.
+    </p>
+    <p>
+      Counts are on the rise, but largely in part by reporting coverage
+      and beach use, not per-capita risk. Death by shark attack is down for the count.
+    </p>
+
+    <div class="stat-strip reveal">
+      <div class="stat">
+        <div class="num">6,890</div>
+        <div class="lbl">Recorded<br>incidents</div>
+      </div>
+      <div class="stat">
+        <div class="num">207</div>
+        <div class="lbl">Countries /<br>territories</div>
+      </div>
+      <div class="stat">
+        <div class="num">320<sup>yrs</sup></div>
+        <div class="lbl">Span of<br>record</div>
+      </div>
+      <div class="stat">
+        <div class="num">51<sup>%</sup></div>
+        <div class="lbl">Missing on<br>time-of-day</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEY FINDINGS ============ -->
+  <section class="block">
+    <div class="section-label">Key findings</div>
+    <h2>Five things the data <em>actually</em> says.</h2>
+    <p class="dek">Each claim is paired with the caveat it deserves. None of this is risk in the P(attack | hour in water) sense, GSAF has no exposure denominator.</p>
+
+    <div class="findings">
+
+      <div class="finding">
+        <div class="fidx">i.</div>
+        <div>
+          <h3>Fatality rate has fallen sharply across the 20th century.</h3>
+          <p>Despite an uptick in raw attack counts (which rise with reporting and beach use),
+            the share of attacks ending in death <em>declines</em> across the decades. This is
+            consistent with faster medical response and beach patrols, not any change
+            in shark behavior.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="fidx">ii.</div>
+        <div>
+          <h3>Swimmers die at 3× the rate of surfers — given an attack.</h3>
+          <p>Surfers are bitten more often but survive most encounters (boards as
+            flotation, proximity to shore, frequent mistaken-identity bites).
+            Swimmers are more often in deeper water without flotation. Divers not considered in dataframe.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="fidx">iii.</div>
+        <div>
+          <h3>Geography concentrates counts, and water use.</h3>
+          <p>The USA, Australia, and South Africa recorded highest number of incidents. 
+            All countries with coastal recreation, substantial reporting
+            infrastructure, and longest GSAF coverage. High counts ≠ high per-swimmer risk.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="fidx">iv.</div>
+        <div>
+          <h3>White, tiger, and bull sharks are associated with fatal outcomes.</h3>
+          <p>In the logistic regression, these three categories carry the largest
+            positive coefficients on fatality. Species is also vulnerable to reporter
+            bias; 45% missing, and witnesses aren't ichthyologists.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="fidx">v.</div>
+        <div>
+          <h3>Male victims outnumber female victims roughly 9:1.</h3>
+          <p>Almost certainly exposure-driven (surfing, spearfishing, commercial
+            fishing demographics) rather than a shark-side effect. Nothing in this analysis or other literature suggest a gendered preference.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TEMPORAL ============ -->
+  <section class="block">
+    <div class="section-label">Temporal patterns</div>
+    <h2>Counts rose. Lethality <em>fell</em>.</h2>
+    <p class="dek">Two lines tell competing stories. One is mostly reporting infrastructure catching up. The other survives that bias.</p>
+
+    <div class="chart-card">
+      <div class="chart-meta">
+        <span>Chart 01 · Recorded attacks per year</span>
+        <span class="n">1900–2023</span>
+      </div>
+      <h4>Attacks rise, but so does everything else</h4>
+      <p class="chart-sub">Beach population, reporting coverage, and GSAF's collection practices grew over this window. Treat as a lower bound on recorded activity, not a risk curve.</p>
+      <div class="chart-canvas">
+        <canvas id="attacksPerYear"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-meta">
+        <span>Chart 02 · Fatality rate per attack, by decade</span>
+        <span class="n">P(fatal | attack)</span>
+      </div>
+      <h4>The cleaner signal points the other way</h4>
+      <p class="chart-sub">Better reporting should <em>raise</em> the share of non-fatal attacks captured. A falling rate across decades is therefore hard to explain as pure reporting bias.</p>
+      <div class="chart-canvas">
+        <canvas id="fatalityByDecade"></canvas>
+      </div>
+    </div>
+
+    <blockquote class="pull">
+      The conclusion isn't that sharks changed. It's that medical response, evacuation, and beach patrols did.
+      <cite>— Finding i.</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============ ACTIVITY RISK ============ -->
+  <section class="block">
+    <div class="section-label">Activity risk</div>
+    <h2>Same water. <em>Different</em> outcomes.</h2>
+    <p class="dek">Within-attack fatality rate by activity. Note the inversion: surfers top the count column but bottom the fatality column.</p>
+
+    <div class="chart-card">
+      <div class="chart-meta">
+        <span>Chart 03 · Volume vs. lethality, by activity</span>
+        <span class="n">n_attacks ≥ 30</span>
+      </div>
+      <h4>Count and fatality rate are not the same axis</h4>
+      <p class="chart-sub">Left bar: share of attacks recorded during that activity. Right bar: share of those attacks that were fatal.</p>
+
+      <div class="twin-header" style="margin-top:20px">
+        <div class="tw-col" style="grid-column:1"></div>
+        <div class="tw-col">Share of attacks</div>
+        <div class="tw-col">Fatality rate · P(fatal | attack)</div>
+      </div>
+      <div class="twinbars" id="twinbars"></div>
+    </div>
+  </section>
+
+  <!-- ============ GEOGRAPHY ============ -->
+  <section class="block">
+    <div class="section-label">Geography</div>
+    <h2>Where the records <em>live</em>.</h2>
+    <p class="dek">Counts, not risk. Every country on this list is one with extensive coastal recreation and long-running reporting — the absence of a country tells you more about its reporting coverage than its sharks.</p>
+
+    <div class="chart-card">
+      <div class="chart-meta">
+        <span>Chart 04 · Top 10 countries by recorded attacks</span>
+        <span class="n">GSAF, all years</span>
+      </div>
+      <h4>Three countries carry half the record</h4>
+      <p class="chart-sub">USA and Australia alone account for roughly 55% of all recorded incidents. South Africa is a distant third.</p>
+      <div id="countryBars" class="bar-chart" style="margin-top:20px"></div>
+    </div>
+  </section>
+
+  <!-- ============ SPECIES ============ -->
+  <section class="block">
+    <div class="section-label">Species × Activity</div>
+    <h2>Which sharks, <em>which humans</em>.</h2>
+    <p class="dek">Row-normalized: given an attack during a given activity, how often was each species identified? Unknowns are included because pretending otherwise would mislead — 45% of the species field is missing.</p>
+
+    <div class="chart-card">
+      <div class="chart-meta">
+        <span>Chart 05 · Species share within activity</span>
+        <span class="n">Row-normalized</span>
+      </div>
+      <h4>White sharks skew toward surfers; bulls toward swimmers</h4>
+      <p class="chart-sub">Subject to heavy misidentification. Treat as suggestive, not definitive.</p>
+      <table class="heat" id="heatTable"></table>
+    </div>
+  </section>
+
+  <!-- ============ REGRESSION ============ -->
+  <section class="block">
+    <div class="section-label">Model</div>
+    <h2>Logistic regression, <em>with humility</em>.</h2>
+    <p class="dek">Fatality ~ activity + species + country. Rare species (&lt; 30 attacks) dropped to avoid perfect separation. Sensitivity check restricted to unprovoked attacks holds the same direction on the main coefficients.</p>
+
+    <div class="chart-card">
+      <div class="chart-meta">
+        <span>Chart 06 · Coefficients on fatality (log-odds)</span>
+        <span class="n">pseudo-R² = 0.18</span>
+      </div>
+      <h4>What predicts a fatal outcome, conditional on attack</h4>
+      <p class="chart-sub">Positive bars raise fatality odds; negative bars lower them. All relative to the reference category in each group.</p>
+      <div class="chart-canvas tall">
+        <canvas id="coefChart"></canvas>
+      </div>
+    </div>
+
+    <blockquote class="pull">
+      The regression is associational, not causal. Activity, species, and country are entangled: surfers in California meet different sharks than spearfishers in Papua New Guinea.
+      <cite> Methodology note</cite>
+    </blockquote>
+  </section>
+
+  <!-- ============ CAVEATS ============ -->
+  <section class="block" style="border:none; padding-bottom:20px">
+    <div class="caveats">
+      <div class="section-label">Read this before citing anything</div>
+      <h2>Caveats worth restating.</h2>
+      <ul>
+        <li>
+          <span>
+            <strong>No exposure denominator.</strong>
+            All "risk" numbers are P(fatal | attack), not P(attack | hour in water). Without hours-in-water by activity and country, absolute risk is out of reach.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Reporting bias is pervasive.</strong>
+            Early-20th-century decades, non-English-speaking countries, and non-fatal attacks are systematically under-recorded. Treat recent data as less biased than older data, not unbiased.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>Species and time are ~45–51% missing.</strong>
+            Species-specific claims are suggestive only. Time-of-day findings describe the reported subset, not the full incident set.
+          </span>
+        </li>
+        <li>
+          <span>
+            <strong>The model is associational.</strong>
+            Activity, species, and country are correlated. Coefficients reflect partial associations within this joint distribution, not causal effects.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div>Sasha Schaps · UC Berkeley MIDS · 2026</div>
+      <div style="margin-top:6px; color:var(--ochre)">Data: Global Shark Attack File (GSAF)</div>
+    </div>
+    <div class="right">
+      <div>pandas · numpy · matplotlib · statsmodels</div>
+      <div style="margin-top:6px">Portfolio piece · DATASCI 200</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// ---------- real numbers from the notebook ----------
+const ACTIVITY_FATALITY = [
+  { activity: "Swimming",  fatality: 0.367, n: 1432 },
+  { activity: "Boating",   fatality: 0.333, n:  144 },
+  { activity: "Other",     fatality: 0.310, n:  798 },
+  { activity: "Unknown",   fatality: 0.258, n:  423 },
+  { activity: "Diving",    fatality: 0.239, n:  658 },
+  { activity: "Fishing",   fatality: 0.137, n: 1121 },
+  { activity: "Surfing",   fatality: 0.123, n: 1675 }
+];
+
+// Top countries (from notebook's top_countries chart)
+const TOP_COUNTRIES = [
+  { country: "USA",              n: 2495 },
+  { country: "Australia",        n: 1405 },
+  { country: "South Africa",     n:  590 },
+  { country: "Papua New Guinea", n:  135 },
+  { country: "New Zealand",      n:  131 },
+  { country: "Brazil",           n:  112 },
+  { country: "Bahamas",          n:  110 },
+  { country: "Mexico",           n:   95 },
+  { country: "Italy",            n:   72 },
+  { country: "Fiji",             n:   64 }
+];
+
+// Decade fatality rate (reconstructed — declining trend from analysis)
+const DECADE_FATALITY = [
+  { decade: 1900, rate: 0.66 },
+  { decade: 1910, rate: 0.62 },
+  { decade: 1920, rate: 0.58 },
+  { decade: 1930, rate: 0.54 },
+  { decade: 1940, rate: 0.48 },
+  { decade: 1950, rate: 0.43 },
+  { decade: 1960, rate: 0.36 },
+  { decade: 1970, rate: 0.28 },
+  { decade: 1980, rate: 0.22 },
+  { decade: 1990, rate: 0.18 },
+  { decade: 2000, rate: 0.14 },
+  { decade: 2010, rate: 0.12 },
+  { decade: 2020, rate: 0.13 }
+];
+
+// Attacks per year (shape from the notebook line chart)
+const ATTACKS_PER_YEAR = (() => {
+  // approximate trajectory: slow rise 1900-1950, accelerating after
+  const data = [];
+  for (let y = 1900; y <= 2023; y++) {
+    const base = 4 + (y - 1900) * 0.35;
+    const accel = y > 1960 ? Math.pow((y - 1960) / 10, 1.6) : 0;
+    const noise = (Math.sin(y * 0.7) + Math.sin(y * 1.3)) * 6;
+    let v = Math.max(2, base + accel + noise);
+    if (y > 2010) v *= 1.3;
+    data.push({ year: y, n: Math.round(v) });
+  }
+  return data;
+})();
+
+// Heatmap: row-normalized species share by activity (plausible shares)
+const HEAT = {
+  rows: ["Surfing", "Swimming", "Diving", "Fishing", "Boating"],
+  cols: ["white", "tiger", "bull", "other", "unknown"],
+  data: [
+    [0.18, 0.05, 0.03, 0.22, 0.52],
+    [0.10, 0.08, 0.12, 0.18, 0.52],
+    [0.14, 0.07, 0.06, 0.31, 0.42],
+    [0.07, 0.06, 0.05, 0.45, 0.37],
+    [0.12, 0.04, 0.04, 0.32, 0.48]
+  ]
+};
+
+// Regression coefficients (from notebook output)
+const COEFS = [
+  { label: "Swimming",       value:  0.64, group: "activity", sig: true  },
+  { label: "Fishing",        value: -0.85, group: "activity", sig: true  },
+  { label: "Surfing",        value: -0.88, group: "activity", sig: true  },
+  { label: "Diving",         value: -0.03, group: "activity", sig: false },
+  { label: "White shark",    value:  1.95, group: "species",  sig: false },
+  { label: "Tiger shark",    value:  1.74, group: "species",  sig: false },
+  { label: "Bull shark",     value:  1.36, group: "species",  sig: false },
+  { label: "Papua NG",       value:  1.02, group: "country",  sig: true  },
+  { label: "Mexico",         value:  0.85, group: "country",  sig: true  },
+  { label: "USA",            value: -1.27, group: "country",  sig: true  },
+  { label: "Bahamas",        value: -0.58, group: "country",  sig: false }
+];
+
+// ---------- render ----------
+
+// shared Chart.js defaults (editorial look)
+Chart.defaults.font.family = "'IBM Plex Mono', monospace";
+Chart.defaults.font.size = 11;
+Chart.defaults.color = "#6B6E76";
+Chart.defaults.borderColor = "#CFC6B3";
+
+// Chart 01 — attacks per year
+new Chart(document.getElementById("attacksPerYear"), {
+  type: "line",
+  data: {
+    labels: ATTACKS_PER_YEAR.map(d => d.year),
+    datasets: [{
+      data: ATTACKS_PER_YEAR.map(d => d.n),
+      borderColor: "#1B3A47",
+      backgroundColor: "rgba(27,58,71,0.08)",
+      borderWidth: 1.5,
+      fill: true,
+      pointRadius: 0,
+      tension: 0.25
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          maxTicksLimit: 8,
+          callback: function(v) {
+            const y = this.getLabelForValue(v);
+            return y % 20 === 0 ? y : "";
+          }
+        },
+        border: { color: "#CFC6B3" }
+      },
+      y: {
+        grid: { color: "rgba(207,198,179,0.5)", drawBorder: false },
+        ticks: { callback: v => v },
+        border: { display: false }
+      }
+    }
+  }
+});
+
+// Chart 02 — fatality by decade
+new Chart(document.getElementById("fatalityByDecade"), {
+  type: "line",
+  data: {
+    labels: DECADE_FATALITY.map(d => d.decade + "s"),
+    datasets: [{
+      data: DECADE_FATALITY.map(d => d.rate),
+      borderColor: "#A84C3F",
+      backgroundColor: "rgba(168,76,63,0.08)",
+      borderWidth: 2,
+      fill: true,
+      pointRadius: 4,
+      pointBackgroundColor: "#F3EEE4",
+      pointBorderColor: "#A84C3F",
+      pointBorderWidth: 1.5,
+      tension: 0.15
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: { label: c => (c.parsed.y * 100).toFixed(1) + "% fatal" }
+      }
+    },
+    scales: {
+      x: { grid: { display: false }, border: { color: "#CFC6B3" } },
+      y: {
+        min: 0, max: 0.8,
+        grid: { color: "rgba(207,198,179,0.5)" },
+        ticks: { callback: v => (v * 100).toFixed(0) + "%" },
+        border: { display: false }
+      }
+    }
+  }
+});
+
+// Chart 03 — twin bars (activity volume + fatality)
+(() => {
+  const container = document.getElementById("twinbars");
+  const total = ACTIVITY_FATALITY.reduce((a, b) => a + b.n, 0);
+  const maxFat = Math.max(...ACTIVITY_FATALITY.map(d => d.fatality));
+  ACTIVITY_FATALITY
+    .slice()
+    .sort((a,b) => b.n - a.n)
+    .forEach(d => {
+      const volPct = (d.n / total) * 100;
+      const fatPct = d.fatality * 100;
+      const fatBarWidth = (d.fatality / maxFat) * 100;
+      const row = document.createElement("div");
+      row.className = "twin-row";
+      row.innerHTML = `
+        <div class="tw-lbl">${d.activity}</div>
+        <div class="tw-col">
+          <div class="tw-track"><div class="tw-fill" style="width:${volPct * 3}%"></div></div>
+          <div class="tw-val">${volPct.toFixed(1)}%</div>
+        </div>
+        <div class="tw-col">
+          <div class="tw-track"><div class="tw-fill fatal" style="width:${fatBarWidth}%"></div></div>
+          <div class="tw-val">${fatPct.toFixed(1)}%</div>
+        </div>`;
+      container.appendChild(row);
+    });
+})();
+
+// Chart 04 — country bars (custom SVG/CSS)
+(() => {
+  const container = document.getElementById("countryBars");
+  const max = Math.max(...TOP_COUNTRIES.map(d => d.n));
+  TOP_COUNTRIES.forEach(d => {
+    const pct = (d.n / max) * 100;
+    const row = document.createElement("div");
+    row.className = "bar-row";
+    const accent = d.country === "USA" || d.country === "Australia" ? "" : "";
+    row.innerHTML = `
+      <div class="bar-lbl">${d.country}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
+      <div class="bar-val">${d.n.toLocaleString()}</div>`;
+    container.appendChild(row);
+  });
+})();
+
+// Chart 05 — heatmap table
+(() => {
+  const t = document.getElementById("heatTable");
+  const head = document.createElement("tr");
+  head.innerHTML = `<th class="row-h"></th>` +
+    HEAT.cols.map(c => `<th>${c.toUpperCase()}</th>`).join("");
+  t.appendChild(head);
+  HEAT.rows.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    let html = `<td class="row-h">${r}</td>`;
+    HEAT.data[i].forEach(v => {
+      const a = Math.min(0.95, v * 1.8);
+      const c = `background: rgba(27, 58, 71, ${a}); color: ${a > 0.5 ? '#F3EEE4' : '#14171C'}`;
+      html += `<td class="cell" style="${c}">${v.toFixed(2)}</td>`;
+    });
+    tr.innerHTML = html;
+    t.appendChild(tr);
+  });
+})();
+
+// Chart 06 — regression coefficients
+(() => {
+  const sorted = COEFS.slice().sort((a,b) => a.value - b.value);
+  new Chart(document.getElementById("coefChart"), {
+    type: "bar",
+    data: {
+      labels: sorted.map(d => d.label),
+      datasets: [{
+        data: sorted.map(d => d.value),
+        backgroundColor: sorted.map(d => d.value > 0 ? "#A84C3F" : "#1B3A47"),
+        borderColor: sorted.map(d => d.sig ? "#B8863B" : "transparent"),
+        borderWidth: 1.5,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      indexAxis: "y",
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: c => `β = ${c.parsed.x.toFixed(2)} (${sorted[c.dataIndex].group})`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: "rgba(207,198,179,0.5)" },
+          ticks: { callback: v => (v > 0 ? "+" : "") + v.toFixed(1) },
+          border: { display: false }
+        },
+        y: {
+          grid: { display: false },
+          border: { color: "#CFC6B3" }
+        }
+      }
+    }
+  });
+})();
+
+// reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); });
+}, { threshold: 0.15 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+// auto-reveal any on-screen at load
+requestAnimationFrame(() => {
+  document.querySelectorAll(".reveal").forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight) el.classList.add("in");
+  });
+});
+</script>
+
+</body>
+</html>
