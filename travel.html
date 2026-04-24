@@ -6,7 +6,7 @@ permalink: /blog/travel/
 ---
 <div class="travel-frame">
   <header class="travel-frame__header">
-    <p class="meta">Travel · {{ site.travel.size }} {{ site.travel.size | pluralize: "entry", "entries" }}</p>
+    <p class="meta">Travel · {{ site.travel.size }} {% if site.travel.size == 1 %}entry{% else %}entries{% endif %}</p>
     <h1 class="travel-frame__title">A record of where.</h1>
     <p class="meta travel-frame__hint">Scroll to rotate · drag to tilt · click to read</p>
   </header>
