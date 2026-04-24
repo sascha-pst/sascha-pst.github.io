@@ -1,6 +1,6 @@
 // ============================================================
 // Travel spiral — a 3D gallery that rotates with scroll/drag.
-// Each image in the spiral is clickable and links to its post.
+// Each image in the spiral is clickable and opens a side drawer.
 // Adapted from https://codepen.io/ol-ivier (spiral scroll base).
 // ============================================================
 
@@ -67,6 +67,40 @@
   const originalPositions = [];
   let targetVelocity = 0;
   let currentVelocity = 0;
+
+  // ---------- Drawer ----------
+  const drawer = document.getElementById('travel-drawer');
+  const drawerEls = drawer && {
+    image:    drawer.querySelector('.travel-drawer__image'),
+    title:    drawer.querySelector('.travel-drawer__title'),
+    subtitle: drawer.querySelector('.travel-drawer__subtitle'),
+    location: drawer.querySelector('.travel-drawer__location'),
+    link:     drawer.querySelector('.travel-drawer__link'),
+    close:    drawer.querySelector('.travel-drawer__close')
+  };
+
+  function openDrawer(entry) {
+    if (!drawer) return;
+    drawerEls.image.src            = entry.image || '';
+    drawerEls.image.alt            = entry.alt || '';
+    drawerEls.title.textContent    = entry.title || '';
+    drawerEls.subtitle.textContent = entry.subtitle || '';
+    drawerEls.location.textContent = entry.location || '';
+    drawerEls.link.href            = entry.url || '#';
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+  }
+
+  if (drawerEls) {
+    drawerEls.close.addEventListener('click', closeDrawer);
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+  }
 
   // ---------- Sizing ----------
   function getSize() {
@@ -254,7 +288,7 @@
       const b = imageSegmentBounds[i];
       if (u >= b.start && u < b.end) {
         const entry = entries[i];
-        if (entry && entry.url) window.location.href = entry.url;
+        if (entry) openDrawer(entry);
         return;
       }
     }
