@@ -1,0 +1,42 @@
+{% comment %}
+  Animated bookshelf — renders site.books as colored spines.
+  - Cycles through brand palette via index modulo
+  - Varies height/width deterministically (no front-matter changes needed)
+  - Truncates spine title; full title stays in aria-label
+  - Hover lifts the book and reveals a cover preview card
+{% endcomment %}
+
+{% assign palette = "persimmon,moss,midnight,clay,alabaster,deep" | split: "," %}
+
+<div class="bookshelf-wrap">
+  <div class="bookshelf">
+    <div class="shelf-row">
+      <div class="books">
+        {% for book in site.books %}
+          {% assign tone_idx = forloop.index0 | modulo: palette.size %}
+          {% assign tone = palette[tone_idx] %}
+          {% assign h = forloop.index0 | times: 17 | modulo: 56 | plus: 148 %}
+          {% assign w = forloop.index0 | times: 11 | modulo: 12 | plus: 24 %}
+          {% assign short_title = book.title | split: ":" | first %}
+
+          <a class="book book--{{ tone }}"
+             href="{{ book.url | relative_url }}"
+             style="height: {{ h }}px; width: {{ w }}px; --i: {{ forloop.index0 }};"
+             aria-label="{{ book.title | escape }}{% if book.author %} by {{ book.author }}{% endif %}">
+            <span class="book__spine">{{ short_title | truncate: 26, "" }}</span>
+            {% if book.cover %}
+              <span class="book__peek" aria-hidden="true">
+                <img src="{{ book.cover }}" alt="" loading="lazy">
+                <span class="book__peek-meta">
+                  <strong>{{ book.title }}</strong>
+                  {% if book.author %}<em>{{ book.author }}</em>{% endif %}
+                </span>
+              </span>
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+      <div class="shelf-board"></div>
+    </div>
+  </div>
+</div>
