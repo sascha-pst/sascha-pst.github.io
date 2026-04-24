@@ -27,16 +27,17 @@ permalink: /blog/travel/
       </li>
     {% endfor %}
   </ul>
-
-  <aside id="travel-drawer" class="travel-drawer" aria-hidden="true" aria-label="Entry details">
-    <button class="travel-drawer__close" type="button" aria-label="Close">×</button>
-    <img class="travel-drawer__image" alt="" />
-    <p class="travel-drawer__location"></p>
-    <h2 class="travel-drawer__title"></h2>
-    <p class="travel-drawer__subtitle"></p>
-    <a class="travel-drawer__link" href="#">Read the full entry →</a>
-  </aside>
 </div>
+
+<aside id="travel-drawer" class="travel-drawer" aria-hidden="true" aria-label="Entry details">
+  <button class="travel-drawer__close" type="button" aria-label="Close">×</button>
+  <img class="travel-drawer__image" alt="" />
+  <p class="travel-drawer__location"></p>
+  <h2 class="travel-drawer__title"></h2>
+  <p class="travel-drawer__subtitle"></p>
+  <a class="travel-drawer__link" href="#">Read the full entry →</a>
+</aside>
+
 <script id="travel-data" type="application/json">
 [
   {% for entry in entries %}
