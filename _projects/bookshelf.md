@@ -6,12 +6,7 @@ permalink: /work/bookshelf/
 date: 2026-01-01
 status: Ongoing
 featured: true
-  ---
-
-<section class="bookshelf-intro">
-  <h1 class="display">{{ page.title }}</h1>
-  <p class="lede">{{ page.subtitle }}</p>
-</section>
+---
 
 {% assign all_tags = site.books | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
 <nav class="bookshelf-filter" aria-label="Filter books by tag">
