@@ -5,7 +5,7 @@
 // ---------- Spiral page ----------
 .travel-frame {
   position: relative;
-  margin: 0 calc(65% - 60vw);
+  margin: 0 calc(50% - 50vw);
   background: var(--color-moss);
   color: var(--color-alabaster);
   min-height: 100vh;
@@ -49,6 +49,8 @@
 .travel-spiral {
   position: absolute;
   inset: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 75%;
   height: 75%;
   z-index: 1;
