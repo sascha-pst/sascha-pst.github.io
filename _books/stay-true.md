@@ -1,9 +1,10 @@
 ---
-title: Stay True: A Memoir
+title: Stay True
+Subtitle: A Memoir
 author: Hua Hsu
 year_published: 2023
 cover: https://images.booksense.com/images/200/315/9780593315200.jpg
 link: https://greenapplebooks.com/book/9780593315200
 rating: 5
-tags: [bay area]
+tags: [lived experience]
 ---
