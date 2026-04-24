@@ -43,7 +43,7 @@
 // ---- Grid (horizontal scrolling row) ----
 .bookshelf-grid {
   list-style: none;
-  margin: 0 calc(50% - 50vw);   // break out of container for edge-to-edge scroll
+  margin: 0 calc(50% - 50vw);
   padding: 0 var(--space-4) var(--space-4);
   display: flex;
   gap: var(--space-5);
@@ -54,9 +54,9 @@
   -webkit-overflow-scrolling: touch;
 }
 
-// ---- Book card (fixed width, scrolls horizontally) ----
+// ---- Book card ----
 .book {
-  flex: 0 0 320px;        // fixed width, no grow/shrink
+  flex: 0 0 320px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
