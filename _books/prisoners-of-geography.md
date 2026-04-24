@@ -6,5 +6,5 @@ year_published: 2015
 cover: https://img-cdn.hpb.com/normal/9781783962433/0/0/300.jpg
 link: https://www.hpb.com/prisoners-of-geography-ten-maps-that-tell-you-everything-you-need-to-know-about-global-politics/P-12083905-USED.html 
 rating: 3
-tags: [travel, history]
+tags: [power & systems]
 ---
