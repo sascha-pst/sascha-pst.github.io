@@ -1,5 +1,6 @@
 ---
-title: Born a Crime: Stories from a South African Childhood
+title: Born a Crime: 
+subtitle: Stories from a South African Childhood
 author: Trevor Noah
 year_published: 2016
 cover: https://images.booksense.com/images/174/588/9780399588174.jpg
