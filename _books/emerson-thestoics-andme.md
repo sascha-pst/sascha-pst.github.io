@@ -1,5 +1,5 @@
 ---
-title: Emerson, the Stoics, and Me:
+title: Emerson, the Stoics, and Me
 subtitle: Timeless Wisdom for Living an Authentic Life
 author: Mark Matousek
 year_published: 2025
