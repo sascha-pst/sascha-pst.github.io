@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Bookshelf
+subtitle: A look at what I'm reading
 permalink: /work/bookshelf/
 ---
 
