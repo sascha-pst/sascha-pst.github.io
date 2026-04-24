@@ -40,140 +40,85 @@
   border-color: var(--color-midnight);
 }
 
-// ---- Grid ----
+// ---- Grid (horizontal scrolling row) ----
 .bookshelf-grid {
   list-style: none;
+  margin: 0 calc(50% - 50vw);   // break out of container for edge-to-edge scroll
+  padding: 0 var(--space-4) var(--space-4);
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+// ---- Book card (fixed width, scrolls horizontally) ----
+.book {
+  flex: 0 0 320px;        // fixed width, no grow/shrink
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
   margin: 0;
   padding: 0;
-}
-
-// ---- Book card: cover left, meta + review right ----
-.book {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: var(--space-2) var(--space-4);
-  margin-bottom: var(--space-5);
-  padding-bottom: var(--space-5);
-  border-bottom: var(--rule) solid var(--color-rule);
-}
-
-.book:last-child {
-  border-bottom: 0;
+  border: 0;
 }
 
 .book__link {
-  grid-row: 1 / span 10;
-  grid-column: 1;
   display: block;
   border-bottom: 0;
 }
 
 .book__cover {
   width: 100%;
-  height: auto;
+  height: 400px;
+  object-fit: cover;
   display: block;
   box-shadow: 0 2px 8px rgba(16, 86, 102, 0.15);
-}
-
-.book__title,
-.book__subtitle,
-.book__author,
-.book__rating,
-.book__review {
-  grid-column: 2;
-  max-width: var(--text-width);
 }
 
 .book__title {
   font-size: var(--fs-md);
   font-weight: var(--fw-bold);
-  margin: 0;
+  margin: var(--space-2) 0 0;
+  max-width: none;
 }
 
 .book__subtitle {
   font-style: italic;
   color: var(--color-mute);
-  margin: 0;
   font-size: var(--fs-sm);
+  margin: 0;
+  max-width: none;
 }
 
 .book__author {
   font-size: var(--fs-sm);
   color: var(--color-ink);
   margin: 0;
+  max-width: none;
 }
 
 .book__rating {
   color: var(--color-rosie);
   letter-spacing: 2px;
   font-size: var(--fs-md);
-  margin: var(--space-2) 0 0;
+  margin: var(--space-1) 0 0;
+  max-width: none;
 }
 
 .book__review {
   font-size: var(--fs-sm);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--color-ink);
   margin-top: var(--space-2);
+  max-width: none;
 }
 
 .book__review p:last-child {
   margin-bottom: 0;
 }
-
-@media (max-width: 640px) {
-  .book {
-    grid-template-columns: 90px 1fr;
-    gap: var(--space-2) var(--space-3);
-  }
-}
-// ---- Individual book page (book.html layout) ----
-.book-post {
-  max-width: var(--text-width);
-
-  &__header {
-    margin-bottom: var(--space-5);
-
-    .meta {
-      color: var(--color-moss);
-    }
-  }
-
-  &__title {
-    color: var(--color-ink);
-  }
-
-  &__subtitle {
-    color: var(--color-ink);
-  }
-
-  &__rating {
-    color: var(--color-rosie);
-    letter-spacing: 2px;
-    font-size: var(--fs-lg);
-  }
-
-  &__cover {
-    margin: var(--space-5) 0;
-
-    img {
-      display: block;
-      max-width: 300px;
-      height: auto;
-    }
-  }
-
-  &__content {
-    margin: var(--space-5) 0;
-  }
-
-  &__footer {
-    margin-top: var(--space-7);
-
-    .back-link a {
-      color: var(--color-clementine);
-      font-family: var(--font-mono);
-      font-size: var(--fs-sm);
-    }
   }
 }
