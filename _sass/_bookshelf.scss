@@ -24,6 +24,32 @@
   position: relative;
 }
 
+.bookshelf-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  padding: var(--space-4) var(--space-3) 0;
+  margin: 0 calc(50% - 50vw);
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--color-mute);
+  border: var(--rule) solid var(--color-rule);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+
+  &:hover { color: var(--color-accent); border-color: var(--color-accent); }
+  &.is-active { color: var(--color-alabaster); background: var(--color-midnight); border-color: var(--color-midnight); }
+}
+
 // ---- Books row ----
 .books {
   display: flex;
