@@ -23,6 +23,12 @@ layout: default
     {% endif %}
   </header>
 
+{% if page.link %}
+    <p class="book-post__link">
+      <a href="{{ page.link }}" target="_blank" rel="noopener">Find a copy →</a>
+    </p>
+  {% endif %}
+
 {% if page.cover %}
     <figure class="book-post__cover">
       <img src="{{ page.cover }}" alt="{{ page.cover_alt | default: page.title }}">
