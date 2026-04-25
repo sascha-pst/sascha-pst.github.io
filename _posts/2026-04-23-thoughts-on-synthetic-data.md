@@ -9,13 +9,13 @@ We talk a lot about synthetic meat. Can we talk about synthetic data in your hea
 
 [The UK uses synthetic data](https://pmc.ncbi.nlm.nih.gov/articles/PMC9951365/). Scalable, privacy-preserving, [increasingly the default](https://pubmed.ncbi.nlm.nih.gov/39603900/).
 
-[Taiwan's national health system uses federated learning](https://pubmed.ncbi.nlm.nih.gov/37822805/). The model goes to the data. Privacy preserved, outcomes improved, training data that reflects the population it serves.
+[Taiwan's national health system uses federated learning](https://pubmed.ncbi.nlm.nih.gov/37822805/). The model goes to the data. Privacy preserved, outcomes improved, training data that reflects the population it serves. UF just did.
 
-The US? Neither. Not coherently. Not at the federal level.
+The US? [University of Florida](https://pubmed.ncbi.nlm.nih.gov/40557342/) just did.
 
 Here's the question I keep sitting with:
 
-> ***If AI training data is generated from a system that [already underserves certain populations](https://pubmed.ncbi.nlm.nih.gov/36812532/), will the synthetic version fix the gap or reproduce it?***
+> ***If AI training data is generated from a system that [already underserves certain populations](https://pubmed.ncbi.nlm.nih.gov/36812532/), will the synthetic version fix the gap or reproduce it? Is it humane to use synthetic (boosted) data?***
 
 [Boosting can reweight underrepresented groups](https://pubmed.ncbi.nlm.nih.gov/38288010/) during training. That helps, but only if those groups are in the data. You can't boost what was never collected. You can't reweight someone who never made it into the system.
 
