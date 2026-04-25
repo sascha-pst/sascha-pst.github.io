@@ -1,6 +1,6 @@
 ---
 title: Stay True
-Subtitle: A Memoir
+subtitle: A Memoir
 author: Hua Hsu
 year_published: 2023
 cover: https://images.booksense.com/images/200/315/9780593315200.jpg
