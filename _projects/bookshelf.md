@@ -2,6 +2,7 @@
 layout: default
 title: Bookshelf
 subtitle: A little library with local links.
+url: /projects/bookshelf/
 tech:
   - Jekyll
   - liquid
