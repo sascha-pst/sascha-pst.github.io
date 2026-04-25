@@ -15,11 +15,6 @@
   {% endfor %}
 {% endfor %}
 {% assign unique_tags = all_tags | uniq | sort %}
-{% if page.link %}
-    <p class="book-post__link">
-      <a href="{{ page.link }}" target="_blank" rel="noopener">Find a copy →</a>
-    </p>
-  {% endif %}
 
 <div class="bookshelf-filters">
   <button class="filter-btn is-active" data-filter="all">all</button>
@@ -39,7 +34,10 @@
           {% assign w = forloop.index0 | times: 11 | modulo: 12 | plus: 24 %}
           {% assign short_title = book.title | split: ":" | first %}
           {% assign tag_slugs = "" %}
-          {% for tag in book.tags %}{% assign tag_slugs = tag_slugs | append: tag | slugify | append: " " %}{% endfor %}
+          {% for tag in book.tags %}
+            {% assign slug = tag | slugify %}
+            {% assign tag_slugs = tag_slugs | append: slug | append: " " %}
+          {% endfor %}
 
           <a class="book book--{{ tone }}"
              href="{{ book.link | default: book.url | relative_url }}"
