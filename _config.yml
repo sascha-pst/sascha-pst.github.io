@@ -2,12 +2,22 @@
 # Site config
 # ============================================================
 
-title: Sasha
-description: (WIP) Data scientist · AI fairness research · ex-Meta.
+plugins:
+  - jekyll-seo-tag
+
+title: Sasha Schaps
+tagline: Data, fairness, impact.
+description: >
+  Writing and selected projects on data science, AI,
+  and public-interest tech. Currently studying at UC Berkeley.
+url: https://sascha-pst.github.io
 author: Sasha Schaps
-email: sashaschaps@berkeley.edu
-url: "https://sascha-pst.github.io"
-baseurl: ""
+social:
+  name: Sasha Schaps
+  links:
+    - https://linkedin.com/in/sashaschaps
+    - https://github.com/sascha-pst
+logo: /assets/favicon.svg
 
 # ---------- Build settings ----------
 markdown: kramdown
