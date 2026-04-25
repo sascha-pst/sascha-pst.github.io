@@ -13,6 +13,6 @@ The deceased was best known for a typo on slide 4, six years of "meets expectati
 
 I love the game. I crave stability. AI is disruptive.
 
-Writing isn't going anywhere. Even with AI. Especially with AI. And, I'm still working out what that means for the future, a world that is inhabitable and equitable, what my career could have been, and what it means to begin again.
+Writing isn't going anywhere. Even with AI. Especially with AI. And, I'm still working out what that means for the future, what my career could have been, and what it means to begin again.
 
-Turns out the deceased keeps writing. In fact, she's writing this.
+The deceased keeps writing. In fact, she wrote this.
