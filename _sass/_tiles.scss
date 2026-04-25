@@ -1,5 +1,7 @@
 // ============================================================
 // Tiles — shared card component for posts + projects
+// Variants: --post (rosie/persimmon), --project (moss),
+//           --feature (moss left-bar), --moss (full moss surface)
 // ============================================================
 
 .home-tiles {
@@ -9,9 +11,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   gap: var(--space-4);
-  max-width: none; // override the default ul max-width from _base
+  max-width: none; // override default ul max-width from _base
 }
 
+// ---------- Base tile ----------
 .tile {
   display: flex;
   flex-direction: column;
@@ -26,14 +29,13 @@
   transition:
     transform var(--dur-base) var(--ease-out),
     border-color var(--dur-base) var(--ease-out),
-    box-shadow var(--dur-base) var(--ease-out);
+    box-shadow var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
 }
 
 .tile:hover,
 .tile:focus-visible {
   transform: translateY(-2px);
-  border-color: var(--color-accent);
-  box-shadow: 0 6px 20px rgba(16, 86, 102, 0.08);
   opacity: 1;
 }
 
@@ -42,12 +44,13 @@
   outline-offset: 2px;
 }
 
+// ---------- Tile parts ----------
 .tile__meta {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--color-rosie);
+  color: var(--color-rosie); // default — overridden by variants
   margin: 0;
 }
 
@@ -60,11 +63,6 @@
   color: var(--color-ink);
   transition: color var(--dur-fast) var(--ease-out);
   text-wrap: balance;
-}
-
-.tile:hover .tile__title,
-.tile:focus-visible .tile__title {
-  color: var(--color-accent);
 }
 
 .tile__subtitle {
@@ -85,11 +83,41 @@
   border-top: var(--rule) solid var(--color-rule);
 }
 
-// Optional accent variant — first tile in row gets a midnight side-bar
-.tile--feature {
-  border-left: 3px solid var(--color-midnight);
+// ============================================================
+// Variants
+// ============================================================
+
+// ---------- Variant: posts (rosie meta, persimmon hover) ----------
+.tile--post .tile__meta {
+  color: var(--color-rosie);
 }
 
-@media (max-width: 640px) {
-  .home-tiles { grid-template-columns: 1fr; }
+.tile--post:hover,
+.tile--post:focus-visible {
+  border-color: var(--color-accent); // persimmon
+  box-shadow: 0 6px 20px rgba(16, 86, 102, 0.08);
 }
+
+.tile--post:hover .tile__title,
+.tile--post:focus-visible .tile__title {
+  color: var(--color-accent);
+}
+
+// ---------- Variant: projects (moss accent) ----------
+.tile--project .tile__meta {
+  color: var(--color-moss);
+}
+
+.tile--project:hover,
+.tile--project:focus-visible {
+  border-color: var(--color-moss);
+  box-shadow: 0 6px 20px rgba(131, 153, 88, 0.15); // moss-tinted shadow
+}
+
+.tile--project:hover .tile__title,
+.tile--project:focus-visible .tile__title {
+  color: var(--color-moss);
+}
+
+.tile--project:focus-visible {
+  outline-color: var(--color-m
