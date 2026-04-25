@@ -1,5 +1,5 @@
 ---
-title: The Philosphy of Walking
+title: The Philosophy of Walking
 author: Frédéric Gros 
 year_published: 2023
 cover: https://images.booksense.com/images/446/290/9781804290446.jpg
