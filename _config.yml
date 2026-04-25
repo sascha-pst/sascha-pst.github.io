@@ -36,9 +36,6 @@ collections:
   travel:
     output: true
     permalink: /blog/travel/:path/
-  blog:
-    output: true
-    permalink: /blog/:year/:slug/
   books:
     output: true
     permalink: /books/:path/
