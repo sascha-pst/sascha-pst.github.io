@@ -1,10 +1,11 @@
 # ============================================================
 # Site config
 # ============================================================
-
 plugins:
+  - jekyll-feed
   - jekyll-seo-tag
-
+  - jekyll-sitemap
+  
 title: Sasha Schaps
 tagline: Data, fairness, impact.
 description: >
@@ -26,12 +27,6 @@ highlighter: rouge
 sass:
   style: compressed
   sourcemap: never
-
-# ---------- Plugins (all GitHub Pages safe) ----------
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
 
 # ---------- Collections ----------
 collections:
