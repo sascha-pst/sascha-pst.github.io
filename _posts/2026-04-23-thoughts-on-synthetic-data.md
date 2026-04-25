@@ -16,7 +16,7 @@ The US? Neither. Not coherently. Not at the federal level.
 
 Here's the question I keep sitting with:
 
-> If AI training data is generated from a system that already underserves certain populations, will the synthetic version fix the gap or reproduce it?
+> ***If AI training data is generated from a system that already underserves certain populations, will the synthetic version fix the gap or reproduce it?***
 
 Boosting can reweight underrepresented groups during training. That helps, but only if those groups are in the data. You can't boost what was never collected. You can't reweight someone who never made it into the system.
 
