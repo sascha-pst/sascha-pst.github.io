@@ -1,0 +1,92 @@
+---
+layout: default
+title: Writing & Work
+permalink: /writing/
+---
+
+<section class="writing-intro">
+  <h1 class="writing-intro__display">writing<span class="dot">.</span></h1>
+  <p class="writing-intro__lede">Notes on data, fairness, and public-interest technology — alongside the projects they come from.</p>
+</section>
+
+<section class="posts">
+  <h2 class="section-head">recent posts<span class="dot">.</span></h2>
+
+  {% if site.posts.size == 0 %}
+    <p class="post-list__empty">No posts yet — first one's brewing.</p>
+  {% else %}
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <article class="post-entry">
+            <time datetime="{{ post.date | date_to_xmlschema }}" class="post-entry__date">
+              {{ post.date | date: "%b %-d, %Y" }}
+            </time>
+            <div>
+              <h3 class="post-entry__title">
+                <a href="{{ post.url | relative_url }}" class="post-entry__link">{{ post.title }}</a>
+              </h3>
+              {% if post.excerpt %}
+                <p class="post-entry__excerpt">{{ post.excerpt | strip_html }}</p>
+              {% endif %}
+              {% if post.tags.size > 0 %}
+                <ul class="post-entry__tags">
+                  {% for tag in post.tags %}<li>{{ tag }}</li>{% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section class="selected-work">
+  <h2 class="section-head">selected work<span class="dot">.</span></h2>
+
+  <ul class="project-list">
+
+    <li>
+      <a href="#" class="project-card"><!-- TODO: link to EquiScan repo or capstone page -->
+        <header class="project-card__header">
+          <p class="meta">MIDS capstone</p>
+          <h3 class="project-card__title">EquiScan</h3>
+        </header>
+        <p class="project-card__subtitle">
+          Algorithmic fairness audit of FDA-approved AI mammography tools across demographic subgroups.
+        </p>
+        <p class="project-card__tech">Fairness · Healthcare AI · Bias auditing</p>
+      </a>
+    </li>
+
+    <li>
+      <a href="#" class="project-card"><!-- TODO: link to housing repo or write-up -->
+        <header class="project-card__header">
+          <p class="meta">MIDS group project</p>
+          <h3 class="project-card__title">Housing Affordability</h3>
+        </header>
+        <p class="project-card__subtitle">
+          Multi-question analysis of US housing dynamics using Zillow Research datasets, top 10 metros.
+        </p>
+        <p class="project-card__tech">Python · EDA · Affordability</p>
+      </a>
+    </li>
+
+    <li>
+      <a href="#" class="project-card"><!-- TODO: link to shark dashboard or repo -->
+        <header class="project-card__header">
+          <p class="meta">Side project</p>
+          <h3 class="project-card__title">Shark Attacks</h3>
+        </header>
+        <p class="project-card__subtitle">
+          Where and how shark encounter risk concentrates — and where the data itself falls short.
+        </p>
+        <p class="project-card__tech">EDA · Plotly · Data limitations</p>
+      </a>
+    </li>
+
+  </ul>
+
+  <a href="{{ '/work' | relative_url }}" class="selected-work__archive-link">All projects →</a>
+</section>
