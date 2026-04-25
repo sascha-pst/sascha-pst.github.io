@@ -19,76 +19,40 @@ description: Data scientist working at the intersection of AI fairness and socia
 
 <section class="home-section">
   <header class="home-section__header">
-    <p class="meta">Writing</p>
-    <h2 class="home-section__title">Recent notes, in public.</h2>
-  </header>
-{% assign recent_posts = site.posts | slice: 0, 3 %}
-{% if recent_posts.size > 0 %}
-  <ul class="home-tiles">
-    {% for post in recent_posts %}
-      <li>
-        <a href="{{ post.url | relative_url }}" class="tile tile--post">
-          <p class="tile__meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">
-              {{ post.date | date: "%b %-d, %Y" }}
-            </time>
-          </p>
-          <h3 class="tile__title">{{ post.title }}</h3>
-          {% if post.subtitle %}
-            <p class="tile__subtitle">{{ post.subtitle }}</p>
-          {% elsif post.excerpt %}
-            <p class="tile__subtitle">{{ post.excerpt | strip_html | truncate: 140 }}</p>
-          {% endif %}
-          {% if post.tags.size > 0 %}
-            <p class="tile__footer">{{ post.tags | join: " · " }}</p>
-          {% endif %}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-  <p class="home-section__link"><a href="{{ '/blog/' | relative_url }}">All writing →</a></p>
-{% else %}
-  <p class="muted">First posts publishing soon.</p>
-{% endif %}
-</section>
-
-<hr>
-
-<section class="home-section">
-  <header class="home-section__header">
     <p class="meta">Selected work</p>
     <h2 class="home-section__title">Building in public.</h2>
   </header>
 
   {% if site.projects %}
-  {% assign featured = site.projects | where: "featured", true | sort: 'date' | reverse %}
-  {% if featured.size > 0 %}
-    <ul class="home-tiles">
-      {% for project in featured %}
-        <li>
-          <a href="{{ project.url | relative_url }}" class="tile tile--project">
-            <p class="tile__meta">
-              {% if project.status %}{{ project.status }}{% if project.date %} · {% endif %}{% endif %}
-              {% if project.date %}{{ project.date | date: "%Y" }}{% endif %}
-            </p>
-            <h3 class="tile__title">{{ project.title }}</h3>
-            {% if project.subtitle %}
-              <p class="tile__subtitle">{{ project.subtitle }}</p>
-            {% endif %}
-            {% if project.tech %}
-              <p class="tile__footer">{{ project.tech | join: " · " }}</p>
-            {% endif %}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-    <p class="home-section__link"><a href="{{ '/work/' | relative_url }}">All projects →</a></p>
-  {% else %}
-    <p class="muted">Projects coming soon.</p>
+    {% assign featured = site.projects | where: "featured", true | sort: 'date' | reverse %}
+    {% if featured.size > 0 %}
+      <ul class="home-tiles">
+        {% for project in featured %}
+          <li>
+            <a href="{{ project.url | relative_url }}" class="tile tile--project">
+              <p class="tile__meta">
+                {% if project.status %}{{ project.status }}{% if project.date %} · {% endif %}{% endif %}
+                {% if project.date %}{{ project.date | date: "%Y" }}{% endif %}
+              </p>
+              <h3 class="tile__title">{{ project.title }}</h3>
+              {% if project.subtitle %}
+                <p class="tile__subtitle">{{ project.subtitle }}</p>
+              {% endif %}
+              {% if project.tech %}
+                <p class="tile__footer">{{ project.tech | join: " · " }}</p>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <p class="home-section__link"><a href="{{ '/work/' | relative_url }}">All projects →</a></p>
+    {% else %}
+      <p class="muted">Projects coming soon.</p>
+    {% endif %}
   {% endif %}
-{% endif %}
-<hr>
+</section>
 
+<hr>
 
 <section class="home-section home-elsewhere">
   <header class="home-section__header">
@@ -101,7 +65,7 @@ description: Data scientist working at the intersection of AI fairness and socia
     <dd><a href="https://github.com/sascha-pst">github.com/sascha-pst</a></dd>
 
     <dt class="meta">LinkedIn</dt>
-    <dd><a href="https://linkedin.com/in/sascha-pst">linkedin.com/in/sashatschaps</a></dd>
+    <dd><a href="https://linkedin.com/in/sascha-pst">linkedin.com/in/sascha-pst</a></dd>
 
     <dt class="meta">Email</dt>
     <dd><a href="mailto:sasha.schaps@gmail.com">sasha.schaps@gmail.com</a></dd>
