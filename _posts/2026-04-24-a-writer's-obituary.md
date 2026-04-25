@@ -7,7 +7,7 @@ excerpt: "We have rituals for people, real estate, marriages. Is there a market 
 ---
 We have rituals for people, real estate, marriages. We do not have rituals for careers, which is strange because we spend more waking hours with them than most spouses. What would a career funeral look like? would there be free food? Who would speak?
 
-Dearly beloved — I mean, great people of the internet. Here lies the o-bit-chu-wary of Sasha Schaps' career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, who died in transit and her Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
+Dearly beloved — I mean, great people of the internet. Here lies the o-bit-chu-wary of Sasha Schaps' career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, who died in transit, A(l)so Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
 
 The deceased was best known for a typo on slide 4, six years of "meets expectations" and an optimization regimen so thorough it made the word machine sound affectionate. She made it. Then she had to leave.
 
