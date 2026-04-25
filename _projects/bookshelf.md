@@ -1,14 +1,19 @@
 ---
 layout: default
 title: Bookshelf
-subtitle: A look at what I'm reading
-permalink: /work/bookshelf/
+subtitle: A little library with local links.
+tech:
+  - Jekyll
+  - liquid
+  - scss
+  - JavaScript
+  - HTML
 featured: true
 ---
 
 <section class="bookshelf-intro container">
   <h1 class="display">Bookshelf</h1>
-  <p class="lede">A working library - what I'm reading, finished, and want to revisit.</p>
+  <p class="lede">A working library ~ what I'm reading, finished, and want to revisit.</p>
 </section>
 
 {% include bookshelf.html %}
