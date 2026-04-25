@@ -12,25 +12,25 @@ permalink: /work/
 
 {% if site.projects.size > 0 %}
   {% assign projects = site.projects | sort: 'date' | reverse %}
-  <div class="project-list">
+  <ul class="home-tiles">
     {% for project in projects %}
-      <a href="{{ project.url | relative_url }}" class="project-card">
-        <div class="project-card__header">
-          <p class="meta">
+      <li>
+        <a href="{{ project.url | relative_url }}" class="tile tile--project">
+          <p class="tile__meta">
             {% if project.status %}{{ project.status }}{% if project.date %} · {% endif %}{% endif %}
             {% if project.date %}{{ project.date | date: "%Y" }}{% endif %}
           </p>
-          <h3 class="project-card__title">{{ project.title }}</h3>
-        </div>
-        {% if project.subtitle %}
-          <p class="project-card__subtitle">{{ project.subtitle }}</p>
-        {% endif %}
-        {% if project.tech %}
-          <p class="project-card__tech meta">{{ project.tech | join: " · " }}</p>
-        {% endif %}
-      </a>
+          <h3 class="tile__title">{{ project.title }}</h3>
+          {% if project.subtitle %}
+            <p class="tile__subtitle">{{ project.subtitle }}</p>
+          {% endif %}
+          {% if project.tech %}
+            <p class="tile__footer">{{ project.tech | join: " · " }}</p>
+          {% endif %}
+        </a>
+      </li>
     {% endfor %}
-  </div>
+  </ul>
 {% else %}
   <p class="muted">Projects coming soon.</p>
 {% endif %}
