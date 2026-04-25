@@ -15,6 +15,11 @@
   {% endfor %}
 {% endfor %}
 {% assign unique_tags = all_tags | uniq | sort %}
+{% if page.link %}
+    <p class="book-post__link">
+      <a href="{{ page.link }}" target="_blank" rel="noopener">Find a copy →</a>
+    </p>
+  {% endif %}
 
 <div class="bookshelf-filters">
   <button class="filter-btn is-active" data-filter="all">all</button>
