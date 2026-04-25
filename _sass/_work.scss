@@ -1,110 +1,152 @@
 // ============================================================
-// Work — projects listing + single project pages
+// Writing — posts archive + selected work teaser
 // ============================================================
 
-// ---------- Projects listing (card grid) ----------
-.project-list {
-  padding: var(--space-4) 0 var(--space-7);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-3);
+// ---------- Page intro ----------
+.writing-intro {
+  padding: var(--space-6) 0 var(--space-7);
 }
-
-.project-card {
-  display: block;
-  padding: var(--space-4);
-  border: var(--rule) solid var(--color-rule);
+.writing-intro__display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  margin: 0 0 var(--space-3);
+}
+.writing-intro__lede {
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  max-width: var(--text-width);
   color: var(--color-ink);
-  transition: border-color var(--dur-fast) var(--ease-out);
-  background: var(--color-bg);
-}
-
-.project-card:hover {
-  border-color: var(--color-accent);
-  opacity: 1;
-}
-
-.project-card:hover .project-card__title {
-  color: var(--color-accent);
-}
-
-.project-card__header {
-  margin-bottom: var(--space-3);
-}
-
-.project-card__header .meta {
   margin: 0;
 }
 
-.project-card__title {
+// ---------- Persimmon dot — section signature ----------
+// Used inside h1, h2 across the site. Pairs with --color-accent.
+.dot {
+  color: var(--color-accent);
+}
+
+// ---------- Section heading (shared utility) ----------
+.section-head {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.025em;
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-4);
+}
+
+// ---------- Posts archive ----------
+.posts {
+  padding-bottom: var(--space-7);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-entry {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: var(--rule) solid var(--color-rule);
+}
+
+.post-entry__date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-mute);
+  padding-top: var(--space-1);
+}
+
+.post-entry__title {
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
   letter-spacing: -0.015em;
   line-height: var(--lh-snug);
-  margin: var(--space-2) 0 0;
+  margin: 0 0 var(--space-2);
+}
+
+.post-entry__link {
+  color: var(--color-ink);
+  text-decoration: none;
   transition: color var(--dur-fast) var(--ease-out);
 }
+.post-entry__link:hover {
+  color: var(--color-accent);
+}
 
-.project-card__subtitle {
-  font-size: var(--fs-sm);
-  color: var(--color-mute);
-  margin: 0 0 var(--space-3);
+.post-entry__excerpt {
+  font-size: var(--fs-base);
   line-height: var(--lh-normal);
-  max-width: none;
+  max-width: var(--text-width);
+  margin: 0 0 var(--space-2);
+  color: var(--color-ink);
 }
 
-.project-card__tech {
+.post-entry__tags {
+  list-style: none;
+  padding: 0;
   margin: 0;
+  font-family: var(--font-mono);
   font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+.post-entry__tags li {
+  display: inline;
+}
+.post-entry__tags li:not(:last-child)::after {
+  content: ' · ';
+  color: var(--color-rule);
+  margin: 0 var(--space-1);
 }
 
-// ---------- Individual project page ----------
-.project {
-  padding: var(--space-5) 0 var(--space-7);
-}
-
-.project-header {
-  padding-bottom: var(--space-5);
-  margin-bottom: var(--space-6);
-  border-bottom: var(--rule) solid var(--color-rule);
-}
-
-.project-title {
-  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
-  margin: var(--space-2) 0 var(--space-3);
-  max-width: 20ch;
-}
-
-.project-subtitle {
-  margin: 0 0 var(--space-5);
+// Empty state
+.post-list__empty {
   font-size: var(--fs-md);
+  color: var(--color-mute);
+  font-style: italic;
+  padding: var(--space-4) 0;
 }
 
-.project-meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-4);
-  padding-top: var(--space-4);
+// ---------- Selected work section ----------
+// Reuses .project-list and .project-card from _work.scss.
+// No project styles redefined here — just the section frame.
+.selected-work {
+  margin-top: var(--space-7);
+  padding-top: var(--space-6);
   border-top: var(--rule) solid var(--color-rule);
 }
 
-.project-meta__item .meta {
-  margin: 0 0 var(--space-1);
+.selected-work__archive-link {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
 }
-
-.project-meta__item p {
-  margin: 0;
-  max-width: none;
-  font-size: var(--fs-sm);
-}
-
-.project-footer {
-  margin-top: var(--space-6);
+.selected-work__archive-link:hover {
+  opacity: 0.7;
 }
 
 // ---------- Responsive ----------
 @media (max-width: 640px) {
-  .project-list {
+  .post-entry {
     grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .post-entry__date {
+    padding-top: 0;
   }
 }
