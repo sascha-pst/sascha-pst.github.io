@@ -70,9 +70,6 @@ defaults:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - README.md
-  - LICENSE
-  - vendor
   - .jekyll-cache
   - .sass-cache
   - node_modules
