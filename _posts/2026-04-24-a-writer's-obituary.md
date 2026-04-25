@@ -9,7 +9,7 @@ We have rituals for people, real estate, marriages. We do not have rituals for c
 
 Dearly beloved — Here lies the o-bit-chu-wary of Sasha Schaps' career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, worthy of a purple heart but carelessly died in transit, also Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
 
-The deceased was best known for a typo on slide 4, six years of "meets expectations" and an optimization regimen so thorough it made the word machine sound affectionate. She made it. Then she had to leave.
+The deceased was best known for a typo on slide 4, six years of "meets expectations" and an optimization framework so articulate it made the word ***machine*** sound affectionate. She made it. Then I had to leave.
 
 I love the game. I crave stability. AI is disruptive.
 
