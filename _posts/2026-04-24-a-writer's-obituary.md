@@ -1,0 +1,18 @@
+---
+layout: post
+title: "A Writer's Obituary"
+date: 2026-04-24
+tags: [rituals, content strategy, 30s,]
+excerpt: "We have rituals for people, real estate, marriages. Is there a market for career funerals? We spend more time with them than our spouses."
+---
+We have rituals for people, real estate, marriages. We do not have rituals for careers, which is strange because we spend more waking hours with them than with most spouses. What would the ceremony actually look like? Who would speak?
+
+Dearly beloved — I mean, great people of the internet. Here lies the o-bit-chu-wary of Sasha Schaps's career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, who died in transit and her Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
+
+The deceased was best known for a typo on slide 4, six years of "meets expectations" and an optimization regimen so thorough it made the word machine sound affectionate. She made it. Then she had to leave.
+
+I love the game. I crave stability. AI is disruptive.
+
+Writing isn't going anywhere. Even with AI. Especially with AI. And, I'm still working out what that means for the future, a world that is inhabitable and equitable, what my career could have been, and what it means to begin again.
+
+Turns out the deceased keeps writing. In fact, she's writing this.
