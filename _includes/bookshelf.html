@@ -4,9 +4,24 @@
   - Varies height/width deterministically (no front-matter changes needed)
   - Truncates spine title; full title stays in aria-label
   - Hover lifts the book and reveals a cover preview card
+  - Filters by tag
 {% endcomment %}
 
 {% assign palette = "persimmon,moss,midnight,clay,alabaster,deep" | split: "," %}
+{% assign all_tags = "" | split: "" %}
+{% for book in site.books %}
+  {% for tag in book.tags %}
+    {% assign all_tags = all_tags | push: tag %}
+  {% endfor %}
+{% endfor %}
+{% assign unique_tags = all_tags | uniq | sort %}
+
+<div class="bookshelf-filters">
+  <button class="filter-btn is-active" data-filter="all">all</button>
+  {% for tag in unique_tags %}
+    <button class="filter-btn" data-filter="{{ tag | slugify }}">{{ tag }}</button>
+  {% endfor %}
+</div>
 
 <div class="bookshelf-wrap">
   <div class="bookshelf">
@@ -18,9 +33,12 @@
           {% assign h = forloop.index0 | times: 17 | modulo: 56 | plus: 148 %}
           {% assign w = forloop.index0 | times: 11 | modulo: 12 | plus: 24 %}
           {% assign short_title = book.title | split: ":" | first %}
+          {% assign tag_slugs = "" %}
+          {% for tag in book.tags %}{% assign tag_slugs = tag_slugs | append: tag | slugify | append: " " %}{% endfor %}
 
           <a class="book book--{{ tone }}"
-             href="{{ book.url | relative_url }}"
+             href="{{ book.link | default: book.url | relative_url }}"
+             data-tags="{{ tag_slugs | strip }}"
              style="height: {{ h }}px; width: {{ w }}px; --i: {{ forloop.index0 }};"
              aria-label="{{ book.title | escape }}{% if book.author %} by {{ book.author }}{% endif %}">
             <span class="book__spine">{{ short_title | truncate: 26, "" }}</span>
