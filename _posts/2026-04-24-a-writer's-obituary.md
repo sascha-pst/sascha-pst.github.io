@@ -5,7 +5,7 @@ date: 2026-04-24
 tags: [rituals, content strategy, 30s,]
 excerpt: "We have rituals for people, real estate, marriages. Is there a market for career funerals? We spend more time with them than our spouses."
 ---
-We have rituals for people, real estate, marriages. We do not have rituals for careers, which is strange because we spend more waking hours with them than with most spouses. What would the ceremony actually look like? Who would speak?
+We have rituals for people, real estate, marriages. We do not have rituals for careers, which is strange because we spend more waking hours with them than most spouses. What would a career funeral look like? would there be free food? Who would speak?
 
 Dearly beloved — I mean, great people of the internet. Here lies the o-bit-chu-wary of Sasha Schaps' career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, who died in transit and her Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
 
