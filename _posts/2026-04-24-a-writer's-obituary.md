@@ -7,12 +7,12 @@ excerpt: "We have rituals for people, real estate, marriages. Is there a market 
 ---
 We have rituals for people, real estate, marriages. We do not have rituals for careers, which is strange because we spend more waking hours with them than most spouses. What would the funeral look like? Will there be free food? Who would speak?
 
-Dearly beloved — Here lies the obituwary of Sasha Schaps' career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, black Amazon planter lost in transit, also Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
+Dearly beloved — Here lies the o-bit-too-wary of Sasha Schaps' career as a writer. She is survived by 403 pages of performance reviews, a LinkedIn presence, and the unshakeable conviction that she was good at that job. She is preceded in death by religiously-loved houseplant, black planter lost in transit, also Ebi. In lieu of flowers, please give a follow to @shopbiscuits on Instagram.
 
 The deceased was best known for a typo on slide 4, six years of "meets expectations" and an optimization framework so articulate it made the word ***machine*** sound affectionate. She made it. Then I had to leave.
 
 I love the game. I crave stability. AI is disruptive.
 
-Writing isn't going anywhere. Even with AI. Especially with AI. And, I'm still working out what that means for the future, what my career could have been, and what it means to begin again.
+Writing isn't going anywhere. Even with AI. Especially with AI. I'm still working out what that means for the future, what my career could have been, and what it means to begin again.
 
 The deceased keeps writing. In fact, she wrote this.
