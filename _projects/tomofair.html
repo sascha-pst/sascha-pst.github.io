@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TomoFair — Sasha Schaps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single&family=Google+Sans:wght@300;400;500;600;700&family=Google+Sans:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-body:    #845747;
+    --ink-display: #55768c;
+    --ink-accent:  #b83556;
+    --ink-soft:    #dc97a5;
+    --paper:       #faded2;
+    --paper-warm:  #f4d3c5;
+    --rule:        rgba(132, 87, 71, 0.18);
+    --rule-strong: rgba(132, 87, 71, 0.45);
+
+    --measure: 38rem;
+    --gutter:  clamp(1.25rem, 4vw, 3rem);
+
+    --font-display: "Bitcount Prop Single", "Courier New", monospace;
+    --font-prose:   "Google Sans", "Product Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono:    "Google Sans", "Product Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink-body);
+    font-family: var(--font-prose);
+    font-size: 19px;
+    line-height: 1.62;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    animation: fade-up 700ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  ::selection { background: var(--ink-soft); color: var(--ink-body); }
+
+  main {
+    max-width: calc(var(--measure) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: clamp(3rem, 8vh, 6rem) var(--gutter) 6rem;
+  }
+
+  /* ───────────── HEADER ───────────── */
+
+  header.masthead {
+    margin-bottom: 4.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  .meta-line {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-display);
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .meta-line .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink-accent);
+    flex-shrink: 0;
+  }
+
+  h1.title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(3rem, 7.5vw, 4.6rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    color: var(--ink-display);
+    margin: 0 0 1.6rem;
+  }
+
+  h1.title .ampersand {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-accent);
+  }
+
+  p.subtitle {
+    font-family: var(--font-prose);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    line-height: 1.4;
+    color: var(--ink-body);
+    max-width: 32rem;
+    margin: 0;
+    opacity: 0.92;
+  }
+
+  /* ─────────── OPENING ─────────── */
+
+  .opening {
+    margin-bottom: 4rem;
+    font-size: 1.18rem;
+    line-height: 1.62;
+  }
+
+  .opening::first-letter {
+    font-family: var(--font-prose);
+    float: left;
+    font-size: 5.4rem;
+    line-height: 0.85;
+    font-weight: 600;
+    color: var(--ink-accent);
+    padding: 0.4rem 0.7rem 0 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ─────────── SECTIONS ─────────── */
+
+  section { margin-bottom: 4.25rem; }
+
+  h2.section-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-accent);
+    margin: 0 0 0.6rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  h2.section-label .num {
+    color: var(--ink-display);
+    font-weight: 400;
+    opacity: 0.7;
+  }
+
+  h2.section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    transform: translateY(-3px);
+  }
+
+  h3.section-heading {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    color: var(--ink-display);
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.005em;
+  }
+
+  p { margin: 0 0 1.2rem; }
+  p:last-child { margin-bottom: 0; }
+
+  em { color: var(--ink-accent); font-style: italic; }
+
+  a {
+    color: var(--ink-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-soft);
+    transition: border-color 180ms ease, background 180ms ease;
+    padding: 0 1px;
+  }
+
+  a:hover {
+    border-bottom-color: var(--ink-accent);
+    background: rgba(220, 151, 165, 0.18);
+  }
+
+  /* ──────── PULL QUOTE ──────── */
+
+  blockquote.pull {
+    font-family: var(--font-prose);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.7rem;
+    line-height: 1.32;
+    color: var(--ink-display);
+    margin: 3rem 0;
+    padding: 0 0 0 2rem;
+    border-left: 2px solid var(--ink-accent);
+    max-width: 30rem;
+  }
+
+  /* ─────── SPECIFICATIONS ─────── */
+
+  dl.specs {
+    display: grid;
+    grid-template-columns: minmax(8rem, 11rem) 1fr;
+    gap: 0.6rem 2rem;
+    margin: 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+
+  dl.specs dt {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-display);
+    align-self: baseline;
+    padding-top: 0.35rem;
+  }
+
+  dl.specs dd {
+    margin: 0;
+    font-family: var(--font-prose);
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink-body);
+    align-self: baseline;
+  }
+
+  /* ────── METRICS GRID ────── */
+
+  ol.metrics {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.75rem 2rem;
+    counter-reset: metric;
+  }
+
+  ol.metrics li {
+    counter-increment: metric;
+    padding-left: 2.4rem;
+    position: relative;
+  }
+
+  ol.metrics li::before {
+    content: "0" counter(metric);
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--ink-accent);
+    letter-spacing: 0.1em;
+  }
+
+  ol.metrics li strong {
+    display: block;
+    font-family: var(--font-prose);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.08rem;
+    color: var(--ink-display);
+    margin-bottom: 0.2rem;
+  }
+
+  ol.metrics li span {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--ink-body);
+    opacity: 0.92;
+  }
+
+  /* ────── SAMPLE MATRIX ────── */
+
+  .matrix {
+    margin: 2.5rem 0 1rem;
+    padding: 1.75rem 1.5rem 1.5rem;
+    background: rgba(244, 211, 197, 0.55);
+    border: 1px solid var(--rule);
+  }
+
+  .matrix-caption {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-display);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .matrix-caption .figure-num {
+    color: var(--ink-accent);
+  }
+
+  .matrix-table {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0;
+    font-family: var(--font-prose);
+  }
+
+  .matrix-table > div {
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .matrix-table .stratum {
+    color: var(--ink-body);
+    padding-left: 0;
+  }
+
+  .matrix-table .cell {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+    justify-content: flex-end;
+    min-width: 5.5rem;
+    color: var(--ink-body);
+    position: relative;
+  }
+
+  .matrix-table .cell::before {
+    content: "";
+    position: absolute;
+    left: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .matrix-table .cell.control::before { background: var(--ink-soft); }
+  .matrix-table .cell.treatment::before { background: var(--ink-accent); }
+
+  .matrix-table .header-row {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-display);
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 0.6rem;
+  }
+
+  .matrix-table .header-row.right { justify-content: flex-end; padding-right: 0.5rem; }
+
+  .matrix-table .total-row {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-display);
+    border-bottom: none;
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 0.85rem;
+    margin-top: -1px;
+  }
+
+  .matrix-note {
+    margin-top: 1.25rem;
+    font-family: var(--font-prose);
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--ink-body);
+    opacity: 0.88;
+    line-height: 1.5;
+  }
+
+  /* ────── REPOSITORY COLOPHON ────── */
+
+  .colophon {
+    margin: 1rem 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.9;
+  }
+
+  .colophon-row {
+    display: grid;
+    grid-template-columns: minmax(11rem, 13rem) 1fr;
+    gap: 1.5rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .colophon-row:last-child { border-bottom: none; }
+
+  .colophon-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-display);
+  }
+
+  .colophon-value {
+    color: var(--ink-body);
+    font-weight: 300;
+  }
+
+  .colophon-value a {
+    border-bottom: 1px dotted var(--rule-strong);
+  }
+
+  .colophon-value .sub {
+    display: block;
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.82rem;
+  }
+
+  .colophon-value .sub::before {
+    content: "└";
+    position: absolute;
+    left: 0;
+    color: var(--ink-display);
+    opacity: 0.55;
+  }
+
+  /* ────── LIMITS BOX ────── */
+
+  .limits {
+    margin: 0;
+    padding: 1.75rem 1.85rem;
+    background: rgba(184, 53, 86, 0.05);
+    border-left: 2px solid var(--ink-accent);
+  }
+
+  .limits p {
+    font-size: 1rem;
+    line-height: 1.62;
+    color: var(--ink-body);
+  }
+
+  .limits p:first-child::before {
+    content: "Note — ";
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-accent);
+    margin-right: 0.25rem;
+  }
+
+  /* ────── FOOTER ────── */
+
+  footer {
+    margin-top: 6rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--rule-strong);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-display);
+    line-height: 1.85;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  footer .right { text-align: right; }
+
+  footer a {
+    border-bottom: 1px dotted var(--rule-strong);
+  }
+
+  /* ────── RESPONSIVE ────── */
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .opening { font-size: 1.1rem; }
+    .opening::first-letter { font-size: 4.2rem; padding-right: 0.55rem; }
+    blockquote.pull { font-size: 1.35rem; padding-left: 1.25rem; margin: 2rem 0; }
+    dl.specs { grid-template-columns: 1fr; gap: 0.15rem 0; padding: 1.25rem 0; }
+    dl.specs dt { padding-top: 1rem; }
+    dl.specs dt:first-child { padding-top: 0; }
+    .matrix { padding: 1.25rem 1rem; }
+    .matrix-table { grid-template-columns: 1fr auto auto; }
+    .matrix-table > div { padding: 0.55rem 0.35rem; font-size: 0.85rem; }
+    .matrix-table .cell { min-width: 4.5rem; font-size: 0.78rem; }
+    .colophon-row { grid-template-columns: 1fr; gap: 0.15rem; padding: 0.7rem 0; }
+    h3.section-heading { font-size: 1.55rem; }
+    footer { flex-direction: column; }
+    footer .right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <!-- ═══════════════════════ MASTHEAD ═══════════════════════ -->
+  <header class="masthead">
+    <div class="meta-line">
+      <span>Research Proposal</span>
+      <span class="dot"></span>
+      <span>UC Berkeley MIDS</span>
+      <span class="dot"></span>
+      <span>April 2026</span>
+    </div>
+
+    <h1 class="title">TomoFair</h1>
+    <p class="subtitle">
+      Evaluating algorithmic fairness of AI-assisted digital breast tomosynthesis screening across demographic subgroups.
+    </p>
+  </header>
+
+  <!-- ═══════════════════════ OPENING ═══════════════════════ -->
+  <p class="opening">
+    Black women in the United States die from breast cancer at rates roughly 42% higher than White women — a gap that screening rates alone do not explain. AI-assisted digital breast tomosynthesis is now standard equipment in much of US screening. The question is whether it closes that gap, widens it, or merely moves it elsewhere.
+  </p>
+
+  <!-- ═══════════════════════ § 01 CONTEXT ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 01</span> The premise</h2>
+    <h3 class="section-heading">Two true things, in tension.</h3>
+
+    <p>
+      AI-assisted screening improves aggregate cancer detection at scale. The largest real-world US analysis to date reported a 21% gain over standard mammography. Nationwide German implementation has shown comparable gains; Danish, Korean, and UK deployments have followed.
+    </p>
+    <p>
+      The same FDA-cleared algorithms have shown elevated false-positive rates in Black patients, with disparities persisting after adjustment for breast density and age. Race-correlated imaging features appear to drive differential algorithmic outputs independently of clinical covariates. Both findings are robust. Both follow from the data.
+    </p>
+    <p>
+      Current regulatory practice permits clearance on aggregate performance without disaggregated subgroup reporting. Inequities are documented after deployment, not before — which is to say, they are documented in patients.
+    </p>
+
+    <blockquote class="pull">
+      Inequities are documented after deployment, not before — which is to say, they are documented in patients.
+    </blockquote>
+  </section>
+
+  <!-- ═══════════════════════ § 02 QUESTION ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 02</span> The question</h2>
+    <h3 class="section-heading">Does AI-assisted breast cancer screening perform equitably across racial and ethnic subgroups?</h3>
+    <p>
+      Measured against a no-AI control, across six performance metrics, disaggregated by FDA-defined demographic strata, in a prospective stratified-random design. The design's contribution is methodological, not algorithmic — an evaluation protocol that produces equity gap scores comparable across vendors, settings, and time periods.
+    </p>
+  </section>
+
+  <!-- ═══════════════════════ § 03 SPECIFICATIONS ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 03</span> Study specifications</h2>
+
+    <dl class="specs">
+      <dt>Setting</dt>
+      <dd>NYC hospitals offering mammographic screening; ≥4 radiologists; no prior AI deployment.</dd>
+
+      <dt>Sample</dt>
+      <dd>60,000 patients — 5,000 per cell across six demographic strata × two conditions.</dd>
+
+      <dt>Design</dt>
+      <dd>Prospective, randomized, stratified by race / ethnicity per FDA Guidance.</dd>
+
+      <dt>Method</dt>
+      <dd>Mixed-effects logistic regression with subgroup × condition interaction terms; equity gap analysis as the primary outcome.</dd>
+
+      <dt>Duration</dt>
+      <dd>Five years — three years of enrollment plus two years of outcome follow-up.</dd>
+
+      <dt>Outcome</dt>
+      <dd>Six performance metrics, disaggregated by demographic stratum, with cross-strata variance reported as the equity gap.</dd>
+    </dl>
+  </section>
+
+  <!-- ═══════════════════════ § 04 METRICS ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 04</span> The six metrics</h2>
+    <h3 class="section-heading">What gets measured, and why.</h3>
+    <p style="margin-bottom: 2.25rem;">
+      Each metric is computed for the AI-assisted and control conditions, then disaggregated by patient race. The magnitude of cross-strata variation is the equity gap — the primary unit of fairness.
+    </p>
+
+    <ol class="metrics">
+      <li>
+        <strong>AUC</strong>
+        <span>Overall ability to distinguish cancer from non-cancer cases.</span>
+      </li>
+      <li>
+        <strong>False positive rate</strong>
+        <span>Patients flagged as having cancer who do not — the cost is unnecessary biopsy, anxiety, and follow-up.</span>
+      </li>
+      <li>
+        <strong>False negative rate</strong>
+        <span>Cancers the system misses. The most consequential error: delays diagnosis and treatment.</span>
+      </li>
+      <li>
+        <strong>Recall</strong>
+        <span>Sensitivity to true cancer — proportion of malignancies the system correctly identifies.</span>
+      </li>
+      <li>
+        <strong>True negative rate</strong>
+        <span>Specificity — proportion of non-cancer cases correctly cleared.</span>
+      </li>
+      <li>
+        <strong>Precision</strong>
+        <span>Reliability of a positive flag — what fraction of alarms are real.</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ═══════════════════════ § 05 SAMPLE MATRIX ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 05</span> The stratified sample</h2>
+    <h3 class="section-heading">Six strata × two conditions × five thousand.</h3>
+    <p>
+      The lowest expected enrollment in any stratum sets the per-cell baseline. Above-baseline strata are randomly downsampled. The result is a balanced design that protects subgroup-level statistical power for the smallest groups in the population.
+    </p>
+
+    <div class="matrix">
+      <div class="matrix-caption">
+        <span class="figure-num">Fig. 01</span>
+        <span>Sample distribution by race × condition</span>
+      </div>
+
+      <div class="matrix-table">
+        <div class="header-row">Stratum</div>
+        <div class="header-row right">Control</div>
+        <div class="header-row right">Treatment</div>
+
+        <div class="stratum">Hispanic / Latino</div>
+        <div class="cell control">5,000</div>
+        <div class="cell treatment">5,000</div>
+
+        <div class="stratum">White (non-Hispanic / Latino)</div>
+        <div class="cell control">5,000</div>
+        <div class="cell treatment">5,000</div>
+
+        <div class="stratum">Black / African American</div>
+        <div class="cell control">5,000</div>
+        <div class="cell treatment">5,000</div>
+
+        <div class="stratum">American Indian / Alaska Native</div>
+        <div class="cell control">5,000</div>
+        <div class="cell treatment">5,000</div>
+
+        <div class="stratum">Asian / Asian American</div>
+        <div class="cell control">5,000</div>
+        <div class="cell treatment">5,000</div>
+
+        <div class="stratum">Other (≥ 2 races)</div>
+        <div class="cell control">5,000</div>
+        <div class="cell treatment">5,000</div>
+
+        <div class="total-row">Total</div>
+        <div class="total-row" style="justify-content: flex-end;">30,000</div>
+        <div class="total-row" style="justify-content: flex-end;">30,000</div>
+      </div>
+
+      <p class="matrix-note">
+        n = 60,000 estimated for 99% power with false-positive correction. The American Indian / Alaska Native stratum is the binding constraint on enrollment timeline; supplemental campaigns are planned to reach baseline.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ § 06 LIMITS ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 06</span> What this is not</h2>
+
+    <div class="limits">
+      <p>
+        TomoFair is a study proposal, not findings. The design has known constraints: a five-year timeline that may be outpaced by the technology it studies; a single-metro setting that may understate disparities in regions with less diverse provider workforces; within-hospital randomization that risks contamination across conditions; and self-reported demographic categories that compress meaningful within-group variation.
+      </p>
+      <p>
+        The contribution is methodological. It proposes a measurement instrument for a harm that is currently quantifiable only retrospectively, inconsistently, and at deployment scale.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ § 07 REPOSITORY ═══════════════════════ -->
+  <section>
+    <h2 class="section-label"><span class="num">§ 07</span> In the repository</h2>
+
+    <div class="colophon">
+      <div class="colophon-row">
+        <div class="colophon-label">Proposal</div>
+        <div class="colophon-value"><a href="proposal/proposal.pdf">proposal/proposal.pdf</a></div>
+      </div>
+      <div class="colophon-row">
+        <div class="colophon-label">Literature review</div>
+        <div class="colophon-value"><a href="design/literature_review.md">design/literature_review.md</a></div>
+      </div>
+      <div class="colophon-row">
+        <div class="colophon-label">Study design</div>
+        <div class="colophon-value"><a href="design/study_design.md">design/study_design.md</a></div>
+      </div>
+      <div class="colophon-row">
+        <div class="colophon-label">Hypotheses</div>
+        <div class="colophon-value"><a href="design/hypotheses.md">design/hypotheses.md</a></div>
+      </div>
+      <div class="colophon-row">
+        <div class="colophon-label">Metrics</div>
+        <div class="colophon-value"><a href="design/metrics.md">design/metrics.md</a></div>
+      </div>
+      <div class="colophon-row">
+        <div class="colophon-label">Notebooks</div>
+        <div class="colophon-value">
+          <a href="notebooks/synthetic_equity_gap_demo.ipynb">notebooks/synthetic_equity_gap_demo.ipynb</a>
+          <span class="sub"><a href="notebooks/power_analysis.ipynb">power_analysis.ipynb</a></span>
+        </div>
+      </div>
+      <div class="colophon-row">
+        <div class="colophon-label">References</div>
+        <div class="colophon-value"><a href="references.bib">references.bib</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div>
+      Sasha Schaps · with Ananya Kumar &amp; Kenneth Choi<br>
+      Berkeley MIDS · Team 5 · 2026
+    </div>
+    <div class="right">
+      <a href="../">← Index</a>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
