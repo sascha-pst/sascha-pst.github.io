@@ -2,28 +2,28 @@
 // Design tokens
 // Brand identity system — juicy sascha
 // ============================================================
-
 :root {
   // ---------- Brand palette ----------
-  --color-persimmon: #E65100;
+  --color-coral:     #ff6b35;
+  --color-peach:     #f7c59f;
+  --color-cream:     #f7e1c6;
+  --color-navy:      #004e89;
+  --color-azure:     #1a659e;
   --color-moss:      #839958;
-  --color-alabaster: #F9F8F0;
-  --color-clay:      #D3968C;
-  --color-midnight:  #105666;
 
   // ---------- Semantic aliases ----------
-  --color-bg:        var(--color-alabaster);
-  --color-ink:       var(--color-midnight);
-  --color-accent:    var(--color-persimmon);
+  --color-bg:        var(--color-cream);
+  --color-ink:       var(--color-navy);
+  --color-accent:    var(--color-coral);
   --color-secondary: var(--color-moss);
-  --color-tertiary:  var(--color-clay);
-  --color-inverse:   var(--color-alabaster);
-  --color-surface-dark: var(--color-midnight);
-  --color-rosie:      var(--color-clay);
-  --color-clementine: var(--color-persimmon);
+  --color-tertiary:  var(--color-peach);
+  --color-inverse:   var(--color-cream);
+  --color-surface-dark: var(--color-navy);
+  --color-rosie:     var(--color-peach);
+  --color-clementine: var(--color-coral);
 
-  --color-rule:  rgba(16, 86, 102, 0.15);
-  --color-mute:  rgba(16, 86, 102, 0.62);
+  --color-rule:  rgba(0, 78, 137, 0.15);
+  --color-mute:  rgba(0, 78, 137, 0.62);
 
   // ---------- Typography ----------
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -61,8 +61,8 @@
   --space-6: 3rem;      // 48
   --space-7: 4rem;      // 64
   --space-8: 6rem;      // 96
-  --space-9:  8rem;    // 128
-  --space-10: 10rem;   // 160
+  --space-9: 8rem;      // 128
+  --space-10: 10rem;    // 160
 
   // ---------- Layout ----------
   --max-width:  72rem;  // 1152px, page container
