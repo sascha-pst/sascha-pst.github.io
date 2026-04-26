@@ -2,7 +2,7 @@
 layout: post
 title: "California's Computer Science Gap"
 date: 2026-04-25
-tags: [cs, education, equity, public-interest tech]
+tags: [education, equity, public-interest tech]
 excerpt: "Half of California's high schools don't offer a single computer science course. The state contains Silicon Valley."
 ---
 
