@@ -11,8 +11,6 @@ Dearly beloved — Here lies the obituary of Sasha Schaps' career as a writer. S
 
 The deceased was best known for a typo on slide 4, six years of "meets expectations" and an optimization framework so articulate it made the word ***machine*** sound affectionate. She had made it, but I had to leave. 
 
-She is survived by millions of views, hundreds of pieces of content, at least a dozen of public rap references, and a couple of Britney moments in performance reviews, also Ebi. 
-
 I love the game. I crave stability. AI is disruptive.
 
 Writing isn't going anywhere. Even with AI. Especially with AI. I'm still working out what that means for the future, what my career could have been, and what it means to begin again.
