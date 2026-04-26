@@ -10,7 +10,7 @@ Simon Wiesenthal, the Nazi hunter, wrote The Sunflower (1969). The book describe
 
 "Sorry" is an expression of feeling. I feel bad. I regret this. I wish it hadn't happened. It doesn't require that you caused the thing. 
 
-Sympathy and apology collapse into the same word in English, and that's the loophole, there is no accountability for the hurt you have caused. "I'm sorry you feel that way" uses the sympathy meaning to dodge the apology meaning. It makes the other person's feelings their own problem. While we are deterministic, social creatures are influenced by people. 
+Sympathy and apology collapse into the same word in English, and that's the loophole, there is no accountability for the hurt you have caused. "I'm sorry you feel that way" uses the sympathy meaning to dodge the apology meaning. It makes the other person's feelings their own problem. We are social creatures. Our feelings are shaped by other people. Pretending otherwise is foolish.
 
 To apologize is something you do, not something you feel. I name what I did, acknowledge it was wrong, accept that the wronged party has every right to be upset, and in the honest version, commit to not doing it again. 
 
