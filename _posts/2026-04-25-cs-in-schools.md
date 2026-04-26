@@ -6,6 +6,7 @@ tags: [education, equity, public-interest tech]
 excerpt: "Half of California's high schools don't offer a single computer science course. The state contains Silicon Valley."
 ---
 
-Half of California's high schools don't offer a single computer science course. The state contains Silicon Valley.
+Half of California's high schools don't offer a single computer science course. The state contains Silicon Valley. (2018 -may be outdated)
 
-cde.ca.gov/be/st/ss/compsciguidelines.asp
+cde.ca.gov/be/st/ss/compsciguidelines.asp offers standards
+caschooldashboard.org
