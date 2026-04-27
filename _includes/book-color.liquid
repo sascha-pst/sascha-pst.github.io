@@ -1,0 +1,9 @@
+{%- assign first_tag = include.book.tags | first -%}
+{%- case first_tag -%}
+  {%- when 'data & technology'  -%}accent
+  {%- when 'inner work'         -%}secondary
+  {%- when 'lived experience'   -%}tertiary
+  {%- when 'ways of living'     -%}warm
+  {%- when 'power & systems'    -%}ink
+  {%- else                      -%}accent
+{%- endcase -%}
