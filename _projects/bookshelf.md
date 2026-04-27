@@ -1,7 +1,7 @@
 ---
 layout: project
-title: A Little Library
-subtitle: What I'm reading, thoughts and links to shop local.
+title: A Working Library
+subtitle:  ~ what I'm reading, finished, and want to revisit.
 date: 2026-04-22
 url: /projects/bookshelf/
 tech:
@@ -10,11 +10,6 @@ tech:
   - JavaScript
 featured: true
 ---
-
-<section class="bookshelf-intro container">
-  <h1 class="display">Bookshelf</h1>
-  <p class="lede">A working library ~ what I'm reading, finished, and want to revisit.</p>
-</section>
 
 {% include bookshelf.html %}
 <script src="{{ '/assets/js/bookshelf-filter.js' | relative_url }}" defer></script>
