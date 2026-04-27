@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "To apologize vs. saying sorry"
+title: "I lied, I'm Sorry"
 date: 2026-04-22
 tags: [30s, content strategy, reflection]
 excerpt: "I wish they taught the difference in school. What's the difference between being right and being sorry?"
