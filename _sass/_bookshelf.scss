@@ -3,6 +3,18 @@
 // Animated spines colored by HSL distribution from _includes/bookshelf.html
 // ============================================================
 
+// Escape .post-content > * { max-width: 40rem } when bookshelf
+// renders inside the project layout.
+.post-content > .bookshelf-wrap,
+.post-content > .bookshelf-filters,
+.post-content > .bookshelf-intro,
+.project-content > .bookshelf-wrap,
+.project-content > .bookshelf-filters,
+.project-content > .bookshelf-intro {
+  max-width: none;
+  width: 100%;
+}
+
 .bookshelf-intro {
   margin-bottom: var(--space-5);
 }
