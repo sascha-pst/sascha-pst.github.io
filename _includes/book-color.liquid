@@ -1,4 +1,4 @@
-{%- assign first_tag = include.book.tags | first -%}
+{%- assign first_tag = include.book.tags | first | downcase | strip -%}
 {%- case first_tag -%}
   {%- when 'data & technology'  -%}accent
   {%- when 'inner work'         -%}secondary
