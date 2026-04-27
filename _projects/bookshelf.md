@@ -1,14 +1,12 @@
 ---
 layout: default
-title: Bookshelf
-subtitle: A little library with local links.
+title: A Little Library
+subtitle: What I'm reading, thoughts and links to shop local.
 url: /projects/bookshelf/
 tech:
-  - Jekyll
   - liquid
   - scss
   - JavaScript
-  - HTML
 featured: true
 ---
 
