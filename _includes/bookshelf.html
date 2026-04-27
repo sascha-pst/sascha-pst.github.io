@@ -1,11 +1,12 @@
 {% comment %}
   Bookshelf — two stacked rows with click-to-open inline detail panels.
-  Maps book tags → semantic spine colors via _includes/book-color.liquid.
+  Each spine gets a unique HSL color distributed evenly across the wheel.
 {% endcomment %}
 
 {% assign sorted = site.books | sort: 'rating' | reverse %}
 {% assign total = sorted.size %}
 {% assign half = total | divided_by: 2 | plus: 1 %}
+{% assign hue_step = 360 | divided_by: total %}
 
 {% assign all_tags = "" | split: "" %}
 {% for book in site.books %}
@@ -29,7 +30,8 @@
       <div class="shelf-row">
         <div class="books">
           {%- for book in sorted offset: offset limit: half -%}
-            {%- capture color -%}{%- include book-color.liquid book=book -%}{%- endcapture -%}
+            {%- assign global_idx = offset | plus: forloop.index0 -%}
+            {%- assign hue = global_idx | times: hue_step | plus: 15 -%}
             {%- assign title_len = book.title | size -%}
             {%- assign h = title_len | times: 2 | plus: 150 -%}
             {%- assign w = forloop.index0 | modulo: 4 | times: 4 | plus: 36 -%}
@@ -38,8 +40,8 @@
             {%- endcapture -%}
             <button
               type="button"
-              class="book book--{{ color | strip }}"
-              style="--i: {{ forloop.index0 }}; width: {{ w }}px; height: {{ h }}px;"
+              class="book"
+              style="--book-color: hsl({{ hue }}, 38%, 42%); --i: {{ global_idx }}; width: {{ w }}px; height: {{ h }}px;"
               data-book-id="{{ book.slug }}"
               data-tags="{{ tag_slugs }}"
               aria-expanded="false"
@@ -58,7 +60,6 @@
 <script type="application/json" id="books-data">
 [
 {%- for book in sorted -%}
-  {%- capture color -%}{%- include book-color.liquid book=book -%}{%- endcapture -%}
   {
     "id": {{ book.slug | jsonify }},
     "title": {{ book.title | jsonify }},
@@ -68,8 +69,7 @@
     "cover": {{ book.cover | jsonify }},
     "link": {{ book.link | jsonify }},
     "rating": {{ book.rating }},
-    "tags": {{ book.tags | jsonify }},
-    "color": {{ color | strip | jsonify }}
+    "tags": {{ book.tags | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {%- endfor -%}
 ]
