@@ -2,6 +2,7 @@
 layout: project
 title: A Little Library
 subtitle: What I'm reading, thoughts and links to shop local.
+date: 2026-04-22
 url: /projects/bookshelf/
 tech:
   - liquid
