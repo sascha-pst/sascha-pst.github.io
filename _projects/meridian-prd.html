@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian — Product Requirements Document</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FAF6F0;
+    --paper-shade: #F2EBDF;
+    --ink: #1A1714;
+    --ink-soft: #5A5048;
+    --ink-faint: #8B8275;
+    --accent: #B8472A;
+    --accent-soft: #E5C8B8;
+    --sage: #6B7A4F;
+    --sage-soft: #D4DBC2;
+    --rule: #D9CFBE;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Manrope', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(184, 71, 42, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(107, 122, 79, 0.04) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  /* Document header */
+  .doc-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 64px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+
+  .doc-meta .status {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Hero */
+  .hero {
+    margin-bottom: 72px;
+  }
+
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 18px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(48px, 8vw, 88px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+
+  .hero .subtitle {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    font-weight: 300;
+    font-style: italic;
+    max-width: 600px;
+  }
+
+  .hero-meta {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .hero-meta-item .label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .hero-meta-item .value {
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 64px;
+  }
+
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    color: var(--ink);
+  }
+
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+
+  p {
+    margin-bottom: 18px;
+    color: var(--ink-soft);
+  }
+
+  p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Lists */
+  .feature-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .feature-list li {
+    padding: 18px 0 18px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .feature-list li:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .feature-list li::before {
+    content: counter(list-counter, decimal-leading-zero);
+    counter-increment: list-counter;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .feature-list {
+    counter-reset: list-counter;
+  }
+
+  .feature-list li strong {
+    color: var(--ink);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .feature-list li span {
+    color: var(--ink-soft);
+    font-size: 16px;
+  }
+
+  /* Pull quote / callout */
+  .callout {
+    margin: 36px 0;
+    padding: 28px 32px;
+    background: var(--paper-shade);
+    border-left: 3px solid var(--accent);
+    position: relative;
+  }
+
+  .callout p {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* Sage callout for fairness/ethics */
+  .callout.sage {
+    border-left-color: var(--sage);
+    background: var(--sage-soft);
+  }
+
+  .callout.sage p {
+    color: var(--ink);
+  }
+
+  /* TBD tags */
+  .tbd-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--sage-soft);
+    color: var(--sage);
+    padding: 3px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Question list */
+  .questions {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .questions li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .questions li::before {
+    content: '?';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .questions li strong {
+    display: block;
+    color: var(--ink);
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .questions li span {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* Metrics grid */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    margin: 32px 0;
+    border: 1px solid var(--rule);
+  }
+
+  .metric {
+    background: var(--paper);
+    padding: 24px;
+  }
+
+  .metric .label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .metric .value {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* Out of scope tags */
+  .scope-list {
+    list-style: none;
+    margin: 20px 0;
+  }
+
+  .scope-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .scope-list li::before {
+    content: '×';
+    color: var(--accent);
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .scope-list li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  footer a:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  /* Small kusama-nod dot pattern in margins */
+  .dot-decoration {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+  }
+
+  .dot-decoration.top-right {
+    top: 60px;
+    right: 60px;
+    background-image: radial-gradient(circle, var(--accent) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+
+  .dot-decoration.bottom-left {
+    bottom: 60px;
+    left: 60px;
+    background-image: radial-gradient(circle, var(--sage) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container {
+      padding: 48px 24px 80px;
+    }
+    .hero h1 {
+      font-size: 56px;
+    }
+    .hero .subtitle {
+      font-size: 18px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    .dot-decoration {
+      display: none;
+    }
+    .doc-meta {
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+  }
+
+  /* Print */
+  @media print {
+    body {
+      background: white;
+    }
+    .dot-decoration {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="dot-decoration top-right"></div>
+<div class="dot-decoration bottom-left"></div>
+
+<div class="container">
+
+  <div class="doc-meta">
+    <span>Product Requirements Document</span>
+    <span class="status">Concept Stage · Draft v0.1</span>
+  </div>
+
+  <header class="hero">
+    <span class="eyebrow">Meridian</span>
+    <h1>Outcomes intelligence for <em>workforce development.</em></h1>
+    <p class="subtitle">An agentic AI platform that helps administrators see whether their programs are actually moving people toward economic mobility — and what to change when they aren't.</p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="label">Author</div>
+        <div class="value">Sasha Schaps</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Stage</div>
+        <div class="value">Concept</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Domain</div>
+        <div class="value">Workforce Development</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Last Updated</div>
+        <div class="value">April 2026</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <span class="section-num">§ 01</span>
+    <h2>Problem</h2>
+    <p>Workforce development organizations administer programs that touch millions of Americans annually: job training, certification pathways, wraparound services, job placement support. Most operate with limited visibility into whether their programs actually drive economic mobility for the people they serve.</p>
+
+    <p>Administrators face three structural data problems:</p>
+
+    <ul class="feature-list">
+      <li>
+        <span>
+          <strong>Fragmented data sources.</strong>
+          Outcome data lives across CRM systems, government reporting portals (WIOA, state labor systems), training partners, and employer follow-ups, with no unified view.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Lagging indicators.</strong>
+          Outcomes data (employment, wage growth, retention) often arrives 6–12 months after a program intervention, making real-time program improvement nearly impossible.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Reporting burden over learning.</strong>
+          Existing data infrastructure is built for compliance reporting (federal/state mandates), not for program improvement, leaving admins data-rich but insight-poor.
+        </span>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <p>The result: programs run for years without clear evidence of what works, who they work for, and where they fail.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="section-num">§ 02</span>
+    <h2>User &amp; Use Case</h2>
+
+    <h3>Primary User</h3>
+    <p>Workforce development organization administrators. Specifically: program directors at workforce boards, community colleges, and nonprofit training providers; operations leads at workforce-focused social enterprises (Year Up, Per Scholas-style orgs); grant-funded program managers responsible for outcome reporting.</p>
+
+    <h3>Secondary Users (Deferred)</h3>
+    <p>Caseworkers, funders, and job seekers themselves. The product roadmap may extend to these users, but v1 focuses on admins to keep scope tight.</p>
+
+    <h3>Core Jobs to Be Done</h3>
+    <ul class="feature-list">
+      <li>
+        <span>
+          <strong>Understand.</strong>
+          Which programs are working, for whom, and why?
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Diagnose.</strong>
+          When outcomes drop, where in the participant journey is the breakdown?
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Act.</strong>
+          What program changes are most likely to improve outcomes for which subpopulations?
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Report.</strong>
+          How do I produce funder, board, and regulatory reports with less manual work?
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="section-num">§ 03</span>
+    <h2>Product Concept</h2>
+
+    <p>Meridian is an AI-orchestrated outcomes intelligence platform that connects across an organization's existing data sources (CRM, training systems, government reporting feeds, employer follow-up data) and gives administrators three capabilities:</p>
+
+    <ul class="feature-list">
+      <li>
+        <span>
+          <strong>Unified outcomes view.</strong>
+          A single interface showing program-level and cohort-level outcome metrics — employment rates, wage outcomes, retention, certification completion — stratified by participant demographics and program design choices.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Agentic diagnosis.</strong>
+          AI agents that proactively surface anomalies ("placement rates dropped 12% for participants under 25 in Q3") and trace likely causes through the participant journey.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Recommendation workflows.</strong>
+          AI-generated, evidence-grounded recommendations for program changes, drawing on the org's own historical data plus a curated knowledge base of workforce development research.
+        </span>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <p>The "agentic" framing is intentional. Meridian doesn't just visualize data — it actively does the diagnostic and recommendation work that admins currently do manually, or don't do at all.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="section-num">§ 04</span>
+    <h2>Success Metrics</h2>
+
+    <h3>For Admins</h3>
+    <div class="metrics">
+      <div class="metric">
+        <div class="label">Reporting Time Saved</div>
+        <div class="value">50%+ reduction in time spent producing outcome reports</div>
+      </div>
+      <div class="metric">
+        <div class="label">Decision Frequency</div>
+        <div class="value">Increase in data-informed program decisions <span class="tbd-tag">Baseline TBD</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">Actionable Insights</div>
+        <div class="value">≥1 surfaced insight per quarter that admins act on</div>
+      </div>
+    </div>
+
+    <h3>For Workforce Participants (Downstream Impact)</h3>
+    <div class="metrics">
+      <div class="metric">
+        <div class="label">Outcome Improvement</div>
+        <div class="value">Improved outcomes in programs implementing Meridian recommendations <span class="tbd-tag">Target TBD</span></div>
+      </div>
+    </div>
+
+    <h3>For the Business</h3>
+    <div class="metrics">
+      <div class="metric">
+        <div class="label">Adoption</div>
+        <div class="value">% of partner orgs using Meridian weekly</div>
+      </div>
+      <div class="metric">
+        <div class="label">Retention</div>
+        <div class="value">Annual renewal rate</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="section-num">§ 05</span>
+    <h2>Out of Scope (V1)</h2>
+
+    <ul class="scope-list">
+      <li>
+        <span>
+          <strong>Direct services to job seekers.</strong>
+          Search, matching, application support. Valuable but a different product.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Integrated case management.</strong>
+          Meridian sits above existing case management tools, not replacing them.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Predictive forecasting at the individual participant level.</strong>
+          Raises algorithmic fairness concerns that deserve dedicated research before shipping.
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="section-num">§ 06</span>
+    <h2>Open Questions</h2>
+
+    <p>This is a concept-stage document. The following require user research before v1 scoping.</p>
+
+    <ul class="questions">
+      <li>
+        <strong>Which data sources are most commonly fragmented across target organizations?</strong>
+        <span>Hypothesis: state WIOA reporting + internal CRM. Needs validation through admin interviews.</span>
+      </li>
+      <li>
+        <strong>What's the realistic technical capacity of target orgs to integrate a new platform?</strong>
+        <span>Many workforce nonprofits run on minimal IT staff. Integration burden could be a deal-breaker.</span>
+      </li>
+      <li>
+        <strong>What's the procurement model?</strong>
+        <span>Many target orgs are grant-funded with constrained software budgets. Pricing structure needs to fit funder cycles.</span>
+      </li>
+      <li>
+        <strong>What's the build-vs-buy alternative landscape?</strong>
+        <span>Existing tools include Salesforce-based CRMs (Apricot, ETO) and state-level WIOA reporting systems. Meridian's wedge needs sharper definition.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="section-num">§ 07</span>
+    <h2>Responsible AI Considerations</h2>
+
+    <p>Outcomes intelligence in workforce development is a high-stakes domain. Algorithmic recommendations that influence program design can systematically disadvantage subpopulations if not carefully constructed.</p>
+
+    <p>Meridian's AI components should be built with:</p>
+
+    <ul class="feature-list">
+      <li>
+        <span>
+          <strong>Disaggregated reporting by default.</strong>
+          Outcome reporting by race, gender, age, and disability status — surfaced as default views, not opt-in filters.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Transparent reasoning.</strong>
+          AI-generated recommendations show their reasoning chain. No black-box outputs.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Human-in-the-loop approval.</strong>
+          Any recommendation that would be implemented requires admin review and approval.
+        </span>
+      </li>
+      <li>
+        <span>
+          <strong>Regular fairness audits.</strong>
+          Recommendation patterns audited across subpopulations on a defined cadence.
+        </span>
+      </li>
+    </ul>
+
+    <div class="callout sage">
+      <p>This connects to ongoing parallel research on algorithmic fairness in healthcare AI screening. The same evaluation principles that apply to mammography AI bias apply here: disaggregated metrics, fairness-aware methods, and skepticism toward "neutral" optimization.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Meridian PRD · Concept Stage · Draft v0.1</span>
+    <span>Sasha Schaps · <a href="https://sascha-pst.github.io">sascha-pst.github.io</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
