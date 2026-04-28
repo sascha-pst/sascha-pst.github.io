@@ -13,29 +13,29 @@ The [UK uses synthetic data](https://pmc.ncbi.nlm.nih.gov/articles/PMC9951365/).
 
 The US? [University of Florida](https://pubmed.ncbi.nlm.nih.gov/40557342/) just started utilizing both.
 
-<b>Three Tools, Different Jobs-</b>
+**Three Tools, Different Jobs-**
 
-- Synthetic data generates fake patients who don't exist but who collectively mirror the patterns of real data. Useful because synthetic patients can't be re-identified and are determined at high confidence intervals.
+***Synthetic data*** generates fake patients who don't exist but who collectively mirror the patterns of real data. Useful because synthetic patients can't be re-identified and reproduce real-data distributions with high fidelity.
 
-- Federated learning sends the model to the data. Hospitals train locally, return only the weights. Records never leave the building, data is synthesized to represent real populations without comprimising privacy.
+***Federated learning*** sends the model to the data. Hospitals train locally, return only the weights. Records never leave the building.
 
-Boosting is different - it's a training technique, not a privacy technique. You can reweight underrepresented groups during training so the model doesn't treat them as noise.
+***Boosting*** is different - it's a training technique, not a privacy technique. You can reweight underrepresented groups during training so the model doesn't treat them as noise.
 
-The Question I Keep Sitting With- If AI training data comes from a system that already underserves certain populations, will the synthetic version fix the gap or reproduce it? Is it humane?
+**The Question I Keep Sitting With**- If AI training data comes from a system that already underserves certain populations, will the synthetic version fix the gap or reproduce it? Is it humane?
 
-<b>Synthetic data is downstream of real data.</b> If your dataset has fewer entries that are not representative of reality, the synthetic patients you generate will reflect the same. Higher resolution of the same incomplete picture.
+**Synthetic data is downstream of real data.** If your dataset underrepresents certain populatoins, the synthetic patients you generate will reflect the same gap. Higher resolution of the same incomplete picture.
 
 Boosting can help. But you can only boost groups that are in the data. You can't boost what was never collected. You can't reweight someone who never made it into the system.
 
 The math assumes the dataset represents the patient population, and when it doesn't, the math gives you confident outputs anyway. The confidence is the problem.
 
-<b>Who's Missing</b>- The people most likely to be missing from US health datasets are the people most likely to fall through other systems too: uninsured adults, undocumented immigrants, rural patients, people whose first encounter with the medical system happens in an ER and stops there.
+**Who's Missing**- The people most likely to be missing from US health datasets are the people most likely to fall through other systems too: uninsured adults, undocumented immigrants, rural patients, people whose first encounter with the medical system happens in an ER and stops there.
 
 Meanwhile, the over-represented patients are wealthier, whiter, more urban, with longitudinal records that AI models love. Generating synthetic data from this distribution scales up the demographics of who already had access.
 
 One fall shouldn't be the difference between keeping your house or your arm. The AI tools we're building on top of this system should at minimum not make the gap worse. That's a low bar. Most tooling clears it only on a curve.
 
-<b>What a Real Framework Looks Like</b>- Federated learning, synthetic data, and boosting aren't competing techniques. With honest accounting of who's absent and why, they start to look like a framework:
+**What a Real Framework Looks Like**- Federated learning, synthetic data, and boosting aren't competing techniques. With honest accounting of who's absent and why, they start to look like a framework:
 
 Federated learning trains across institutions whose patients aren't in centralized datasets - community clinics, rural hospitals, FQHCs — without records leaving the building.
 Synthetic data augments thin slices of real data without re-identification risk.
