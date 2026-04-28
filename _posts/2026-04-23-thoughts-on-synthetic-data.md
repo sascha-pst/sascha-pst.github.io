@@ -9,7 +9,7 @@ We talk a lot about synthetic meat. Can we talk about synthetic data in your hea
 
 [The UK uses synthetic data](https://pmc.ncbi.nlm.nih.gov/articles/PMC9951365/). Scalable, privacy-preserving, [increasingly the default](https://pubmed.ncbi.nlm.nih.gov/39603900/).
 
-[Taiwan's national health system uses federated learning](https://pubmed.ncbi.nlm.nih.gov/37822805/). The model goes to the data. Privacy preserved, outcomes improved, training data that reflects the population it serves. UF just did.
+[Taiwan's national health system uses federated learning](https://pubmed.ncbi.nlm.nih.gov/37822805/). The model goes to the data. Privacy preserved, outcomes improved, training data that reflects the population it serves.
 
 The US? [University of Florida](https://pubmed.ncbi.nlm.nih.gov/40557342/) just did.
 
