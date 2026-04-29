@@ -1,0 +1,29 @@
+---
+layout: post
+title: "A bowlcut for the dog"
+date: 2026-04-21
+tags: [30s, content strategy, reflection]
+excerpt: "She doesn't know but I might write her off as a business expense"
+---
+
+I gave the dog a bowlcut and when this little fluffy black poodle mix ran back in looking like a Chinese crested, I announced, "It's summer of course!" She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared.
+
+She must have missed the Google Calendar invite.
+
+I grew up with two very ambitious parents and Juni. Juni was Burmese and I called her husband Baba. I have a Slavic name. None of the words pointed where they were meant to. Baba, in my language, was grandmother - but I called my grandmother Nona. In his, Baba meant Father. I didn't make the rules. This was the game made for me.
+
+I'd run in their yard. We'd pick vegetables that Juni planted. My grandpa grew vegetables as well. She'd pick fresh chives and make "Chinese Hamburger" years later, I learned, jiǔcài héz. She always cut my hair in the summer, white porcelain bowl over black curls.
+
+Eighty dollars and a drive and a stranger was the alternative. I am a person who saves the eighty dollars and stays home. My grandpa would cook wild mustard and chop it down with a machete.
+
+The bowlcut will grow out. It will grow back wrong, and then it will grow back right, and the dog will not remember any of it.
+
+I think about that part a lot. The not-remembering part. It is the only difference, when you flatten everything else out, between a dog and a child. I'm still not sure if grandpa knew my name. He was  99 years old and grew a banana tree in the backyard of our family home.
+
+The dog is asleep, her head peeking out from under a blanket. Her name is Ebi, like the golden shrimp my grandma would cook and keep me distracted from all my aunties making fun of my bad haircut. 
+
+The curls I stared on the floor today, I shouldn't have cut the dogs hair.
+
+I have not done anything yet. I am sitting with what I have done before - the haircut, the kitchen that wasn't mine, the words that didn't fit the people I put them on — and I am letting it stay where it is for some length of time before I do anything else.
+
+
