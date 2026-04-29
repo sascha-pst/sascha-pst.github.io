@@ -30,7 +30,7 @@ The bowlcut will grow out. It will grow back wrong, and then it will grow back r
 
 I think about that part a lot. The not-remembering part. That's the only difference, when you straighten everything else out, between a dog and a child. 
 
-I'm still not sure if grandpa knew my name. He was 99 years old and grew a banana tree in the Backyard of our Family home.  
+I'm still not sure if grandpa knew my name. He was 99 years old and grew a banana tree in the backyard of our Family home.  
 
 The dog is asleep, her little bowl head peeking out from under the blanket. Her name is Ebi, like the golden shrimp my grandma would cook and would keep me distracted from all the aunties making fun of my bad haircut(s). 
 
