@@ -6,7 +6,9 @@ tags: [30s, content strategy, reflection]
 excerpt: "She doesn't know it yet but I might write her off as a business expense."
 ---
 
-I gave the dog a bowlcut and when this little fluffy black poodle mix ran back in looking like a Chinese crested, I announced, "It's summer of course!" She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared.
+I gave the dog a bowlcut and when this little fluffy black poodle mix ran back in looking like a Chinese crested, I announced, "It's summer of course!" 
+
+She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared.
 
 She must have missed the Google Calendar invite.
 
