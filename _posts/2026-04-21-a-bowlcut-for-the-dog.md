@@ -36,6 +36,6 @@ The dog is asleep, her little bowl head peeking out from under the blanket. Her 
 
 The curls I stared on the floor today, I shouldn't have cut the dog's hair.
 
-I have not done anything yet. I'm sitting with what I've done before - the haircut, the kitchen that wasn't mine, the words that didn't match the people I named - and I'm letting that sit. It's to stay where it is for some length of time before I do anything else.
+I've not done anything yet. I'm sitting with what I've done before - the haircut, the kitchen that wasn't mine, the words that didn't match the people I named - and I'm letting that sit. It's to stay where it is for some length of time before I do anything else.
 
 
