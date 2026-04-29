@@ -5,6 +5,7 @@ date: 2026-04-27
 tags: [30s, grad school, reflection]
 excerpt: In a normal life, a life I warmly recall and which I am reminded that other people still have: mornings are for work, evenings are for not-work, and weekends are for whatever you didn't do during the week.
 ---
+
 A thing I have noticed about going to graduate school while working is that there is no time of day that is uncontested.
 
 In a normal life, a life I warmly recall and which I am reminded that other people still have: mornings are for work, evenings are for not-work, and weekends are for whatever you didn't do during the week.
