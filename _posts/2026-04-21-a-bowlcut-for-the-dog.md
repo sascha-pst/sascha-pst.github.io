@@ -10,22 +10,30 @@ I gave the dog a bowlcut and when this little fluffy black poodle mix ran back i
 
 She must have missed the Google Calendar invite.
 
-I grew up with two very ambitious parents and Juni. Juni was Burmese and I called her husband Baba. I have a Slavic name. None of the words pointed where they were meant to. Baba, in my language, was grandmother - but I called my grandmother, Nona. In his, Baba means Father. I didn't make the rules. This was the game made for me.
+I grew up with two very ambitious parents and Juni. Juni was Burmese and I called her husband Baba. 
+
+I have a Slavic name. None of the words pointed where they were meant to. 
+
+Baba, in my language, was grandmother - but I called my grandmother, Nona. 
+
+In his, Baba means Father. I didn't make the rules. This was the game made for me.
 
 I'd run in their yard. We'd pick vegetables that Juni planted. My grandpa grew vegetables as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. She always cut my hair in the summer, white porcelain bowl, red trim over black curls.
 
 Eighty dollars and a drive and a stranger was the alternative. 
 
-I am a person who saves the eighty dollars and stays home. My grandpa would cook wild mustard and chop it down with his machete.
+I'm the person who saves the eighty dollars and stays home. My grandpa would cook wild mustard and chop it down with his machete.
 
-The bowlcut will grow out. It will grow back wrong, and then it will grow back right, and the dog will not remember any of it.
+The bowlcut will grow out. It will grow back wrong, and then it will grow back right, but the dog will not remember any of it.
 
-I think about that part a lot. The not-remembering part. It is the only difference, when you flatten everything else out, between a dog and a child. I'm still not sure if grandpa knew my name. He was  99 years old and grew a banana tree from throwing it in the compost pile. 
+I think about that part a lot. The not-remembering part. That's the only difference, when you straighten everything else out, between a dog and a child. 
 
-The dog is asleep, her little bowl head peeking out from under the blanket. Her name is Ebi, like the golden shrimp my grandma would cook and would keep me distracted from all the aunties making fun of my bad haircut. 
+I'm still not sure if grandpa knew my name. He was 99 years old and grew a banana tree in the Backyard of our Family home.  
 
-The curls I stared on the floor today, I shouldn't have cut the dogs hair.
+The dog is asleep, her little bowl head peeking out from under the blanket. Her name is Ebi, like the golden shrimp my grandma would cook and would keep me distracted from all the aunties making fun of my bad haircut(s). 
 
-I have not done anything yet. I'm sitting with what I have done before - the haircut, the kitchen that wasn't mine, the words that didn't fit the people I put them on - and I'm letting that stay where it is for some length of time before I do anything else.
+The curls I stared on the floor today, I shouldn't have cut the dog's hair.
+
+I have not done anything yet. I'm sitting with what I've done before - the haircut, the kitchen that wasn't mine, the words that didn't match the people I named - and I'm letting that sit. It's to stay where it is for some length of time before I do anything else.
 
 
