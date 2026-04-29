@@ -32,4 +32,4 @@ One fall shouldn't be the difference between keeping your house or your arm. The
 
 **The Bottleneck**- A model with 94% aggregate accuracy can have 78% accuracy on the 4% subgroup. The aggregate says ship it. The disaggregated says don't.
 
-The math isn't the bottleneck. To look at who's absent and act like their absence matters, is the real calculation needed.
+The math isn't the bottleneck. To look at who's absent and act like their absence matters, are the real calculations needed.
