@@ -34,4 +34,4 @@ What makes it worth it isn't the credential, it's that I am, for the first time 
 
 Reading papers on algorithmic fairness in healthcare and having an opinion about the methodology — that's a great privilege, and I'm honored to be able to work at the same time.
 
-I now know what I don't know in a much more precise way than before. That alone is worth the trips around the sun.
+I now know what I don't know in a much more precise way than before. 
