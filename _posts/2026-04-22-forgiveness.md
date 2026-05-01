@@ -14,7 +14,7 @@ To apologize is something you do: I name what I did, acknowledge it was wrong, a
 
 Philosophers call this performative: saying it is doing it, the way "I promise" creates a promise. To say sorry is cheap. To apologize means something.
 
-States apologize the same way people do. They sorry the same way too. Lately, they do neither- it's become costly.
+States apologize the same way people do. They say sorry the same way too. Lately, they do neither- it's become costly.
 
 But neither means anything when humanity has left the building. In a failed nation-state system, the speech act has no force because the conditions for it don't exist: no wronged party with higher standing, no offender willing to be labeled, no shared reality the apology has to be true to.
 
