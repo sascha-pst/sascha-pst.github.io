@@ -10,8 +10,6 @@ I shaved the dog and kept the top of her head fluffy and when this normally fluf
 
 She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared.
 
-She must have missed the Google Calendar invite.
-
 I grew up with two very ambitious parents and Chit. Chit was Burmese and I called her husband Baba. 
 
 I have a Slavic name. None of the words pointed where they were meant to. 
