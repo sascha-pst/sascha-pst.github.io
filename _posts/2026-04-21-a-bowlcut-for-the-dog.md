@@ -12,7 +12,7 @@ She sat in the garage on a towel and looked at me as if she'd been called into a
 
 She must have missed the Google Calendar invite.
 
-I grew up with two very ambitious parents and Juni. Juni was Burmese and I called her husband Baba. 
+I grew up with two very ambitious parents and Chit. Chit was Burmese and I called her husband Baba. 
 
 I have a Slavic name. None of the words pointed where they were meant to. 
 
