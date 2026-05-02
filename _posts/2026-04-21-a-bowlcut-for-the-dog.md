@@ -6,7 +6,7 @@ tags: [30s, content strategy, reflection]
 excerpt: "She doesn't know it yet but I might write her off as a business expense."
 ---
 
-I shaved the dog and kept the top of her head fluffy and when this fluffy black poodle mix ran back in looking like a Chinese crested, I announced, "It's summer of course!" 
+I shaved the dog and kept the top of her head fluffy and when this normally fluffy black poodle mix ran back in looking like a Chinese crested, I announced, "It's summer of course!" 
 
 She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared.
 
@@ -20,19 +20,19 @@ Baba, in my language, was grandmother - but I called my grandmother, Nona.
 
 In his, Baba means Father. I didn't make the rules. This was the game made for me.
 
-I'd run in their yard. We'd pick vegetables that Juni planted. My grandpa grew vegetables as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. She always cut my hair in the summer, white porcelain bowl, red trim over black curls.
+I'd run in their yard. We'd pick vegetables that Chit planted. My grandpa grew vegetables as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. She always cut my hair in the summer, white bowl, red trim over black curls.
 
 Eighty dollars and a drive and a stranger was the alternative. 
 
-I'm the person who saves the eighty dollars and stays home. My grandpa would cook wild mustard and chop it down with his machete.
+I'm the person who saves the eighty dollars and stays home. My Lolo would cook wild mustard and chop it down with his machete.
 
 The bowlcut will grow out. It will grow back wrong, and then it will grow back right, but the dog will not remember any of it.
 
 I think about that part a lot. The not-remembering part. That's the only difference, when you straighten everything else out, between a dog and a child. 
 
-I'm still not sure if grandpa knew my name. He was 99 years old and grew a banana tree in the backyard of our Family home.  
+I'm still not sure if Lolo knew my name. He was 99 years old and grew a banana tree in the backyard. 
 
-The dog is asleep, her little bowl head peeking out from under the blanket. Her name is Ebi, like the golden shrimp my grandma would cook and would keep me distracted from all the aunties making fun of my bad haircut(s). 
+The dog is asleep, her little bowl head peeking out from under the blanket. Her name is Ebi, like the golden shrimp my grandma would cook and would keep me distracted from all the aunties making fun of the bad haircuts. 
 
 The curls I stared on the floor today, I shouldn't have cut the dog's hair.
 
