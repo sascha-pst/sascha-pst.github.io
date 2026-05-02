@@ -6,11 +6,11 @@ tags: [30s, content strategy, reflection]
 excerpt: "She doesn't know it yet but I might write her off as a business expense."
 ---
 
-I shaved the dog and kept the top of her head fluffy and when this normally fluffy black poodle mix ran back in looking like a Chinese crested, I announced, "It's summer of course!" 
+I shaved the dog and kept the top of her head fluffy and when this normally fluffy Bernedoodle ran back in looking like a Chinese crested, I announced, "It's summer - of course!" 
 
-She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared.
+She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared. It's spring.
 
-I grew up with two very ambitious parents and Juni. Juni was Shan and I called her husband Baba. 
+I grew up with two very ambitious parents and Juni. Juni was Burmese and I called her husband Baba. 
 
 I have a Slavic name. None of the words pointed where they were meant to. 
 
