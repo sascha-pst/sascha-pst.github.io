@@ -18,9 +18,9 @@ I have a Slavic name. None of the words pointed where they were meant to. None o
 
 Baba, in my language, was grandmother - but I called my grandmother, Nona. 
 
-In his, Baba means something paternal. I didn't make the rules. 
+In his, Baba means something paternal. I didn't make the rules. This was the game that was made for me.
 
-I'd run in their yard, rows of fruit trees kept us busy picking plums and apples. 
+I'd run in their yard, rows of fruit trees kept us busy picking plums and apples. I don't eat stonefruit anymore.
 
 My grandpa grew greens as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. 
 
