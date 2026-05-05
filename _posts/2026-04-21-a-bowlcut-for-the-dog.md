@@ -10,15 +10,21 @@ I shaved the dog and kept the top of her head fluffy and when this normally fluf
 
 She sat in the garage on a towel and looked at me as if she'd been called into a meeting whose agenda had not been shared. It's spring.
 
-I grew up with two very ambitious parents and Juni. Juni was Burmese and I called her husband Baba. 
+She must have missed the Google calendar invite.
 
-I have a Slavic name. None of the words pointed where they were meant to. 
+I grew up with two very ambitious parents and Pawnee. Her husband's name was Baba.
+
+I have a Slavic name. None of the words pointed where they were meant to. None of those jobs were for me.
 
 Baba, in my language, was grandmother - but I called my grandmother, Nona. 
 
 In his, Baba means something paternal. I didn't make the rules. 
 
-I'd run in their yard. We'd pick vegetables that Juni planted. My grandpa grew vegetables as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. She always cut my hair in the summer, white bowl, red trim over black curls.
+I'd run in their yard, rows of fruit trees kept us busy picking plums and apples. 
+
+My grandpa grew greens as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. 
+
+She always cut my hair in the summer, white bowl, red trim over black curls. If they stayed too long they'd form a loose wave.
 
 Eighty dollars and a drive and a stranger was the alternative. 
 
@@ -30,7 +36,7 @@ I think about that part a lot. The not-remembering part. That's the only differe
 
 I'm still not sure if Grandpa knew my name. He was 99 years old and grew a banana tree in the backyard. 
 
-The dog is asleep, her little bowl head peeking out from under the blanket. Her name is Ebi, like the golden shrimp my grandma would cook and would keep me distracted from all the aunties making fun of the bad haircuts. 
+The dog is asleep, her little bowl head peeking out from under the blanket
 
 The curls I stared on the floor today, I shouldn't have cut the dog's hair.
 
