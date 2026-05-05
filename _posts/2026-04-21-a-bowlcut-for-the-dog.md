@@ -12,7 +12,7 @@ She sat in the garage on a towel and looked at me as if she'd been called into a
 
 She must have missed the Google calendar invite.
 
-I grew up with two very ambitious parents and Pawnee. She was Burmese. Her husband's name was Baba.
+I grew up with two very ambitious parents and Juni. Her name was Sanmin. Her husband's name was Baba.
 
 I have a Slavic name. None of the words pointed where they were meant to. None of those jobs were for me.
 
