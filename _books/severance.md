@@ -7,4 +7,3 @@
    rating: 4
    tags: [lived experience]
    ---
-   The protagonist, Candace Chen, is a Chinese American millennial working a dead-end job in the New York office of a Bible publisher.
