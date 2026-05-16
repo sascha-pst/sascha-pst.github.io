@@ -1,5 +1,5 @@
 ---
-title: Gödel, Escher, Bach: an Eternal Golden Braid
+title: "Gödel, Escher, Bach: an Eternal Golden Braid"
 author: Douglas R Hofstadter  
 year_published: 1979
 cover: https://cdn1.bookmanager.com/i/m?b=dRd52YVrme9jycliSkWMSg&cb=1682539520
