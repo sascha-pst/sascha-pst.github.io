@@ -1,56 +1,233 @@
----
-layout: default
-title: Travel
-description: A visual record of where I've been.
-permalink: /blog/travel/
----
-<div class="travel-frame">
-  <header class="travel-frame__header">
-    <p class="meta">Travel · {{ site.travel.size }} {% if site.travel.size == 1 %}entry{% else %}entries{% endif %}</p>
-    <h1 class="travel-frame__title">A record of where.</h1>
-    <p class="meta travel-frame__hint">Scroll to rotate · drag to tilt · click to read</p>
-  </header>
-  <div id="travel-spiral" class="travel-spiral" role="img" aria-label="A 3D spiral gallery of travel destinations. Keyboard users can navigate entries via the list below.">
-    <canvas id="travel-canvas"></canvas>
-  </div>
-  <noscript>
-    <p>The interactive gallery requires JavaScript. Entries below:</p>
-  </noscript>
-  <ul class="travel-list" aria-label="All travel entries">
-    {% assign entries = site.travel | sort: 'date' | reverse %}
-    {% for entry in entries %}
-      <li>
-        <a href="{{ entry.url | relative_url }}">
-          {{ entry.title }}
-          {% if entry.location %}<span class="muted"> · {{ entry.location }}</span>{% endif %}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+// ============================================================
+// Travel — spiral gallery + individual travel post pages
+// ============================================================
 
-<aside id="travel-drawer" class="travel-drawer" aria-hidden="true" aria-label="Entry details">
-  <button class="travel-drawer__close" type="button" aria-label="Close">×</button>
-  <img class="travel-drawer__image" alt="" />
-  <p class="travel-drawer__location"></p>
-  <h2 class="travel-drawer__title"></h2>
-  <p class="travel-drawer__subtitle"></p>
-  <a class="travel-drawer__link" href="#">Read the full entry →</a>
-</aside>
+// ---------- Spiral page ----------
+.travel-frame {
+  position: relative;
+  margin: 0 calc(50% - 50vw);
+  background: var(--color-moss);
+  color: var(--color-alabaster);
+  min-height: 100vh;
+  padding: var(--space-5) 0 var(--space-6);
+  overflow: hidden;
+}
 
-<script id="travel-data" type="application/json">
-[
-  {% for entry in entries %}
-    {
-      "image":    {{ entry.cover_image | relative_url | jsonify }},
-      "url":      {{ entry.url | relative_url | jsonify }},
-      "title":    {{ entry.title | jsonify }},
-      "subtitle": {{ entry.subtitle | jsonify }},
-      "location": {{ entry.location | jsonify }},
-      "alt":      {{ entry.cover_alt | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
-]
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-<script src="{{ '/assets/js/travel-spiral.js' | relative_url }}" defer></script>
+.travel-frame__header {
+  position: absolute;
+  top: var(--space-6);
+  left: var(--space-6);
+  z-index: 2;
+  max-width: 40rem;
+  pointer-events: none;
+}
+
+.travel-frame__header .meta {
+  color: rgba(249, 248, 240, 0.7);
+  pointer-events: auto;
+}
+
+.travel-frame__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-snug);
+  margin: var(--space-2) 0 var(--space-3);
+  color: var(--color-alabaster);
+  pointer-events: auto;
+}
+
+.travel-frame__hint {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: rgba(249, 248, 240, 0.5);
+  letter-spacing: 0.1em;
+  pointer-events: auto;
+}
+
+// The 3D spiral container.
+// height: 75% on an absolute child of a min-height parent resolves to 0
+// because percentage heights require an explicit height on the containing block.
+// Fix: use viewport units (75vh) instead of percentage.
+.travel-spiral {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75vh;
+  z-index: 1;
+  touch-action: none;
+}
+
+.travel-spiral canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.travel-spiral.is-reduced-motion canvas {
+  display: none;
+}
+
+.travel-list {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+.travel-spiral.is-reduced-motion ~ .travel-list,
+.no-js .travel-list {
+  position: static;
+  width: auto; height: auto;
+  margin: var(--space-5) auto;
+  padding: 0;
+  max-width: var(--text-width);
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  list-style: none;
+  z-index: 2;
+}
+
+// ---------- Entry drawer ----------
+.travel-drawer {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+  width: min(380px, 90vw);
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 1.5rem 1.75rem;
+  background: rgba(16, 86, 102, 0.94);
+  color: var(--color-alabaster);
+  border-radius: 12px 0 0 12px;
+  box-shadow: -6px 0 28px rgba(0, 0, 0, 0.35);
+  transition: transform 260ms var(--ease-out);
+  pointer-events: none;
+  z-index: 100;
+}
+
+.travel-drawer.is-open {
+  transform: translate(0, -50%);
+  pointer-events: auto;
+}
+
+.travel-drawer__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.travel-drawer__close:hover { opacity: 1; }
+
+.travel-drawer__image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.travel-drawer__location {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  opacity: 0.7;
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+}
+
+.travel-drawer__title {
+  margin: 0 0 0.5rem;
+  font-size: var(--fs-lg);
+  line-height: 1.2;
+  color: var(--color-alabaster);
+}
+
+.travel-drawer__subtitle {
+  margin: 0 0 1rem;
+  font-style: italic;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.travel-drawer__link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: inherit;
+  opacity: 0.7;
+  font-size: var(--fs-sm);
+  border-bottom-color: rgba(249, 248, 240, 0.5);
+}
+
+.travel-drawer__link:hover { opacity: 1; }
+
+// ---------- Individual travel post page ----------
+.travel-post {
+  padding: var(--space-5) 0 var(--space-7);
+}
+
+.travel-post__header {
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: var(--rule) solid var(--color-rule);
+}
+
+.travel-post__title {
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.travel-post__subtitle { margin: var(--space-3) 0 0; }
+
+.travel-post__cover {
+  margin: 0 0 var(--space-5);
+  max-width: none;
+}
+
+.travel-post__cover img {
+  width: 75%;
+  height: auto;
+  display: block;
+}
+
+.travel-post__footer { margin-top: var(--space-6); }
+
+// ---------- Responsive ----------
+@media (max-width: 640px) {
+  .travel-frame__header {
+    top: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+    max-width: none;
+  }
+
+  .travel-spiral {
+    width: 95%;
+    height: 60vh;
+  }
+
+  .travel-drawer {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: auto;
+    max-height: 70vh;
+    transform: translateY(100%);
+    border-radius: 12px 12px 0 0;
+  }
+
+  .travel-drawer.is-open { transform: translateY(0); }
+}
