@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Border Crossing
+title: "Border Crossing"
 date: 2026-04-20
 tags: [30s, content strategy, travel]
 excerpt: "Rows of red and yellow running flat to the horizon, so saturated they look like golden arches."
