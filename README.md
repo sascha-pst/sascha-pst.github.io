@@ -10,7 +10,7 @@ I work at the intersection of **mission-driven product, algorithmic fairness, an
 - ✍️ Writing about what 403 pages of personnel files reveal about scaled work
 - 🌉 Based between the Bay Area and NYC
 
-**Previously:** Help Center content strategy, SMB & Creator Education, Program Development, and Scaled Enablement at Meta. Earlier work at Hogarth/WPP and Fundamental Research Labs.
+**Previously:** Help Center content strategy, SMB & Creator Education, Program Development, and Scaled Enablement at Meta.
 
 **Toolkit:** Python · SQL · Jupyter · scikit-learn · Git · a healthy skepticism of hype-cycles 
 
