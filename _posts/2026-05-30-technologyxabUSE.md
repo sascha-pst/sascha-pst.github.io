@@ -18,11 +18,12 @@ Image-based abuse and deepfakes. 96% of deepfakes are nonconsensual and sexual. 
 The tools to generate this content are freely available and getting better every month.
 And then there's AI. In research published this year, Refuge found that certain AI chatbot models gave actively dangerous advice to survivors seeking help — including telling them to "stand up to their abuser." That suggestion, in the wrong moment, could get someone killed. The term for what happened there is safety as an afterthought. It's not a bug. It's a choice made earlier in the design process, upstream of where the harm lands. [^4]
 
+The tools are moving faster than any institution tracking them.
+
 The policy response has been halting. A bill called the Tech Safety for Victims of Domestic Violence, Dating Violence, Sexual Assault, and Stalking Act would have funded up to 15 tech-facilitated abuse clinics for survivors. It was introduced in the House in November 2023. It has gone nowhere. [^5]
 What exists instead is mostly local, underfunded, and run by people doing this work because they believe in it, not because there's infrastructure supporting them.
 
-I'm not doing the CORA training because I think my Meta experience makes me useful. I'm doing it because six years of watching platforms handle harm gave me a fairly clear picture of the gap between what institutions say they're doing and what survivors actually need. And because sitting with that gap and doing nothing about it is not something I'm interested in continuing.
-The 40 hours starts heavy. That's fine. Heavy is appropriate.
+I'm not doing the CORA training because six years at a tech company qualifies me to help survivors. It doesn't. I'm doing it because six years of watching platforms handle harm gave me a fairly clear picture of the gap between what institutions say they're doing and what survivors actually need. And because sitting with that gap and doing nothing about it is not something I'm interested in continuing. The 40 hours starts heavy. That's fine. Heavy is appropriate.
 
 [^1]: [Coalition Against Stalkerware](https://stopstalkerware.org/)
 [^2]: [Brown, Harkin & Tanczer, Violence Against Women (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11874536/)
