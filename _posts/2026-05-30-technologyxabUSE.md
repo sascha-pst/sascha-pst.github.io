@@ -9,7 +9,7 @@ excerpt: "I'm starting CORA's 40-hour domestic violence training in 2 weeks."
 I'm starting CORA's 40-hour domestic violence training in two weeks. CORA: Community Overcoming Relationship Abuse — is a Bay Area nonprofit that provides shelter, legal services, and crisis support for survivors of domestic violence. The 40-hour training is the volunteer certification requirement, and it covers everything from trauma-informed communication to the legal system to, increasingly, technology-enabled abuse.
 That last one is the reason I wanted to write this down.
 
-I spent six years at Meta. Some of that work touched directly on harm reduction — I worked on the things companies do when something bad is happening on their platforms and they need to be seen doing something about it. I know what those programs look like from the inside. I know where the seams are.
+I spent six years at Meta. Some of that work touched directly on harm reduction — I worked on the things companies do when something bad is happening on their platforms and they need to be seen doing something about it.
 So when I read that 97% of U.S. domestic violence programs report that survivors have experienced abuse involving technology, here's what technology-enabled abuse actually looks like in 2025.
 
 Surveillance. Stalkerware — software that monitors a person's device without their knowledge, often disguised as a parental control app — affected over 31,000 people globally in 2023, a 6% increase from the prior year and a reversal of a prior downward trend. In the U.S., stalking impacts an estimated 6–7.5 million people per year, and 1 in 4 victims report being stalked through some form of technology. During COVID-19, when people were trapped at home with their abusers, stalkerware use surged 780%. [^1]
@@ -23,7 +23,7 @@ The tools are moving faster than any institution tracking them.
 The policy response has been halting. A bill called the Tech Safety for Victims of Domestic Violence, Dating Violence, Sexual Assault, and Stalking Act would have funded up to 15 tech-facilitated abuse clinics for survivors. It was introduced in the House in November 2023. It has gone nowhere. [^5]
 What exists instead is mostly local, underfunded, and run by people doing this work because they believe in it, not because there's infrastructure supporting them.
 
-I'm not doing the CORA training because six years at a tech company qualifies me to help survivors. It doesn't. I'm doing it because six years of watching platforms handle harm gave me a fairly clear picture of the gap between what institutions say they're doing and what survivors actually need. And because sitting with that gap and doing nothing about it is not something I'm interested in continuing. The 40 hours starts heavy. That's fine. Heavy is appropriate.
+I'm not doing the CORA training because six years at a tech company qualifies me to help survivors. It doesn't. And because sitting with that gap and doing nothing about it is not something I'm interested in continuing. The 40 hours starts heavy. That's fine. Heavy is appropriate.
 
 [^1]: [Coalition Against Stalkerware](https://stopstalkerware.org/)
 [^2]: [Brown, Harkin & Tanczer, Violence Against Women (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11874536/)
