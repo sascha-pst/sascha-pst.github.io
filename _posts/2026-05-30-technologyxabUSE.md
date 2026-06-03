@@ -2,7 +2,7 @@
 layout: post
 title: "The platforms I worked on are in this statistic"
 date: 2026-05-30
-tags: [volunteer, issues, growth]
+tags: [let's go]
 excerpt: "I'm starting CORA's 40-hour domestic violence training in 2 weeks."
 ---
 
