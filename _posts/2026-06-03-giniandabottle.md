@@ -11,10 +11,10 @@ What the Gini coefficient actually is- Draw a unit square and its diagonal, bott
 
 The Pareto principle is the 80/20 rule: 80% of the wealth held by 20% of the people, 80% of the bugs from 20% of the code, and so on. Behind the slogan sits the Pareto distribution — a parametric power law that models the tail of a distribution rather than describing the whole of it.
 
-So it's a model, not a measurement. And as a model it almost never holds exactly; treating 80/20 as a law rather than a mnemonic is how people fool themselves. But it earns its keep precisely where Gini goes blind: at the extreme top, the 0.1%, the part of inequality that actually moves political economy. 
+So it's a model, not a measurement. And as a model it almost never holds exactly; treating 80/20 as a law rather than a mnemonic is how people fool themselves. But it earns its keep precisely where Gini goes blind: at the extreme top, the 0.1%, the part of inequality that actually moves political economy. Why is the political economy, not the economy? That's a whole other piece of paper that's at least ten years old.
 
 I don't know whether it re-rates. I've stopped asking which number is the accurate one, because that was always the wrong question. And this isn't what I'm trying to say but sitiing at the wheel and throwing four cylinders takes it out of me.
 
 I volunteer, which pays in a currency no coefficient tracks. And today I threw a planter — on a wheel, wet clay under warm dry air that wants to crack it before the kiln ever gets a turn. It's under loose plastic now, out of the draft, drying on its own schedule. Whether it survives the warm weather is its own open question, and no summary statistic is going to settle it.
 
-The map is never the territory. The coefficient is never the curve. And a person is never the single coordinate a market decides to read. The pot, at least, has the decency to stay exactly as complicated as it is.
+The map is just a bumper sticker. The coefficient is never the area under a curve. And a person is never the single coordinate in the world's most expensive housing market. The pot, which is indeed, not actually a bottle, but a simple cylinder, at least, has the decency to stay exactly as complicated as it is.
