@@ -17,5 +17,3 @@ My main teaching vocabulary will become: “Interesting choice,” "Be bold", or
 Clay will also teach patience, which will be rude but useful. You’ll build it, dry it, fire it, glaze it, and fire it again. They'll probabily find this timeline personally offensive. Honestly, same.
 
 By the end, everyone will leave dusty, proud, and holding something slightly lopsided but emotionally important.
-
-Can't help but wait.
