@@ -8,10 +8,6 @@ excerpt: "After the first two courses of domestic violence volunteer training, I
 
 I finished the first two courses of domestic violence volunteer training, and I’m sitting with how much of the work is not dramatic at all.
 
-It is not rushing in.  
-It is not rescuing.  
-It is not having the perfect line.
-
 It is learning how to stay calm when someone else’s life is complicated, frightening, and full of tradeoffs you do not get to judge from the outside.
 
 We talked about suicide prevention, mental health, and technology abuse. Three different subjects, but they kept pointing to the same lesson: danger is rarely one thing. It is usually a web.
