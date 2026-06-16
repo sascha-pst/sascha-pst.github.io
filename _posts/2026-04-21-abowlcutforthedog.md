@@ -22,7 +22,7 @@ In his, Baba means something paternal. I didn't make the rules. This was the gam
 
 I'd run in their yard, rows of fruit trees kept us busy picking plums and apples. I don't eat stonefruit anymore.
 
-My grandpa grew greens as well. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. 
+My grandpa grew greens as well, he was Manong. Juni was from Burma, Sanmin was from Hong Kong. She'd pick fresh chives and make "Chinese Hamburger". Years later, I learned, jiǔcài hézi. 
 
 She always cut my hair in the summer, white bowl, red trim over black curls. If they stayed too long they'd form a loose wave.
 
