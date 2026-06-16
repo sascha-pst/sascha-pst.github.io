@@ -26,46 +26,15 @@ Depression, panic, numbness, shame, exhaustion — these are not character flaws
 
 The suicide prevention training stayed with me because it asks for a kind of bravery that is quiet and direct. Not inspirational-poster bravery. More like: ask the question. Say the hard thing plainly. Do not make someone’s despair more lonely by being afraid to name it.
 
-There is a discipline to that kind of care.
-
-You do not need to be poetic.  
-You need to be present.
-
-**The Phone Is Not Just a Phone-**
-
-Technology abuse was the part that felt the most modern and the most chilling.
-
-A phone is not just a phone when someone else has access to it. It can become a map, a microphone, a filing cabinet, a leash.
-
-The tools that make daily life convenient can also make leaving dangerous.
-
-Safety planning in 2026 is not only about doors, bags, rides, and documents. It is also about passwords, location sharing, shared accounts, cloud backups, app permissions, smart devices, and the invisible architecture of being monitored.
-
-Abuse is not always explosive.
-
-Sometimes it is administrative.
-
-It is the password changed.  
-The bank account watched.  
-The text messages audited.  
-The location checked.  
-The apology followed by surveillance.
+There is a discipline to that kind of care. You need to be present.
 
 **The Question I Keep Sitting With-**
 
 What does it mean to help without taking over?
 
-Domestic violence advocacy requires a very specific humility. You are not there to be the hero of someone else’s story. You are there to reduce isolation, widen options, and respect timing.
-
-You are there to understand that “why don’t they just leave?” is not a question. It is a confession that the speaker has not understood the problem.
-
-Leaving is not a single act.
-
-It is a logistics project under threat.
-
 Sometimes survival looks like staying. Sometimes it looks like planning. Sometimes it looks like saying nothing yet. Sometimes it looks like deleting a browser history, memorizing a hotline, hiding cash, calling a friend, going to work, feeding the kids, and making it through Tuesday.
 
-The training is making me less interested in easy narratives. Less interested in clean villains and clean victims. More interested in patterns, power, pressure, and the small openings where support can actually enter.
+You are there to understand that “why don’t they just leave?” is not a question. It is a confession that the speaker has not understood the problem.
 
 Safety is information, options, timing, trust, and control returned piece by piece.
 
