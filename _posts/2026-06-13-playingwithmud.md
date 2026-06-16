@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Three Syllabi and a Fish Wind Chime"
-date: 2026-06-16
+date: 2026-06-13
 tags: [ceramics, teaching, youth-programming, community-arts]
 excerpt: "Teaching ceramics camp will remind me that kids understand clay perfectly: squish first, ask questions later."
 ---
