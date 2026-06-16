@@ -3,7 +3,7 @@ layout: post
 title: "Three Syllabi and a Fish Wind Chime"
 date: 2026-06-13
 tags: [ceramics, teaching, youth-programming, community-arts]
-excerpt: "Teaching ceramics camp will remind me that kids understand clay perfectly: squish first, ask questions later."
+excerpt: "Let the little potters pot."
 ---
 
 Teaching ceramics camp will be so nuanced that three syllabi later, I’ll be out here making a fish wind chime and calling it curriculum.
