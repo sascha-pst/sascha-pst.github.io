@@ -50,4 +50,4 @@ The curls I stared at on the floor today — I shouldn’t have cut the dog’s 
 
 I’ve not done anything yet. I’m sitting with what I’ve done before: the haircut, the kitchen that wasn’t mine, the words that didn’t match the people I named.
 
-And I’m letting it stay where it is for some length of time before I do anything else.
+And I’m letting it stay where it is, letting it grow back one dish at a time.
