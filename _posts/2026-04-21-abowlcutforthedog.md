@@ -14,9 +14,9 @@ It’s spring.
 
 She must have missed the Google Calendar invite.
 
-I grew up with two very ambitious parents and Juni. Her name was Sanmin. Her husband’s name was Baba.
+I grew up with two very ambitious parents and Juni. Her name in other's memory was Sanmin. Her husband’s name was Baba.
 
-I have a Slavic name. None of the words pointed where they were meant to. None of those jobs were for me.
+I have a Slavic name. None of the names pointed where they were meant to. None of the roles fit cleanly.
 
 Baba, in my language, was grandmother, but I called my grandmother Nona.
 
