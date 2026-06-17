@@ -10,7 +10,7 @@ Teaching ceramics camp will be so nuanced that three syllabi later, I’ll be ou
 
 When it all becomes overwhelming I can't help but future plan. Will it be Kids Camp? or will I be supervising a tiny civilization with strong opinions about dragons, snack time, glitter, and whether a pinch pot can double as a swimming pool for a ceramic worm.
 
-Kids are natural ceramicists because they will don't overthink. I'll think, “Is this good?” a kid will ask, “Can I add spikes?” Much healthier question.
+Kids are natural ceramicists because they don't overthink. I'll think, “Is this good?” a kid will ask, “Can I add spikes?” - A much healthier question.
 
 My main teaching vocabulary will become: “Interesting choice,” "Be bold", or "How will it fire?".
 
